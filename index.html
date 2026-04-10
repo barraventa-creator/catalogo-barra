@@ -134,6 +134,28 @@ body{font-family:'Fredoka',sans-serif;background:var(--crema);color:var(--texto)
   width:100%;height:360px;border:none;display:block;
   filter:grayscale(20%) contrast(1.05);
 }
+.map-actions{
+  margin-top:14px;
+  text-align:center;
+}
+.map-actions a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border:1px solid rgba(196,134,42,.45);
+  color:var(--camel-light);
+  text-decoration:none;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  transition:all .2s ease;
+}
+.map-actions a:hover{
+  background:rgba(196,134,42,.12);
+  border-color:var(--camel);
+  color:#fff;
+}
 
 header{
   background:var(--negro);padding:14px 40px 14px;
@@ -398,13 +420,30 @@ input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
 .spec{padding:10px 12px;background:var(--arena)}
 .spec-l{font-size:.57rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
 .spec-v{font-size:.83rem;font-weight:500;color:var(--texto)}
-.m-colors{margin-bottom:20px}
-.m-colors-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.m-cdots{display:flex;gap:8px;flex-wrap:wrap}
-.m-cdot{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}
-.m-cdot-circle{width:22px;height:22px;border-radius:50%;border:2px solid rgba(0,0,0,.1);transition:transform var(--trans-fast),box-shadow var(--trans-fast)}
-.m-cdot:hover .m-cdot-circle{transform:scale(1.2);box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.m-cdot-name{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.m-colors{display:none} /* oculto — reemplazado por recomendados */
+
+/* ── PRODUCTOS RECOMENDADOS en modal ── */
+.m-recs{margin-bottom:16px}
+.m-recs-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.m-recs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.m-rec-card{
+  background:var(--arena);border:1px solid var(--borde);
+  cursor:pointer;transition:transform .18s,box-shadow .18s;
+  overflow:hidden;
+}
+.m-rec-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(123,63,30,.1)}
+.m-rec-img{
+  width:100%;aspect-ratio:1;
+  background:var(--arena-dark);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;position:relative;overflow:hidden;
+}
+.m-rec-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0;transition:opacity .3s}
+.m-rec-img img.loaded{opacity:1}
+.m-rec-body{padding:7px 8px 9px}
+.m-rec-code{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--camel);font-weight:500}
+.m-rec-name{font-size:.72rem;color:var(--texto);line-height:1.2;margin-bottom:3px}
+.m-rec-price{font-family:'Fredoka',sans-serif;font-size:.95rem;font-weight:700;color:var(--texto)}
 
 .btn-wa{
   width:100%;padding:15px;background:#25D366;color:#fff;border:none;
@@ -487,6 +526,7 @@ body.modal-open{overflow:hidden}
   .card-body{padding:12px 14px 16px}
   .trust-grid{grid-template-columns:1fr}
   .map-section{padding:32px 16px}
+  .map-wrap iframe{height:300px}
   .trust-section{padding:28px 16px}
   .shipping-bar{font-size:.75rem;padding:9px 16px}
   .wa-float{width:50px;height:50px;bottom:20px;right:20px}
@@ -632,9 +672,9 @@ body.modal-open{overflow:hidden}
       <div class="m-price" id="mPrice"></div>
       <div class="m-price-note">Precio en soles · Incluye IGV · Envíos a todo el Perú</div>
       <div class="m-specs" id="mSpecs"></div>
-      <div class="m-colors" id="mColorsWrap">
-        <div class="m-colors-label">Colores disponibles</div>
-        <div class="m-cdots" id="mColors"></div>
+      <div class="m-recs" id="mRecs">
+        <div class="m-recs-label">También te puede interesar</div>
+        <div class="m-recs-grid" id="mRecsGrid"></div>
       </div>
       <button class="btn-wa" id="mWA">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -672,12 +712,20 @@ body.modal-open{overflow:hidden}
   <div class="map-subtitle">El Viejo Artesano Barra · Miraflores, Lima, Perú</div>
   <div class="map-wrap">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.8!2d-77.0282!3d-12.1211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b5d35662bf%3A0x31ab9b572d584c63!2sMiraflores%2C%20Lima%2C%20Peru!5e0!3m2!1sen!2spe!4v1680000000000!5m2!1sen!2spe"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.9195000063264!2d-77.03083952404951!3d-12.117660343226625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81748a7286f%3A0x3bc742473bb3e4f2!2sEl%20Viejo%20Artesano%20Barra!5e0!3m2!1ses-419!2spe!4v1775575780667!5m2!1ses-419!2spe"
       allowfullscreen=""
       loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
+      referrerpolicy="strict-origin-when-cross-origin"
       title="El Viejo Artesano Barra — Miraflores, Lima">
     </iframe>
+  </div>
+  <div class="map-actions">
+    <a href="https://maps.google.com/?q=El+Viejo+Artesano+Barra+Miraflores+Lima"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Abrir ubicación en Google Maps">
+      📍 Abrir en Google Maps
+    </a>
   </div>
 </section>
 
@@ -993,7 +1041,6 @@ function render(list){
         <div class="card-body" style="flex:1;border-top:none;padding:12px 18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
           <div><div class="card-code">${esc(p.code)}</div><div class="card-name">${esc(p.name)}</div><div class="card-medidas">${esc(p.medidas)}</div></div>
           <div class="list-info">
-            <div class="color-dots">${p.colores.slice(0,6).map(c=>`<div class="cdot" style="background:${colorMap[c]?.css||'#999'}" title="${esc(c)}"></div>`).join('')}</div>
             <div class="card-price" style="margin-left:16px"><small>S/. </small>${p.price}</div>
             ${(p.tiktok||p.youtube)?`<div class="video-badge" style="position:static;margin-left:8px">${vi}<span>Video</span></div>`:''}
           </div>
@@ -1016,9 +1063,8 @@ function render(list){
           <div class="card-name">${esc(p.name)}</div>
           <div class="card-footer">
             <div class="card-price"><small>S/. </small>${p.price}</div>
-            <div class="color-dots">${p.colores.slice(0,4).map(c=>`<div class="cdot" style="background:${colorMap[c]?.css||'#999'}" title="${esc(c)}"></div>`).join('')}</div>
+            <div class="card-medidas">${esc(p.medidas)}</div>
           </div>
-          <div class="card-medidas" style="margin-top:6px">${esc(p.medidas)}</div>
         </div>
       </div>`}).join('');
   }
@@ -1061,10 +1107,32 @@ function openModal(idx){
     <div class="spec"><div class="spec-l">Medidas</div><div class="spec-v">${esc(p.medidas)}</div></div>
     <div class="spec"><div class="spec-l">Material</div><div class="spec-v">Cuero genuino</div></div>
     <div class="spec"><div class="spec-l">Envíos</div><div class="spec-v">Shalom y Olva Courier</div></div>`;
-  const mCW=document.getElementById('mColorsWrap');
-  if(!p.colores.length){mCW.style.display='none'}else{
-    mCW.style.display='';
-    document.getElementById('mColors').innerHTML=p.colores.map(c=>`<div class="m-cdot"><div class="m-cdot-circle" style="background:${colorMap[c]?.css||'#999'}"></div><span class="m-cdot-name">${esc(c)}</span></div>`).join('');
+  // ── PRODUCTOS RECOMENDADOS (misma categoría, excluyendo el actual) ──
+  const recs = productos
+    .filter(r => r.cat === p.cat && r.code !== p.code)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
+  const recsGrid = document.getElementById('mRecsGrid');
+  if (recs.length) {
+    recsGrid.innerHTML = recs.map(r => {
+      const ridx = productos.indexOf(r);
+      return `
+        <div class="m-rec-card" onclick="openModal(${ridx})" title="${esc(r.name)}">
+          <div class="m-rec-img">
+            <span style="font-size:1.4rem">${r.emoji||'👜'}</span>
+            <img src="${esc(r.img)}" alt="${esc(r.name)}" loading="lazy"
+                 onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+          </div>
+          <div class="m-rec-body">
+            <div class="m-rec-code">${esc(r.code)}</div>
+            <div class="m-rec-name">${esc(r.name)}</div>
+            <div class="m-rec-price"><small style="font-size:.6rem;font-weight:300;color:var(--muted)">S/. </small>${r.price}</div>
+          </div>
+        </div>`;
+    }).join('');
+    document.getElementById('mRecs').style.display = '';
+  } else {
+    document.getElementById('mRecs').style.display = 'none';
   }
   const mImg=document.getElementById('mImg');
   mImg.style.opacity=0;mImg.style.display='block';mImg.src=p.img;mImg.alt=`${p.name} ${p.code}`;
