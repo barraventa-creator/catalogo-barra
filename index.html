@@ -289,7 +289,7 @@ input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
 .overlay.open{display:flex}
 .modal{background:var(--crema);width:100%;max-width:1020px;max-height:96vh;overflow-y:auto;display:grid;grid-template-columns:1.2fr 1fr;animation:popIn .28s ease}
 @keyframes popIn{from{opacity:0;transform:scale(.94) translateY(14px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.modal-media{background:var(--negro);display:flex;flex-direction:column;min-height:560px}
+.modal-media{background:var(--negro);display:flex;flex-direction:column;min-height:580px;height:100%}
 .modal-media-header{
   padding:12px 16px;display:flex;align-items:center;justify-content:space-between;
   border-bottom:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.25);gap:8px;
@@ -316,17 +316,28 @@ input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
 }
 .modal-close:hover{color:#fff;background:#d93025;border-color:#fff;transform:scale(1.06)}
 .modal-close:focus-visible{outline:3px solid #fff;outline-offset:2px}
-.modal-close::after{content:' Cerrar';font-size:.62rem;letter-spacing:.08em;font-weight:600;margin-left:6px;text-transform:uppercase}
+.modal-close::after{content:none}
 
+/* imgArea: fondo blanco — igual que el fondo de las fotos, sin marco visible */
 #imgArea{
-  width:100%;height:calc(100% - 48px);position:relative;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--arena-dark),var(--arena));overflow:hidden;
+  width:100%;
+  flex:1;
+  min-height:500px;
+  position:relative;
+  background:#fff;
+  overflow:hidden;
 }
+/* Imagen absolute con inset como margen interno — object-fit:contain respeta el ratio exacto */
 #mImg{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:contain;object-position:center;
-  opacity:0;transition:opacity .3s ease;display:block;
+  position:absolute;
+  inset:28px;                      /* 28px de espacio en los 4 lados */
+  width:calc(100% - 56px);
+  height:calc(100% - 56px);
+  object-fit:contain;
+  object-position:center center;
+  display:block;
+  opacity:0;
+  transition:opacity .3s ease;
 }
 #mImg.loaded{opacity:1}
 .video-area{flex:1;min-height:280px;display:none;align-items:center;justify-content:center;background:#000;overflow:hidden}
@@ -518,8 +529,9 @@ body.modal-open{overflow:hidden}
   .view-btn{padding:9px 11px}
   .overlay{padding:0;align-items:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch}
   .overlay .modal{max-height:none;min-height:100dvh;overflow:visible}
-  .modal-media{min-height:clamp(260px,50dvh,420px)}
-  #imgArea{height:clamp(260px,50dvh,420px)}
+  .modal-media{min-height:clamp(300px,52dvh,460px);height:clamp(300px,52dvh,460px)}
+  #imgArea{min-height:clamp(240px,44dvh,400px)}
+  #mImg{inset:16px;width:calc(100% - 32px);height:calc(100% - 32px)}
   .modal-info{overflow:visible;padding:20px 16px calc(88px + env(safe-area-inset-bottom))}
   .btn-wa{position:sticky;bottom:0;z-index:5}
   .m-recs-grid{grid-template-columns:1fr 1fr}
