@@ -545,6 +545,46 @@ body.modal-open{overflow:hidden}
   *{animation-duration:.01ms !important;transition-duration:.01ms !important}
   html{scroll-behavior:auto}
 }
+
+/* LIQUIDACION special tile */
+.cat-tile[data-cat="Liquidacion"] {
+  background: linear-gradient(135deg, rgba(220,38,38,.25) 0%, rgba(234,88,12,.2) 100%);
+  border-color: rgba(220,38,38,.55);
+  color: #ff6b6b;
+  position: relative;
+  overflow: hidden;
+}
+.cat-tile[data-cat="Liquidacion"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(220,38,38,.12) 0%, rgba(234,88,12,.1) 100%);
+  animation: liquidPulse 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes liquidPulse {
+  0%   { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+.cat-tile[data-cat="Liquidacion"]:hover,
+.cat-tile[data-cat="Liquidacion"].active {
+  background: linear-gradient(135deg, rgba(220,38,38,.45) 0%, rgba(234,88,12,.35) 100%);
+  border-color: #ef4444;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(220,38,38,.45);
+}
+.cat-tile[data-cat="Liquidacion"] .cat-tile-icon {
+  animation: flameDance 1.2s ease-in-out infinite alternate;
+  display: inline-block;
+}
+@keyframes flameDance {
+  0%   { transform: scale(1)   rotate(-4deg); }
+  100% { transform: scale(1.2) rotate(4deg);  }
+}
+.cat-tile[data-cat="Liquidacion"].active {
+  box-shadow: 0 0 22px rgba(220,38,38,.6);
+}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"El Viejo Artesano - Barra Arte & Estilo","image":"https://barraleather.com/wp-content/uploads/2025/12/cropped-Diseno-sin-titulo-5.png","telephone":"+51929974727","address":{"@type":"PostalAddress","addressLocality":"Lima","addressRegion":"Lima","addressCountry":"PE"},"url":"https://barraventa-creator.github.io/catalogo-barra","priceRange":"S/5 - S/600","description":"Artículos de cuero genuino hechos a mano en Lima, Perú."}
@@ -985,7 +1025,7 @@ const productos = [
 ];
 
 const catIcons = {
-  Liquidacion:'🏷️',
+  Liquidacion:'🔥',
   Todos:'🏠',Mochila:'🎒',Canguro:'👝',Neceser:'🧴',Correa:'🔗',
   'Billetera Hombre':'💵','Billetera Mujer':'👛',Tarjetero:'🪪',
   'Bolso de Viaje':'🧳',Maletín:'💼',Cartera:'👜',Pechera:'🦺',
