@@ -43,9 +43,8 @@ body{font-family:'Fredoka',sans-serif;background:var(--crema);color:var(--texto)
   width:58px;height:58px;border-radius:50%;background:#25D366;
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 4px 20px rgba(37,211,102,.5);text-decoration:none;
-  transition:transform .2s,box-shadow .2s;
 }
-.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.7)}
+.wa-float:hover{box-shadow:0 6px 28px rgba(37,211,102,.7)}
 .wa-float svg{width:30px;height:30px;fill:#fff}
 .wa-float-tooltip{
   position:absolute;right:68px;bottom:50%;transform:translateY(50%);
@@ -71,9 +70,9 @@ body{font-family:'Fredoka',sans-serif;background:var(--crema);color:var(--texto)
 .trust-item{
   display:flex;flex-direction:column;align-items:center;gap:10px;
   padding:22px 16px;background:#fff;border:1px solid var(--borde);text-align:center;
-  transition:transform .2s,box-shadow .2s;
+  transition:box-shadow .15s ease;
 }
-.trust-item:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(123,63,30,.08)}
+.trust-item:hover{box-shadow:0 8px 24px rgba(123,63,30,.08)}
 .trust-icon{font-size:2rem;line-height:1}
 .trust-label{font-size:1rem;font-weight:600;color:var(--texto);line-height:1.3}
 .trust-sub{font-size:.68rem;color:var(--muted);letter-spacing:.05em;margin-top:4px}
@@ -161,20 +160,6 @@ input[type=text]{
 }
 input[type=text]:focus{border-color:var(--camel)}
 input[type=text]::placeholder{color:#111010;font-size:.83rem}
-.price-range-wrap{
-  display:flex;align-items:center;gap:8px;background:#fff;
-  border:1.5px solid var(--borde);padding:6px 12px;transition:border-color .2s;
-}
-.price-range-wrap:focus-within{border-color:var(--camel)}
-.price-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#111010;white-space:nowrap}
-.price-input{
-  width:64px;border:none;background:transparent;
-  font-family:'Fredoka',sans-serif;font-size:.88rem;color:var(--texto);
-  text-align:center;outline:none;padding:2px 0;
-  -moz-appearance:textfield;
-}
-.price-input::-webkit-outer-spin-button,.price-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.price-sep{color:var(--muted);font-size:.8rem}
 .sort-wrap{display:flex;align-items:center;gap:6px}
 .sort-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#111010;white-space:nowrap}
 .sort-btn{
@@ -205,13 +190,11 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 
 .card{
   background:var(--crema);cursor:pointer;
-  transition:transform .22s,box-shadow .22s;
-  animation:fadeUp .35s ease both;
+  transition:box-shadow .15s ease;
   position:relative;overflow:hidden;contain:layout style;
 }
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);z-index:2;will-change:transform}
+.card:hover{box-shadow:var(--shadow-lg);z-index:2}
 .card:focus-visible{outline:3px solid var(--camel);outline-offset:-3px;z-index:2}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
 .card-img{
   width:100%;aspect-ratio:1;
@@ -221,19 +204,17 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 }
 .card-img.skeleton::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,var(--arena-dark) 25%,var(--arena) 50%,var(--arena-dark) 75%);
-  background-size:200% 100%;animation:shimmer 1.5s infinite;
+  background:var(--arena-dark);
 }
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 .card-img.skeleton .card-emoji{opacity:.15}
-.card-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0;transition:opacity .4s}
+.card-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0;transition:opacity .2s}
 .card-img img.loaded{opacity:1}
 .card-img img.error{display:none}
 
 .card-hover-overlay{
   position:absolute;inset:0;
   background:linear-gradient(to top,rgba(17,16,16,.82) 0%,rgba(17,16,16,.25) 55%,transparent 100%);
-  opacity:0;transition:opacity .28s ease;
+  opacity:0;transition:opacity .15s ease;
   display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
   padding:18px 14px;pointer-events:none;
 }
@@ -267,9 +248,8 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .card.list-card{
   display:flex;flex-direction:row;
   border-bottom:1px solid var(--borde);
-  animation:fadeUp .25s ease both;
 }
-.card.list-card:hover{transform:none;box-shadow:0 2px 16px rgba(123,63,30,.08)}
+.card.list-card:hover{box-shadow:0 2px 16px rgba(123,63,30,.08)}
 .card.list-card .card-img{width:90px;height:90px;aspect-ratio:unset;flex-shrink:0;border-right:1px solid var(--borde)}
 .card.list-card .card-body{
   flex:1;border-top:none;padding:12px 18px;
@@ -287,8 +267,7 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 /* MODAL */
 .overlay{display:none;position:fixed;inset:0;background:rgba(17,16,16,.8);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;padding:16px}
 .overlay.open{display:flex}
-.modal{background:var(--crema);width:100%;max-width:1020px;max-height:96vh;overflow-y:auto;display:grid;grid-template-columns:1.2fr 1fr;animation:popIn .28s ease}
-@keyframes popIn{from{opacity:0;transform:scale(.94) translateY(14px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal{background:var(--crema);width:100%;max-width:1020px;max-height:96vh;overflow-y:auto;display:grid;grid-template-columns:1.2fr 1fr}
 .modal-media{background:var(--negro);display:flex;flex-direction:column;min-height:580px;height:100%}
 .modal-media-header{
   padding:12px 16px;display:flex;align-items:center;justify-content:space-between;
@@ -310,11 +289,11 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .modal-close{
   background:#b3261e;border:2px solid rgba(255,255,255,.22);color:#fff;
   font-size:1.35rem;font-weight:700;cursor:pointer;line-height:1;
-  transition:all var(--trans-fast);padding:10px 14px;
+  transition:background var(--trans-fast),border-color var(--trans-fast);padding:10px 14px;
   min-width:46px;min-height:46px;display:flex;align-items:center;justify-content:center;
   flex-shrink:0;box-shadow:0 6px 20px rgba(179,38,30,.35);
 }
-.modal-close:hover{color:#fff;background:#d93025;border-color:#fff;transform:scale(1.06)}
+.modal-close:hover{color:#fff;background:#d93025;border-color:#fff}
 .modal-close:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .modal-close::after{content:none}
 
@@ -337,7 +316,7 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
   object-position:center center;
   display:block;
   opacity:0;
-  transition:opacity .3s ease;
+  transition:opacity .15s ease;
 }
 #mImg.loaded{opacity:1}
 .video-area{flex:1;min-height:280px;display:none;align-items:center;justify-content:center;background:#000;overflow:hidden}
@@ -357,9 +336,9 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .m-recs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .m-rec-card{
   background:var(--arena);border:1px solid var(--borde);
-  cursor:pointer;transition:transform .18s,box-shadow .18s;overflow:hidden;
+  cursor:pointer;transition:box-shadow .15s ease;overflow:hidden;
 }
-.m-rec-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(123,63,30,.1)}
+.m-rec-card:hover{box-shadow:0 6px 18px rgba(123,63,30,.1)}
 .m-rec-img{
   width:100%;aspect-ratio:1;background:var(--arena-dark);
   display:flex;align-items:center;justify-content:center;
@@ -377,13 +356,9 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
   width:100%;padding:15px;background:#25D366;color:#fff;border:none;
   font-family:'Fredoka',sans-serif;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
   cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
-  transition:background .2s,transform var(--trans-fast);margin-top:auto;
-  position:relative;overflow:hidden;
+  transition:background .15s ease;margin-top:auto;
 }
-.btn-wa::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.18);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
-.btn-wa:hover{background:#1aab54;transform:translateY(-1px)}
-.btn-wa:hover::after{transform:scaleX(1)}
-.btn-wa:active{transform:scale(.98)}
+.btn-wa:hover{background:#1aab54}
 
 .toast{
   position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
@@ -411,12 +386,7 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .back-to-top:hover{background:var(--camel)}
 .back-to-top svg{width:18px;height:18px;fill:currentColor}
 
-.active-filters{padding:10px 40px;background:var(--arena);border-bottom:1px solid var(--borde);display:none;align-items:center;gap:8px;flex-wrap:wrap}
-.active-filters.visible{display:flex}
-.filter-tag{display:flex;align-items:center;gap:6px;padding:4px 10px;background:#fff;border:1px solid var(--borde);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--texto)}
-.filter-tag button{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.9rem;line-height:1;padding:0 2px}
-.filter-tag button:hover{color:var(--texto)}
-.active-filters-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.active-filters{display:none}
 
 footer{background:var(--negro);padding:48px 40px 32px;text-align:center;border-top:3px solid var(--camel)}
 footer img{height:40px;width:auto;filter:brightness(0) invert(1);margin-bottom:16px;display:inline-block}
@@ -504,8 +474,6 @@ body.modal-open{overflow:hidden}
   .grid{grid-template-columns:repeat(2,1fr)}
   footer{padding:32px 16px 24px}
   .topbar,.results-info{display:none}
-  .price-range-wrap{display:none}
-  .active-filters{padding:8px 16px}
   .cat-grid{grid-template-columns:repeat(3,1fr);gap:5px}
   .cat-tile{padding:10px 6px 9px;font-size:.52rem}
   .cat-tile-icon{font-size:1.1rem}
@@ -546,9 +514,9 @@ body.modal-open{overflow:hidden}
   html{scroll-behavior:auto}
 }
 
-.cat-tile[data-cat="Liquidacion"]{background:linear-gradient(135deg,rgba(220,38,38,.25) 0%,rgba(234,88,12,.2) 100%);border-color:rgba(220,38,38,.55);color:#ff6b6b;position:relative;overflow:hidden}.cat-tile[data-cat="Liquidacion"]::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(220,38,38,.12) 0%,rgba(234,88,12,.1) 100%);animation:liquidPulse 2s ease-in-out infinite alternate;pointer-events:none}@keyframes liquidPulse{0%{opacity:0.4}100%{opacity:1}}.cat-tile[data-cat="Liquidacion"]:hover,.cat-tile[data-cat="Liquidacion"].active{background:linear-gradient(135deg,rgba(220,38,38,.45) 0%,rgba(234,88,12,.35) 100%);border-color:#ef4444;color:#fff;box-shadow:0 0 18px rgba(220,38,38,.45)}.cat-tile[data-cat="Liquidacion"] .cat-tile-icon{animation:flameDance 1.2s ease-in-out infinite alternate;display:inline-block}@keyframes flameDance{0%{transform:scale(1) rotate(-4deg)}100%{transform:scale(1.2) rotate(4deg)}}.cat-tile[data-cat="Liquidacion"].active{box-shadow:0 0 22px rgba(220,38,38,.6)}
-.price-old{display:block;font-size:.72rem;color:#111010;letter-spacing:.04em;line-height:1.2;margin-bottom:1px}.price-old s{text-decoration:line-through;color:#111010;opacity:1}.price-discount small{color:#b91c1c}.price-discount{color:#b91c1c !important;font-weight:700}.liq-badge{display:inline-block;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;margin-bottom:4px;box-shadow:0 2px 8px rgba(220,38,38,.35);animation:badgePop .4s ease both}@keyframes badgePop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}.modal-price-old{font-size:.82rem;color:var(--muted);margin-bottom:4px;letter-spacing:.04em}.modal-price-old s{text-decoration:line-through;color:#111010;opacity:1}.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}.modal-discount-badge{display:inline-block;margin-left:12px;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.14em;padding:4px 11px;vertical-align:middle;box-shadow:0 3px 10px rgba(220,38,38,.4);animation:badgePop .4s ease both}
-.liq-badge-img{position:absolute;top:10px;right:10px;z-index:10;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;box-shadow:0 3px 10px rgba(220,38,38,.5);animation:badgePop .4s ease both;pointer-events:none}#liq-dashboard{background:var(--carbon);padding:32px 40px 28px;border-bottom:3px solid #dc2626;display:none}#liq-dashboard.visible{display:block}.liq-dash-title{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:#ef4444;margin-bottom:18px;display:flex;align-items:center;gap:8px}.liq-dash-title span{font-size:1.1rem}.liq-kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}.liq-kpi{flex:1;min-width:120px;background:rgba(255,255,255,.05);border:1px solid rgba(220,38,38,.25);padding:16px 20px}.liq-kpi-num{font-size:1.9rem;font-weight:700;color:#f87171;line-height:1}.liq-kpi-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}.liq-prod-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}.liq-prod-chip{background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.2);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s,background .2s;cursor:pointer}.liq-prod-chip:hover{border-color:#ef4444;background:rgba(220,38,38,.08)}.liq-prod-code{font-size:.65rem;letter-spacing:.2em;color:#ef4444;font-weight:600;text-transform:uppercase}.liq-prod-name{font-size:.78rem;color:rgba(255,255,255,.85);margin-top:2px}.liq-prod-price{font-size:.88rem;font-weight:700;color:#f87171;white-space:nowrap}.liq-prod-old{font-size:.65rem;color:rgba(255,255,255,.4);text-decoration:line-through}.liq-prod-discount{font-size:.52rem;background:#dc2626;color:#fff;padding:1px 6px;border-radius:2px;font-weight:700;letter-spacing:.08em;margin-left:6px;white-space:nowrap}@media(max-width:660px){#liq-dashboard{padding:20px 16px}.liq-kpi-num{font-size:1.5rem}.liq-prod-row{grid-template-columns:1fr 1fr}}
+.cat-tile[data-cat="Liquidacion"]{background:linear-gradient(135deg,rgba(220,38,38,.25) 0%,rgba(234,88,12,.2) 100%);border-color:rgba(220,38,38,.55);color:#ff6b6b}.cat-tile[data-cat="Liquidacion"]:hover,.cat-tile[data-cat="Liquidacion"].active{background:linear-gradient(135deg,rgba(220,38,38,.45) 0%,rgba(234,88,12,.35) 100%);border-color:#ef4444;color:#fff;box-shadow:0 0 18px rgba(220,38,38,.45)}.cat-tile[data-cat="Liquidacion"].active{box-shadow:0 0 22px rgba(220,38,38,.6)}
+.price-old{display:block;font-size:.72rem;color:#111010;letter-spacing:.04em;line-height:1.2;margin-bottom:1px}.price-old s{text-decoration:line-through;color:#111010;opacity:1}.price-discount small{color:#b91c1c}.price-discount{color:#b91c1c !important;font-weight:700}.liq-badge{display:inline-block;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;margin-bottom:4px;box-shadow:0 2px 8px rgba(220,38,38,.35)}.modal-price-old{font-size:.82rem;color:var(--muted);margin-bottom:4px;letter-spacing:.04em}.modal-price-old s{text-decoration:line-through;color:#111010;opacity:1}.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}.modal-discount-badge{display:inline-block;margin-left:12px;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.14em;padding:4px 11px;vertical-align:middle;box-shadow:0 3px 10px rgba(220,38,38,.4)}
+.liq-badge-img{position:absolute;top:10px;right:10px;z-index:10;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;box-shadow:0 3px 10px rgba(220,38,38,.5);pointer-events:none}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"El Viejo Artesano - Barra Arte & Estilo","image":"https://barraleather.com/wp-content/uploads/2025/12/cropped-Diseno-sin-titulo-5.png","telephone":"+51929974727","address":{"@type":"PostalAddress","addressLocality":"Lima","addressRegion":"Lima","addressCountry":"PE"},"url":"https://barraventa-creator.github.io/catalogo-barra","priceRange":"S/5 - S/600","description":"Artículos de cuero genuino hechos a mano en Lima, Perú."}
@@ -582,7 +550,7 @@ body.modal-open{overflow:hidden}
 
 <header>
   <div class="header-top">
-    <a href="https://barraventa-creator.github.io/catalogo-barra/" class="logo" aria-label="Barra Arte &amp; Estilo — Inicio">
+    <a href="#" class="logo" id="logo" aria-label="Barra Arte &amp; Estilo — Inicio">
       <img src="https://barraleather.com/wp-content/uploads/2025/12/cropped-Diseno-sin-titulo-5.png" alt="Barra Arte y Estilo - El Viejo Artesano" width="150" height="48">
     </a>
     <div class="header-right">Catálogo 2026</div>
@@ -617,12 +585,6 @@ body.modal-open{overflow:hidden}
     </div>
     <input type="text" id="searchInput" placeholder="código / nombre" aria-label="Buscar productos">
   </div>
-  <div class="price-range-wrap">
-    <span class="price-label">S/</span>
-    <input class="price-input" type="number" id="priceMin" placeholder="0" min="0" max="9999" aria-label="Precio mínimo">
-    <span class="price-sep" aria-hidden="true">–</span>
-    <input class="price-input" type="number" id="priceMax" placeholder="999" min="0" max="9999" aria-label="Precio máximo">
-  </div>
   <div class="filter-row2">
     <div class="sort-wrap">
       <span class="sort-label">Orden:</span>
@@ -644,15 +606,6 @@ body.modal-open{overflow:hidden}
   </div>
 </div>
 
-</div>
-
-
-
-<div id="liq-dashboard" role="region" aria-label="Dashboard Liquidación">
-  <div class="liq-dash-title"><span>🔥</span> Dashboard · Liquidación 2026</div>
-  <div class="liq-kpi-row" id="liqKpiRow"></div>
-  <div class="liq-prod-row" id="liqProdRow"></div>
-</div>
 <main id="grid" class="grid" role="region" aria-label="Productos"></main>
 <div class="empty" id="empty" role="status">
   <div style="font-size:2.5rem;margin-bottom:12px;opacity:.3" aria-hidden="true">🔍</div>
@@ -959,7 +912,7 @@ const productos = [
   {code:'LL06',name:'Llavero',cat:'Accesorio',price:30,medidas:'—',emoji:'✨',colores:['Guinda'],tiktok:'7400007079152389382',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL06.jpg'},
   {code:'PT01',name:'Llavero Porta Llaves',cat:'Accesorio',price:15,medidas:'9.5×7 cm',emoji:'✨',colores:['Negro','Camel'],tiktok:'7619446973007170837',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-PT01.jpg'},
   {code:'PT02',name:'Llavero Multiusos',cat:'Liquidacion',price:25,priceOld:50,medidas:'—',emoji:'✨',colores:['Negro','Camel'],tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
-  {code:'PT04',name:'Porta Celular',cat:'Liquidacion',price:89,priceOld:120,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
+  {code:'PT04',name:'Porta Celular',cat:'Accesorio',price:89,priceOld:120,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
   {code:'PT11',name:'Porta Pasaporte',cat:'Accesorio',price:95,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7400023049052916998',img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-PASAPORTE-PT11.jpg'},
   {code:'SO01',name:'Sombrero',cat:'Accesorio',price:160,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7593493155433991442',img:'https://barraleather.com/wp-content/uploads/2026/03/SOMBRERO-DE-CUERO-SO01.jpg'},
   {code:'GR01',name:'Gorro',cat:'Accesorio',price:120,medidas:'—',emoji:'✨',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/GORRO-DE-CUERO-GR01.jpg'},
@@ -971,7 +924,7 @@ const productos = [
   {code:'MR05',name:'Monedero',cat:'Monedero',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627189019897580820',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR05.jpg'},
   {code:'MR05-V1',name:'Monedero V.1',cat:'Monedero',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627189019897580820',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR051.jpg'},
   {code:'MR06',name:'Monedero',cat:'Monedero',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7626521410118143252',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR06.jpg'},
-  {code:'MR07',name:'Monedero',cat:'Liquidacion',price:39,priceOld:65,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR07.jpg'},
+  {code:'MR07',name:'Monedero',cat:'Liquidacion',price:15,priceOld:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR07.jpg'},
   {code:'MR08',name:'Monedero',cat:'Monedero',price:25,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7626524313012817173',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR08.jpg'},
   {code:'MR09',name:'Monedero',cat:'Monedero',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619814174431989013',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR09.jpg'},
   {code:'MR10',name:'Monedero',cat:'Monedero',price:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619806544842034453',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR10.jpg'},
@@ -979,12 +932,12 @@ const productos = [
   {code:'MR12',name:'Monedero',cat:'Monedero',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619821056089427221',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR12.jpg'},
   {code:'MR13',name:'Monedero',cat:'Monedero',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613894444831477009',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR13.jpg'},
   {code:'MR14',name:'Monedero',cat:'Monedero',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627211816262765845',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR14.jpg'},
-  {code:'MR16',name:'Monedero',cat:'Liquidacion',price:15,priceOld:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627212701177138452',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR16.jpg'},
+  {code:'MR16',name:'Monedero',cat:'Monedero',price:15,priceOld:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627212701177138452',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR16.jpg'},
   {code:'MR17',name:'Monedero',cat:'Liquidacion',price:15,priceOld:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613896889343249665',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR17.jpg'},
   {code:'MR18',name:'Monedero',cat:'Monedero',price:20,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR18.jpg'},
   {code:'MR19',name:'Monedero',cat:'Monedero',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7629837099943922964',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR19.jpg'},
-  {code:'MR20',name:'Monedero',cat:'Liquidacion',price:15,priceOld:29,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613872033918651649',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR20.jpg'},
-  {code:'MR21',name:'Monedero',cat:'Liquidacion',price:12,priceOld:25,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7629835359148379412',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21.jpg'},
+  {code:'MR20',name:'Monedero',cat:'Monedero',price:15,priceOld:29,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613872033918651649',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR20.jpg'},
+  {code:'MR21',name:'Monedero',cat:'Monedero',price:12,priceOld:25,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7629835359148379412',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21.jpg'},
   {code:'MR22',name:'Monedero',cat:'Monedero',price:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613869031845563664',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21-1.jpg'},
   {code:'AC01',name:'Crema para Cuero',cat:'Accesorio',price:15,medidas:'—',emoji:'✨',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC01.jpg'},
   {code:'AC02',name:'Crema Nutripiel',cat:'Accesorio',price:35,medidas:'—',emoji:'✨',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC02.jpg'},
@@ -1009,8 +962,6 @@ const DOM = {
   empty:        document.getElementById('empty'),
   countNum:     document.getElementById('countNum'),
   searchInput:  document.getElementById('searchInput'),
-  priceMin:     document.getElementById('priceMin'),
-  priceMax:     document.getElementById('priceMax'),
   sortBtn:      document.getElementById('sortBtn'),
   sortLabel:    document.getElementById('sortLabel'),
   sortIcon:     document.getElementById('sortIcon'),
@@ -1018,8 +969,7 @@ const DOM = {
   btnList:      document.getElementById('btnList'),
   btnLimpiar:   document.getElementById('btnLimpiar'),
   catBar:       document.getElementById('catBar'),
-  activeFilters:document.getElementById('activeFilters'),
-  filterTags:   document.getElementById('filterTags'),
+  logo:         document.getElementById('logo'),
   overlay:      document.getElementById('overlay'),
   closeBtn:     document.getElementById('modalCloseBtn'),
   mName:        document.getElementById('mName'),
@@ -1047,8 +997,7 @@ const DOM = {
 };
 
 // ── ESTADO ────────────────────────────────────────────────────────────────────
-let busqueda = '', categoriaActiva = 'Todos', sortDir = null,
-    priceMin = null, priceMax = null, viewMode = 'grid';
+let busqueda = '', categoriaActiva = 'Todos', sortDir = null, viewMode = 'grid';
 
 const categorias = ['Todos', ...[...new Set(productos.map(p => p.cat))]];
 
@@ -1093,22 +1042,18 @@ function showToast() {
 }
 
 // ── URL STATE ─────────────────────────────────────────────────────────────────
+// Nota: la categoría NUNCA se lee de la URL — siempre arranca en "Todos".
 function readURL() {
   const p = new URLSearchParams(location.search);
-  if (p.get('cat'))  categoriaActiva = decodeURIComponent(p.get('cat'));
-  if (p.get('q'))    busqueda        = decodeURIComponent(p.get('q'));
-  if (p.get('min'))  priceMin        = parseInt(p.get('min'));
-  if (p.get('max'))  priceMax        = parseInt(p.get('max'));
-  if (p.get('sort')) sortDir         = p.get('sort');
-  if (p.get('view')) viewMode        = p.get('view');
+  if (p.get('q'))    busqueda = decodeURIComponent(p.get('q'));
+  if (p.get('sort')) sortDir  = p.get('sort');
+  if (p.get('view')) viewMode = p.get('view');
 }
 function pushURL() {
   const p = new URLSearchParams();
   if (categoriaActiva !== 'Todos') p.set('cat', categoriaActiva);
-  if (busqueda)   p.set('q',    busqueda);
-  if (priceMin !== null) p.set('min', priceMin);
-  if (priceMax !== null) p.set('max', priceMax);
-  if (sortDir)    p.set('sort', sortDir);
+  if (busqueda)            p.set('q',    busqueda);
+  if (sortDir)             p.set('sort', sortDir);
   if (viewMode !== 'grid') p.set('view', viewMode);
   const str = p.toString();
   history.replaceState({}, '', str ? '?' + str : location.pathname);
@@ -1146,17 +1091,6 @@ DOM.catBar.addEventListener('click', e => {
   pushURL();
 });
 
-// ── ACTIVE FILTER TAGS ────────────────────────────────────────────────────────
-function updateActiveTags() {
-  const tags = [];
-  if (priceMin !== null || priceMax !== null)
-    tags.push(`<div class="filter-tag">S/ ${priceMin || '0'} – ${priceMax || '∞'}<button onclick="clearPriceFilter()">×</button></div>`);
-  if (sortDir)
-    tags.push(`<div class="filter-tag">Precio ${sortDir === 'asc' ? '↑' : '↓'}<button onclick="clearSort()">×</button></div>`);
-  DOM.filterTags.innerHTML = tags.join('');
-  DOM.activeFilters.classList.toggle('visible', tags.length > 0);
-}
-
 // ── SORT ──────────────────────────────────────────────────────────────────────
 function applySortUI() {
   DOM.sortBtn.classList.toggle('active', sortDir !== null);
@@ -1173,13 +1107,7 @@ function applySortUI() {
 }
 function toggleSort() {
   sortDir = !sortDir ? 'asc' : sortDir === 'asc' ? 'desc' : null;
-  applySortUI(); updateActiveTags(); render(getFiltered()); pushURL();
-}
-function clearSort() { sortDir = null; applySortUI(); updateActiveTags(); render(getFiltered()); pushURL(); }
-function clearPriceFilter() {
-  priceMin = null; priceMax = null;
-  DOM.priceMin.value = ''; DOM.priceMax.value = '';
-  updateActiveTags(); render(getFiltered()); pushURL();
+  applySortUI(); render(getFiltered()); pushURL();
 }
 
 DOM.sortBtn.addEventListener('click', toggleSort);
@@ -1202,8 +1130,6 @@ function getFiltered() {
   let list = productos.filter(p => {
     if (categoriaActiva !== 'Todos' && p.cat !== categoriaActiva) return false;
     if (q && !p.code.toLowerCase().includes(q) && !p.name.toLowerCase().includes(q) && !p.cat.toLowerCase().includes(q)) return false;
-    if (priceMin !== null && p.price < priceMin) return false;
-    if (priceMax !== null && p.price > priceMax) return false;
     return true;
   });
   if (sortDir === 'asc')  list = list.slice().sort((a, b) => a.price - b.price);
@@ -1212,9 +1138,6 @@ function getFiltered() {
 }
 
 // ── RENDER ────────────────────────────────────────────────────────────────────
-// Cap animation delay so last items don't take forever
-const MAX_DELAY = 0.6; // seconds
-
 function render(list) {
   DOM.countNum.textContent = list.length;
   if (!list.length) {
@@ -1230,10 +1153,9 @@ function render(list) {
     for (let i = 0; i < list.length; i++) {
       const p = list[i];
       const pi = productos.indexOf(p);
-      const delay = Math.min(i * 0.02, MAX_DELAY);
       const hasVid = p.tiktok ? `<div class="video-badge" style="position:static;margin-left:8px">${VIDEO_SVG}<span>Video</span></div>` : '';
       parts.push(
-        `<div class="card list-card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}" style="animation-delay:${delay}s">` +
+        `<div class="card list-card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}">` +
           `<div class="card-img"><span class="card-emoji" aria-hidden="true">${p.emoji || '👜'}</span>` +
             `<img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.classList.add('error')"></div>` +
           `<div class="card-body">` +
@@ -1249,10 +1171,9 @@ function render(list) {
       const p = list[i];
       const pi = productos.indexOf(p);
       const cid = `ci-${p.code.replace(/[^a-z0-9]/gi, '-')}`;
-      const delay = Math.min(i * 0.03, MAX_DELAY);
       const hasVid = p.tiktok ? `<div class="video-badge">${VIDEO_SVG}<span>Video</span></div>` : '';
       parts.push(
-        `<div class="card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}" style="animation-delay:${delay}s">` +
+        `<div class="card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}">` +
           `<div class="card-img skeleton" id="${cid}">` +
             `${p.priceOld ? '<div class="liq-badge-img">🔥 -S/' + (p.priceOld - p.price) + '</div>' : ''}` +
             `<span class="card-emoji" aria-hidden="true">${p.emoji || '👜'}</span>` +
@@ -1293,10 +1214,8 @@ DOM.grid.addEventListener('keydown', e => {
 
 function clearAll() {
   DOM.searchInput.value = '';
-  DOM.priceMin.value = '';
-  DOM.priceMax.value = '';
-  busqueda = ''; priceMin = null; priceMax = null; sortDir = null;
-  applySortUI(); updateActiveTags(); render(getFiltered()); pushURL();
+  busqueda = ''; sortDir = null;
+  applySortUI(); render(getFiltered()); pushURL();
 }
 
 // ── MEDIA TABS ────────────────────────────────────────────────────────────────
@@ -1319,7 +1238,6 @@ function openModal(idx) {
 
   DOM.mName.textContent = p.name;
 
-  // FIX: removed void reflow hack — just update innerHTML directly
   DOM.mPrice.innerHTML = p.priceOld
     ? `<div class="modal-price-old">Precio normal: <s>S/ ${p.priceOld}</s></div><span class="modal-price-discount"><small>S/ </small>${p.price}</span><span class="modal-discount-badge">-${Math.round((1-p.price/p.priceOld)*100)}% OFF</span>`
     : `<small style="font-size:1rem;font-weight:300;color:var(--muted)">S/ </small>${p.price}`;
@@ -1360,8 +1278,7 @@ function openModal(idx) {
   DOM.mImg.alt = `${p.name} ${p.code}`;
   DOM.mImg.onload = () => DOM.mImg.classList.add('loaded');
   DOM.mImg.onerror = () => { DOM.mImg.style.display = 'none'; };
-  // Use rAF to ensure layout is ready before setting src
-  requestAnimationFrame(() => { DOM.mImg.src = p.img; });
+  DOM.mImg.src = p.img;
 
   // TikTok video
   if (p.tiktok) {
@@ -1423,10 +1340,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 // ── INPUTS ────────────────────────────────────────────────────────────────────
 const debouncedSearch = debounce(() => { render(getFiltered()); pushURL(); }, 180);
 DOM.searchInput.addEventListener('input', function() { busqueda = this.value; debouncedSearch(); });
-
-const debouncedPrice = debounce(() => { updateActiveTags(); render(getFiltered()); pushURL(); }, 300);
-DOM.priceMin.addEventListener('input', function() { priceMin = this.value ? parseInt(this.value) : null; debouncedPrice(); });
-DOM.priceMax.addEventListener('input', function() { priceMax = this.value ? parseInt(this.value) : null; debouncedPrice(); });
 
 // ── SCROLL: throttled, not raw ────────────────────────────────────────────────
 let scrollRaf = null;
@@ -1515,70 +1428,28 @@ function evalDistrict() {
 DOM.totalProd.textContent = productos.length;
 readURL();
 if (busqueda) DOM.searchInput.value = busqueda;
-if (priceMin !== null) DOM.priceMin.value = priceMin;
-if (priceMax !== null) DOM.priceMax.value = priceMax;
 applySortUI();
 buildCatBar();      // build once at init
-updateActiveTags();
 // Single render call — setView handles both cases
 if (viewMode === 'list') setView('list');
 else render(getFiltered());
 
-
-
-// ── LIQUIDACION DASHBOARD ─────────────────────────────────────────────────
-function buildLiqDashboard() {
-  const liqProds = productos.filter(p => p.cat === 'Liquidacion');
-  const dash = document.getElementById('liq-dashboard');
-  const kpiRow = document.getElementById('liqKpiRow');
-  const prodRow = document.getElementById('liqProdRow');
-  if (!liqProds.length || !dash) return;
-
-  function toggleDash() {
-    dash.classList.toggle('visible', categoriaActiva === 'Liquidacion');
+// ── LOGO → vuelve a "Todos" ───────────────────────────────────────────────────
+function goToTodos() {
+  if (categoriaActiva !== 'Todos') {
+    categoriaActiva = 'Todos';
+    updateCatBar();
+    render(getFiltered());
+    pushURL();
   }
-
-  const withDiscount = liqProds.filter(p => p.priceOld);
-  const totalAhorro  = withDiscount.reduce((s,p) => s + (p.priceOld - p.price), 0);
-  const avgDesc = withDiscount.length
-    ? Math.round(withDiscount.reduce((s,p) => s + (1 - p.price/p.priceOld)*100, 0) / withDiscount.length)
-    : 0;
-  const maxDesc = withDiscount.length
-    ? Math.max(...withDiscount.map(p => Math.round((1 - p.price/p.priceOld)*100)))
-    : 0;
-
-  kpiRow.innerHTML = [
-    {num: liqProds.length,         label: 'Productos en liquidación'},
-    {num: withDiscount.length,     label: 'Con descuento activo'},
-    {num: 'S/ ' + totalAhorro,     label: 'Ahorro total acumulado'},
-    {num: avgDesc + '%',           label: 'Descuento promedio'},
-    {num: maxDesc + '%',           label: 'Mayor descuento'},
-  ].map(k => `<div class="liq-kpi"><div class="liq-kpi-num">${k.num}</div><div class="liq-kpi-label">${k.label}</div></div>`).join('');
-
-  prodRow.innerHTML = liqProds.map(p => {
-    const saving = p.priceOld ? (p.priceOld - p.price) : 0;
-    return `<div class="liq-prod-chip" data-code="${p.code}">
-      <div>
-        <div class="liq-prod-code">${p.code}${saving ? `<span class="liq-prod-discount">-S/${saving}</span>` : ''}</div>
-        <div class="liq-prod-name">${p.name}</div>
-        ${p.priceOld ? `<div class="liq-prod-old">S/ ${p.priceOld}</div>` : ''}
-      </div>
-      <div class="liq-prod-price">S/ ${p.price}</div>
-    </div>`;
-  }).join('');
-
-  prodRow.querySelectorAll('.liq-prod-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      const idx = productos.findIndex(p => p.code === chip.dataset.code);
-      if (idx >= 0) openModal(idx);
-    });
-  });
-
-  const observer = new MutationObserver(toggleDash);
-  observer.observe(document.getElementById('catBar'), {subtree:true, attributes:true, attributeFilter:['class']});
-  toggleDash();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-document.addEventListener('DOMContentLoaded', () => { setTimeout(buildLiqDashboard, 300); });
+if (DOM.logo) {
+  DOM.logo.addEventListener('click', e => {
+    e.preventDefault();
+    goToTodos();
+  });
+}
 
 </script>
 </body>
