@@ -115,10 +115,10 @@ header{
 .hero-eyebrow{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--camel-light);margin-bottom:14px}
 .hero-title{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:400;color:#fff;line-height:1.15;margin-bottom:16px}
 .hero-title em{font-style:italic;color:var(--camel-light)}
-.hero-desc{font-size:.85rem;color:rgba(255,255,255,.5);letter-spacing:.05em;line-height:1.6}
+.hero-desc{font-size:.85rem;color:rgba(255,255,255,1);letter-spacing:.05em;line-height:1.6}
 .hero-stats{display:flex;gap:32px;margin-top:24px}
 .stat-num{font-size:1.6rem;color:var(--camel-light)}
-.stat-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.stat-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,1)}
 .hero-right{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
 
 .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;width:100%;max-width:480px}
@@ -128,7 +128,7 @@ header{
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
   cursor:pointer;transition:background .18s,border-color .18s,color .18s;
   font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.65);text-align:center;line-height:1.3;
+  color:rgba(255,255,255,1);text-align:center;line-height:1.3;
   position:relative;
 }
 .cat-tile:hover{background:rgba(196,134,42,.15);border-color:rgba(196,134,42,.4);color:#fff}
@@ -145,7 +145,7 @@ header{
 .cat-tile.tile-todos{grid-column:span 2;flex-direction:row;gap:10px;padding:11px 16px;font-size:.62rem}
 .cat-tile.tile-todos .cat-tile-icon{font-size:1.1rem}
 
-.filter-bar{
+.filter-bar{color:#111010;
   background:var(--arena-dark);padding:12px 40px;
   border-bottom:1px solid var(--borde);
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
@@ -160,13 +160,13 @@ input[type=text]{
   outline:none;transition:border-color .2s;
 }
 input[type=text]:focus{border-color:var(--camel)}
-input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
+input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .price-range-wrap{
   display:flex;align-items:center;gap:8px;background:#fff;
   border:1.5px solid var(--borde);padding:6px 12px;transition:border-color .2s;
 }
 .price-range-wrap:focus-within{border-color:var(--camel)}
-.price-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.price-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#111010;white-space:nowrap}
 .price-input{
   width:64px;border:none;background:transparent;
   font-family:'Fredoka',sans-serif;font-size:.88rem;color:var(--texto);
@@ -176,28 +176,28 @@ input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
 .price-input::-webkit-outer-spin-button,.price-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .price-sep{color:var(--muted);font-size:.8rem}
 .sort-wrap{display:flex;align-items:center;gap:6px}
-.sort-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.sort-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#111010;white-space:nowrap}
 .sort-btn{
   padding:10px 14px;background:transparent;border:1.5px solid var(--borde);
   font-family:'Fredoka',sans-serif;font-size:.72rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--muted);cursor:pointer;
+  text-transform:uppercase;color:#111010;cursor:pointer;
   transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:6px;
 }
 .sort-btn:hover,.sort-btn.active{border-color:var(--camel);color:var(--camel);background:rgba(196,134,42,.06)}
 .sort-btn svg{width:12px;height:12px;fill:currentColor}
 .view-toggle{display:flex;border:1.5px solid var(--borde);overflow:hidden}
-.view-btn{padding:9px 12px;background:transparent;border:none;cursor:pointer;color:var(--muted);transition:all .2s;display:flex;align-items:center}
+.view-btn{padding:9px 12px;background:transparent;border:none;cursor:pointer;color:#111010;transition:all .2s;display:flex;align-items:center}
 .view-btn:hover{background:rgba(196,134,42,.06);color:var(--camel)}
 .view-btn.active{background:var(--negro);color:#fff}
 .view-btn svg{width:14px;height:14px;fill:currentColor}
 .btn-limpiar{
   padding:13px 20px;background:transparent;border:1.5px solid var(--borde);
   font-family:'Fredoka',sans-serif;font-size:.72rem;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--muted);cursor:pointer;
+  text-transform:uppercase;color:#111010;cursor:pointer;
   transition:all .2s;white-space:nowrap;
 }
 .btn-limpiar:hover{border-color:var(--camel);color:var(--camel)}
-.results-info{font-size:.72rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-left:auto;white-space:nowrap}
+.results-info{font-size:.72rem;letter-spacing:.1em;color:#111010;text-transform:uppercase;margin-left:auto;white-space:nowrap}
 .results-info b{color:var(--camel)}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1px;padding:1px;background:var(--borde);min-height:200px}
@@ -244,7 +244,7 @@ input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
   padding:7px 14px;backdrop-filter:blur(6px);display:flex;align-items:center;gap:7px;
   transition:background .18s,border-color .18s;
 }
-.card-hover-label:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+.card-hover-label:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,1)}
 .card-hover-label svg{width:13px;height:13px;fill:#fff;flex-shrink:0}
 
 .video-badge{
@@ -260,8 +260,8 @@ input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
 .card-name{font-size:1.1rem;color:var(--texto);line-height:1.25;margin-bottom:4px}
 .card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--borde)}
 .card-price{font-size:1.35rem;font-weight:700;color:var(--texto)}
-.card-price small{font-size:.78rem;font-weight:300;color:var(--muted)}
-.card-medidas{font-size:.65rem;color:var(--muted);letter-spacing:.05em}
+.card-price small{font-size:.78rem;font-weight:300;color:#111010}
+.card-medidas{font-size:.65rem;color:#111010;letter-spacing:.05em}
 
 /* List card — all layout via CSS, no inline styles */
 .card.list-card{
@@ -298,7 +298,7 @@ input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
 .media-label{
   flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
   padding:10px 14px;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.4);background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,1);background:rgba(255,255,255,.05);
   border:1.5px solid rgba(255,255,255,.1);cursor:pointer;
   transition:all .22s ease;position:relative;overflow:hidden;
 }
@@ -346,10 +346,10 @@ input[type=text]::placeholder{color:var(--muted);font-size:.83rem}
 .m-name{font-size:1.75rem;font-weight:400;color:var(--texto);line-height:1.2;margin-bottom:4px}
 .m-divider{height:1px;background:var(--borde);margin:14px 0}
 .m-price{font-size:2.2rem;font-weight:700;color:var(--texto)}
-.m-price-note{font-size:.68rem;letter-spacing:.08em;color:var(--muted);margin-top:3px;margin-bottom:16px}
+.m-price-note{font-size:.68rem;letter-spacing:.08em;color:#111010;margin-top:3px;margin-bottom:16px}
 .m-specs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
 .spec{padding:10px 12px;background:var(--arena)}
-.spec-l{font-size:.57rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.spec-l{font-size:.57rem;letter-spacing:.22em;text-transform:uppercase;color:#111010;margin-bottom:3px}
 .spec-v{font-size:.83rem;font-weight:500;color:var(--texto)}
 
 .m-recs{margin-bottom:16px}
@@ -499,7 +499,7 @@ body.modal-open{overflow:hidden}
 @media(max-width:660px){
   .modal{grid-template-columns:1fr}
   .modal-media{min-height:280px}
-  header,.filter-bar{padding-left:16px;padding-right:16px}
+  header,.filter-bar{color:#111010;padding-left:16px;padding-right:16px}
   .hero{padding:28px 16px}
   .grid{grid-template-columns:repeat(2,1fr)}
   footer{padding:32px 16px 24px}
@@ -519,7 +519,7 @@ body.modal-open{overflow:hidden}
   .wa-float{width:50px;height:50px;bottom:20px;right:20px}
   .wa-float svg{width:26px;height:26px}
   .wa-float-tooltip{display:none}
-  .filter-bar{padding:10px 16px;gap:8px;flex-direction:column;align-items:stretch}
+  .filter-bar{color:#111010;padding:10px 16px;gap:8px;flex-direction:column;align-items:stretch}
   .search-wrap{width:100%;max-width:100%;min-width:0}
   .filter-row2{width:100%;gap:8px;flex-wrap:nowrap}
   .sort-label{display:none}
@@ -585,6 +585,98 @@ body.modal-open{overflow:hidden}
   box-shadow: 0 0 22px rgba(220,38,38,.6);
 }
 
+
+/* ── LIQUIDACION PRICE STYLES ─────────────────────────────── */
+.price-old{
+  display:block;font-size:.72rem;color:var(--muted);
+  letter-spacing:.04em;line-height:1.2;margin-bottom:1px;
+}
+.price-old s{text-decoration:line-through;color:#b91c1c;opacity:.75}
+.price-discount small{color:#b91c1c}
+.price-discount{color:#b91c1c !important;font-weight:700}
+
+.liq-badge{
+  display:inline-block;
+  background:linear-gradient(90deg,#dc2626,#ea580c);
+  color:#fff;font-size:.58rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:3px 9px;margin-bottom:4px;
+  box-shadow:0 2px 8px rgba(220,38,38,.35);
+  animation:badgePop .4s ease both;
+}
+@keyframes badgePop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+
+.modal-price-old{
+  font-size:.82rem;color:var(--muted);margin-bottom:4px;
+  letter-spacing:.04em;
+}
+.modal-price-old s{text-decoration:line-through;color:#b91c1c;opacity:.8}
+.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}
+.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}
+.modal-discount-badge{
+  display:inline-block;margin-left:12px;
+  background:linear-gradient(90deg,#dc2626,#ea580c);
+  color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.14em;
+  padding:4px 11px;vertical-align:middle;
+  box-shadow:0 3px 10px rgba(220,38,38,.4);
+  animation:badgePop .4s ease both;
+}
+
+/* ── LIQUIDACION DASHBOARD ─────────────────────────────────── */
+#liq-dashboard{
+  background:var(--carbon);padding:32px 40px 28px;
+  border-bottom:3px solid #dc2626;display:none;
+}
+#liq-dashboard.visible{display:block}
+.liq-dash-title{
+  font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;
+  color:#ef4444;margin-bottom:18px;display:flex;align-items:center;gap:8px;
+}
+.liq-dash-title span{font-size:1.1rem}
+.liq-kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.liq-kpi{
+  flex:1;min-width:120px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(220,38,38,.25);
+  padding:16px 20px;
+}
+.liq-kpi-num{font-size:1.9rem;font-weight:700;color:#f87171;line-height:1}
+.liq-kpi-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,1);margin-top:4px}
+.liq-prod-row{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;
+}
+.liq-prod-chip{
+  background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.2);
+  padding:10px 14px;display:flex;align-items:center;justify-content:space-between;
+  transition:border-color .2s,background .2s;cursor:pointer;
+}
+.liq-prod-chip:hover{border-color:#ef4444;background:rgba(220,38,38,.08)}
+.liq-prod-code{font-size:.65rem;letter-spacing:.2em;color:#ef4444;font-weight:600;text-transform:uppercase}
+.liq-prod-name{font-size:.78rem;color:rgba(255,255,255,.7);margin-top:2px}
+.liq-prod-price{font-size:.82rem;font-weight:700;color:#f87171;white-space:nowrap}
+.liq-prod-old{font-size:.65rem;color:rgba(255,255,255,.3);text-decoration:line-through}
+.liq-prod-discount{
+  font-size:.52rem;background:#dc2626;color:#fff;
+  padding:1px 6px;border-radius:2px;font-weight:700;letter-spacing:.08em;
+  margin-left:6px;white-space:nowrap;
+}
+@media(max-width:660px){
+  #liq-dashboard{padding:20px 16px}
+  .liq-kpi-num{font-size:1.5rem}
+}
+
+
+/* ── BADGE TOP-RIGHT on card image ───────────────────────── */
+.liq-badge-img{
+  position:absolute;top:10px;right:10px;z-index:10;
+  background:linear-gradient(90deg,#dc2626,#ea580c);
+  color:#fff;font-size:.62rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;
+  box-shadow:0 3px 10px rgba(220,38,38,.5);
+  animation:badgePop .4s ease both;
+  pointer-events:none;
+}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"El Viejo Artesano - Barra Arte & Estilo","image":"https://barraleather.com/wp-content/uploads/2025/12/cropped-Diseno-sin-titulo-5.png","telephone":"+51929974727","address":{"@type":"PostalAddress","addressLocality":"Lima","addressRegion":"Lima","addressCountry":"PE"},"url":"https://barraventa-creator.github.io/catalogo-barra","priceRange":"S/5 - S/600","description":"Artículos de cuero genuino hechos a mano en Lima, Perú."}
@@ -611,7 +703,7 @@ body.modal-open{overflow:hidden}
 </a>
 
 <div class="shipping-bar">
-  <span>🚚 <strong>Envío GRATIS</strong> en compras mayores a S/. 250</span>
+  <span>🚚 <strong>Envío GRATIS</strong> en compras mayores a S/ 250</span>
 </div>
 
 <div class="topbar">Envíos a todo el Perú · Arte &amp; Estilo</div>
@@ -654,7 +746,7 @@ body.modal-open{overflow:hidden}
     <input type="text" id="searchInput" placeholder="código / nombre" aria-label="Buscar productos">
   </div>
   <div class="price-range-wrap">
-    <span class="price-label">S/.</span>
+    <span class="price-label">S/</span>
     <input class="price-input" type="number" id="priceMin" placeholder="0" min="0" max="9999" aria-label="Precio mínimo">
     <span class="price-sep" aria-hidden="true">–</span>
     <input class="price-input" type="number" id="priceMax" placeholder="999" min="0" max="9999" aria-label="Precio máximo">
@@ -683,6 +775,13 @@ body.modal-open{overflow:hidden}
 <div class="active-filters" id="activeFilters">
   <span class="active-filters-label">Filtros:</span>
   <div id="filterTags"></div>
+</div>
+
+
+<div id="liq-dashboard" role="region" aria-label="Dashboard Liquidación">
+  <div class="liq-dash-title"><span>🔥</span> Dashboard · Liquidación 2026</div>
+  <div class="liq-kpi-row" id="liqKpiRow"></div>
+  <div class="liq-prod-row" id="liqProdRow"></div>
 </div>
 
 <main id="grid" class="grid" role="region" aria-label="Productos"></main>
@@ -797,7 +896,7 @@ body.modal-open{overflow:hidden}
               </div>
               <div class="ship-prov-card">
                 <div class="ship-prov-name">🏪 Tu agencia favorita</div>
-                <div class="ship-prov-desc">Enviamos a la agencia de Lima que prefieras. Adicional de <strong>S/. 8 – 15</strong> aprox por envío especial.</div>
+                <div class="ship-prov-desc">Enviamos a la agencia de Lima que prefieras. Adicional de <strong>S/ 8 – 15</strong> aprox por envío especial.</div>
                 <div class="ship-prov-detail">📌 Coordina con nosotros por WhatsApp para confirmar agencia y costo.</div>
               </div>
             </div>
@@ -885,7 +984,7 @@ const WA_NUMBER = '51929974727';
 
 // ── CATÁLOGO ──────────────────────────────────────────────────────────────────
 const productos = [
-  {code:'MO01',name:'Mochila',cat:'Liquidacion',price:220,medidas:'26×22×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7586825786410257684',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO01.jpg'},
+  {code:'MO01',name:'Mochila',cat:'Liquidacion',price:200,priceOld:250,medidas:'26×22×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7586825786410257684',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO01.jpg'},
   {code:'MO02',name:'Mochila',cat:'Mochila',price:280,medidas:'26×22×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277436265069432070',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO02.jpg'},
   {code:'MO03',name:'Mochila',cat:'Mochila',price:320,medidas:'38×26.5×11 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7276987113986559237',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO03.jpg'},
   {code:'MO06',name:'Mochila Yute Mediano',cat:'Liquidacion',price:220,medidas:'32×26×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277439712921439494',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO06.jpg'},
@@ -1183,7 +1282,7 @@ DOM.catBar.addEventListener('click', e => {
 function updateActiveTags() {
   const tags = [];
   if (priceMin !== null || priceMax !== null)
-    tags.push(`<div class="filter-tag">S/. ${priceMin || '0'} – ${priceMax || '∞'}<button onclick="clearPriceFilter()">×</button></div>`);
+    tags.push(`<div class="filter-tag">S/ ${priceMin || '0'} – ${priceMax || '∞'}<button onclick="clearPriceFilter()">×</button></div>`);
   if (sortDir)
     tags.push(`<div class="filter-tag">Precio ${sortDir === 'asc' ? '↑' : '↓'}<button onclick="clearSort()">×</button></div>`);
   DOM.filterTags.innerHTML = tags.join('');
@@ -1271,7 +1370,7 @@ function render(list) {
             `<img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.classList.add('error')"></div>` +
           `<div class="card-body">` +
             `<div><div class="card-code">${esc(p.code)}</div><div class="card-name">${esc(p.name)}</div><div class="card-medidas">${esc(p.medidas)}</div></div>` +
-            `<div class="list-info"><div class="card-price"><small>S/. </small>${p.price}</div>${hasVid}</div>` +
+            `<div class="list-info"><div class="card-price"><small>S/ </small>${p.price}</div>${hasVid}</div>` +
           `</div>` +
         `</div>`
       );
@@ -1287,6 +1386,7 @@ function render(list) {
       parts.push(
         `<div class="card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}" style="animation-delay:${delay}s">` +
           `<div class="card-img skeleton" id="${cid}">` +
+            `${p.priceOld ? '<div class="liq-badge-img">🔥 -S/' + (p.priceOld - p.price) + '</div>' : ''}` +
             `<span class="card-emoji" aria-hidden="true">${p.emoji || '👜'}</span>` +
             `<img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"` +
               ` onload="this.classList.add('loaded');document.getElementById('${cid}').classList.remove('skeleton')"` +
@@ -1298,7 +1398,7 @@ function render(list) {
             `<div class="card-code">${esc(p.code)}</div>` +
             `<div class="card-name">${esc(p.name)}</div>` +
             `<div class="card-footer">` +
-              `<div class="card-price"><small>S/. </small>${p.price}</div>` +
+              `<div class="card-price">${p.priceOld ? `<span class="price-old">S/ <s>${p.priceOld}</s></span>` : ''}<span class="${p.priceOld ? 'price-discount' : ''}"><small>S/ </small>${p.price}</span></div>` +
               `<div class="card-medidas">${esc(p.medidas)}</div>` +
             `</div>` +
           `</div>` +
@@ -1352,7 +1452,9 @@ function openModal(idx) {
   DOM.mName.textContent = p.name;
 
   // FIX: removed void reflow hack — just update innerHTML directly
-  DOM.mPrice.innerHTML = `<small style="font-size:1rem;font-weight:300;color:var(--muted)">S/. </small>${p.price}`;
+  DOM.mPrice.innerHTML = p.priceOld
+    ? `<div class="modal-price-old">Precio normal: <s>S/ ${p.priceOld}</s></div><span class="modal-price-discount"><small>S/ </small>${p.price}</span><span class="modal-discount-badge">-${Math.round((1-p.price/p.priceOld)*100)}% OFF</span>`
+    : `<small style="font-size:1rem;font-weight:300;color:var(--muted)">S/ </small>${p.price}`;
 
   DOM.mSpecs.innerHTML =
     `<div class="spec"><div class="spec-l">Código</div><div class="spec-v">${esc(p.code)}</div></div>` +
@@ -1375,7 +1477,7 @@ function openModal(idx) {
         <div class="m-rec-body">
           <div class="m-rec-code">${esc(r.code)}</div>
           <div class="m-rec-name">${esc(r.name)}</div>
-          <div class="m-rec-price"><small>S/. </small>${r.price}</div>
+          <div class="m-rec-price"><small>S/ </small>${r.price}</div>
         </div>
       </div>`;
     }).join('');
@@ -1408,7 +1510,7 @@ function openModal(idx) {
         `<div style="font-size:2.5rem;opacity:.2">♪</div>` +
         `<p style="font-size:.78rem;line-height:1.6">Video próximamente</p>` +
         `<a href="https://www.tiktok.com/@elviejoartesanobarra" target="_blank" rel="noopener noreferrer" ` +
-          `style="font-size:.65rem;color:rgba(255,255,255,.35);text-decoration:none;letter-spacing:.1em">@elviejoartesanobarra</a>` +
+          `style="font-size:.65rem;color:rgba(255,255,255,1);text-decoration:none;letter-spacing:.1em">@elviejoartesanobarra</a>` +
       `</div>`;
     DOM.videoArea.dataset.hasVideo = 'false';
   }
@@ -1422,7 +1524,7 @@ function openModal(idx) {
     const msg = encodeURIComponent(
       `Hola Barra! 👋 Vi su catálogo y me interesa:\n\n` +
       `📦 *${p.name}* (${p.code})\n` +
-      `💰 Precio: S/. ${p.price}\n` +
+      `💰 Precio: S/ ${p.price}\n` +
       `🎨 Colores disponibles: ${p.colores && p.colores.length ? p.colores.join(', ') : 'consultar'}\n\n` +
       `¿Está disponible? ¿Puedo apartarlo hoy?`
     );
@@ -1522,7 +1624,7 @@ function evalDistrict() {
         `<li>El motorizado llega a tu dirección en <strong>${esc(nombre)}</strong>.</li>` +
         `<li>El <strong>costo del envío</strong> se paga al motorizado al recibir.</li>` +
       `</ul>` +
-      `<div class="ship-result-cost">🚚 Envío aprox: <strong>S/. ${esc(costo)}</strong> <span style="font-size:.65rem;color:var(--muted)">(sujeto a tráfico)</span></div>`;
+      `<div class="ship-result-cost">🚚 Envío aprox: <strong>S/ ${esc(costo)}</strong> <span style="font-size:.65rem;color:var(--muted)">(sujeto a tráfico)</span></div>`;
   } else {
     DOM.shipResult.innerHTML =
       `<div class="ship-result-header">📦 Shalom — Recojo en agencia<span class="ship-result-badge shalom">Shalom</span></div>` +
@@ -1531,7 +1633,7 @@ function evalDistrict() {
         `<li>El saldo (50%) + costo de envío al <strong>recoger en tu agencia</strong>.</li>` +
         `<li><strong>Avísanos con anticipación</strong> para coordinar la clave de recojo.</li>` +
       `</ul>` +
-      `<div class="ship-result-cost">💡 Por InDriver a <strong>${esc(nombre)}</strong> costaría S/. ${esc(costo)} aprox — Shalom es más económico.</div>`;
+      `<div class="ship-result-cost">💡 Por InDriver a <strong>${esc(nombre)}</strong> costaría S/ ${esc(costo)} aprox — Shalom es más económico.</div>`;
   }
   DOM.shipResult.style.display = '';
   const mi = document.querySelector('.modal-info');
@@ -1553,6 +1655,68 @@ updateActiveTags();
 // Single render call — setView handles both cases
 if (viewMode === 'list') setView('list');
 else render(getFiltered());
+
+// ── LIQUIDACION DASHBOARD ─────────────────────────────────────────────────
+function buildLiqDashboard() {
+  const liqProds = productos.filter(p => p.cat === 'Liquidacion');
+  const dash = document.getElementById('liq-dashboard');
+  const kpiRow = document.getElementById('liqKpiRow');
+  const prodRow = document.getElementById('liqProdRow');
+  if (!liqProds.length) return;
+
+  // Show dashboard only when Liquidacion category is active
+  function toggleDash() {
+    dash.classList.toggle('visible', categoriaActiva === 'Liquidacion');
+  }
+  // Hook into category change — patch setCategoria
+  const _orig = window.setCategoria || null;
+
+  // KPIs
+  const withDiscount = liqProds.filter(p => p.priceOld);
+  const totalAhorro = withDiscount.reduce((s,p) => s + (p.priceOld - p.price), 0);
+  const avgDesc = withDiscount.length
+    ? Math.round(withDiscount.reduce((s,p) => s + (1 - p.price/p.priceOld)*100, 0) / withDiscount.length)
+    : 0;
+  const maxDesc = withDiscount.length
+    ? Math.max(...withDiscount.map(p => Math.round((1 - p.price/p.priceOld)*100)))
+    : 0;
+
+  kpiRow.innerHTML = [
+    {num: liqProds.length,          label: 'Productos en liquidación'},
+    {num: withDiscount.length,      label: 'Con descuento activo'},
+    {num: `S/ ${totalAhorro}`,     label: 'Ahorro total acumulado'},
+    {num: `${avgDesc}%`,            label: 'Descuento promedio'},
+    {num: `${maxDesc}%`,            label: 'Mayor descuento'},
+  ].map(k => `<div class="liq-kpi"><div class="liq-kpi-num">${k.num}</div><div class="liq-kpi-label">${k.label}</div></div>`).join('');
+
+  prodRow.innerHTML = liqProds.map(p => {
+    const pct = p.priceOld ? Math.round((1-p.price/p.priceOld)*100) : 0;
+    return `<div class="liq-prod-chip" onclick="openModal(productos.indexOf(p))" data-code="${p.code}">
+      <div>
+        <div class="liq-prod-code">${p.code}${pct ? `<span class="liq-prod-discount">-S/${p.priceOld - p.price}</span>` : ''}</div>
+        <div class="liq-prod-name">${p.name}</div>
+        ${p.priceOld ? `<div class="liq-prod-old">S/ ${p.priceOld}</div>` : ''}
+      </div>
+      <div class="liq-prod-price">S/ ${p.price}</div>
+    </div>`;
+  }).join('');
+
+  // make chips clickable
+  prodRow.querySelectorAll('.liq-prod-chip').forEach(chip => {
+    const code = chip.dataset.code;
+    chip.addEventListener('click', () => {
+      const idx = productos.findIndex(p => p.code === code);
+      if (idx >= 0) openModal(idx);
+    });
+  });
+
+  // observe category changes via MutationObserver on catBar
+  const observer = new MutationObserver(toggleDash);
+  observer.observe(document.getElementById('catBar'), {subtree:true, attributes:true, attributeFilter:['class']});
+  toggleDash();
+}
+document.addEventListener('DOMContentLoaded', () => { setTimeout(buildLiqDashboard, 200); });
+
 </script>
 </body>
 </html>
