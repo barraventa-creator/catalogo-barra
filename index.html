@@ -546,137 +546,9 @@ body.modal-open{overflow:hidden}
   html{scroll-behavior:auto}
 }
 
-/* LIQUIDACION special tile */
-.cat-tile[data-cat="Liquidacion"] {
-  background: linear-gradient(135deg, rgba(220,38,38,.25) 0%, rgba(234,88,12,.2) 100%);
-  border-color: rgba(220,38,38,.55);
-  color: #ff6b6b;
-  position: relative;
-  overflow: hidden;
-}
-.cat-tile[data-cat="Liquidacion"]::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(220,38,38,.12) 0%, rgba(234,88,12,.1) 100%);
-  animation: liquidPulse 2s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-@keyframes liquidPulse {
-  0%   { opacity: 0.4; }
-  100% { opacity: 1; }
-}
-.cat-tile[data-cat="Liquidacion"]:hover,
-.cat-tile[data-cat="Liquidacion"].active {
-  background: linear-gradient(135deg, rgba(220,38,38,.45) 0%, rgba(234,88,12,.35) 100%);
-  border-color: #ef4444;
-  color: #fff;
-  box-shadow: 0 0 18px rgba(220,38,38,.45);
-}
-.cat-tile[data-cat="Liquidacion"] .cat-tile-icon {
-  animation: flameDance 1.2s ease-in-out infinite alternate;
-  display: inline-block;
-}
-@keyframes flameDance {
-  0%   { transform: scale(1)   rotate(-4deg); }
-  100% { transform: scale(1.2) rotate(4deg);  }
-}
-.cat-tile[data-cat="Liquidacion"].active {
-  box-shadow: 0 0 22px rgba(220,38,38,.6);
-}
-
-
-/* ── LIQUIDACION PRICE STYLES ─────────────────────────────── */
-.price-old{
-  display:block;font-size:.72rem;color:var(--muted);
-  letter-spacing:.04em;line-height:1.2;margin-bottom:1px;
-}
-.price-old s{text-decoration:line-through;color:#b91c1c;opacity:.75}
-.price-discount small{color:#b91c1c}
-.price-discount{color:#b91c1c !important;font-weight:700}
-
-.liq-badge{
-  display:inline-block;
-  background:linear-gradient(90deg,#dc2626,#ea580c);
-  color:#fff;font-size:.58rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;
-  padding:3px 9px;margin-bottom:4px;
-  box-shadow:0 2px 8px rgba(220,38,38,.35);
-  animation:badgePop .4s ease both;
-}
-@keyframes badgePop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
-
-.modal-price-old{
-  font-size:.82rem;color:var(--muted);margin-bottom:4px;
-  letter-spacing:.04em;
-}
-.modal-price-old s{text-decoration:line-through;color:#b91c1c;opacity:.8}
-.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}
-.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}
-.modal-discount-badge{
-  display:inline-block;margin-left:12px;
-  background:linear-gradient(90deg,#dc2626,#ea580c);
-  color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.14em;
-  padding:4px 11px;vertical-align:middle;
-  box-shadow:0 3px 10px rgba(220,38,38,.4);
-  animation:badgePop .4s ease both;
-}
-
-/* ── LIQUIDACION DASHBOARD ─────────────────────────────────── */
-#liq-dashboard{
-  background:var(--carbon);padding:32px 40px 28px;
-  border-bottom:3px solid #dc2626;display:none;
-}
-#liq-dashboard.visible{display:block}
-.liq-dash-title{
-  font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;
-  color:#ef4444;margin-bottom:18px;display:flex;align-items:center;gap:8px;
-}
-.liq-dash-title span{font-size:1.1rem}
-.liq-kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.liq-kpi{
-  flex:1;min-width:120px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(220,38,38,.25);
-  padding:16px 20px;
-}
-.liq-kpi-num{font-size:1.9rem;font-weight:700;color:#f87171;line-height:1}
-.liq-kpi-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,1);margin-top:4px}
-.liq-prod-row{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;
-}
-.liq-prod-chip{
-  background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.2);
-  padding:10px 14px;display:flex;align-items:center;justify-content:space-between;
-  transition:border-color .2s,background .2s;cursor:pointer;
-}
-.liq-prod-chip:hover{border-color:#ef4444;background:rgba(220,38,38,.08)}
-.liq-prod-code{font-size:.65rem;letter-spacing:.2em;color:#ef4444;font-weight:600;text-transform:uppercase}
-.liq-prod-name{font-size:.78rem;color:rgba(255,255,255,.7);margin-top:2px}
-.liq-prod-price{font-size:.82rem;font-weight:700;color:#f87171;white-space:nowrap}
-.liq-prod-old{font-size:.65rem;color:rgba(255,255,255,.3);text-decoration:line-through}
-.liq-prod-discount{
-  font-size:.52rem;background:#dc2626;color:#fff;
-  padding:1px 6px;border-radius:2px;font-weight:700;letter-spacing:.08em;
-  margin-left:6px;white-space:nowrap;
-}
-@media(max-width:660px){
-  #liq-dashboard{padding:20px 16px}
-  .liq-kpi-num{font-size:1.5rem}
-}
-
-
-/* ── BADGE TOP-RIGHT on card image ───────────────────────── */
-.liq-badge-img{
-  position:absolute;top:10px;right:10px;z-index:10;
-  background:linear-gradient(90deg,#dc2626,#ea580c);
-  color:#fff;font-size:.62rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:4px 10px;
-  box-shadow:0 3px 10px rgba(220,38,38,.5);
-  animation:badgePop .4s ease both;
-  pointer-events:none;
-}
-
+.cat-tile[data-cat="Liquidacion"]{background:linear-gradient(135deg,rgba(220,38,38,.25) 0%,rgba(234,88,12,.2) 100%);border-color:rgba(220,38,38,.55);color:#ff6b6b;position:relative;overflow:hidden}.cat-tile[data-cat="Liquidacion"]::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(220,38,38,.12) 0%,rgba(234,88,12,.1) 100%);animation:liquidPulse 2s ease-in-out infinite alternate;pointer-events:none}@keyframes liquidPulse{0%{opacity:0.4}100%{opacity:1}}.cat-tile[data-cat="Liquidacion"]:hover,.cat-tile[data-cat="Liquidacion"].active{background:linear-gradient(135deg,rgba(220,38,38,.45) 0%,rgba(234,88,12,.35) 100%);border-color:#ef4444;color:#fff;box-shadow:0 0 18px rgba(220,38,38,.45)}.cat-tile[data-cat="Liquidacion"] .cat-tile-icon{animation:flameDance 1.2s ease-in-out infinite alternate;display:inline-block}@keyframes flameDance{0%{transform:scale(1) rotate(-4deg)}100%{transform:scale(1.2) rotate(4deg)}}.cat-tile[data-cat="Liquidacion"].active{box-shadow:0 0 22px rgba(220,38,38,.6)}
+.price-old{display:block;font-size:.72rem;color:#111010;letter-spacing:.04em;line-height:1.2;margin-bottom:1px}.price-old s{text-decoration:line-through;color:#111010;opacity:1}.price-discount small{color:#b91c1c}.price-discount{color:#b91c1c !important;font-weight:700}.liq-badge{display:inline-block;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;margin-bottom:4px;box-shadow:0 2px 8px rgba(220,38,38,.35);animation:badgePop .4s ease both}@keyframes badgePop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}.modal-price-old{font-size:.82rem;color:var(--muted);margin-bottom:4px;letter-spacing:.04em}.modal-price-old s{text-decoration:line-through;color:#111010;opacity:1}.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}.modal-discount-badge{display:inline-block;margin-left:12px;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.14em;padding:4px 11px;vertical-align:middle;box-shadow:0 3px 10px rgba(220,38,38,.4);animation:badgePop .4s ease both}
+.liq-badge-img{position:absolute;top:10px;right:10px;z-index:10;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;box-shadow:0 3px 10px rgba(220,38,38,.5);animation:badgePop .4s ease both;pointer-events:none}#liq-dashboard{background:var(--carbon);padding:32px 40px 28px;border-bottom:3px solid #dc2626;display:none}#liq-dashboard.visible{display:block}.liq-dash-title{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:#ef4444;margin-bottom:18px;display:flex;align-items:center;gap:8px}.liq-dash-title span{font-size:1.1rem}.liq-kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}.liq-kpi{flex:1;min-width:120px;background:rgba(255,255,255,.05);border:1px solid rgba(220,38,38,.25);padding:16px 20px}.liq-kpi-num{font-size:1.9rem;font-weight:700;color:#f87171;line-height:1}.liq-kpi-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}.liq-prod-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}.liq-prod-chip{background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.2);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s,background .2s;cursor:pointer}.liq-prod-chip:hover{border-color:#ef4444;background:rgba(220,38,38,.08)}.liq-prod-code{font-size:.65rem;letter-spacing:.2em;color:#ef4444;font-weight:600;text-transform:uppercase}.liq-prod-name{font-size:.78rem;color:rgba(255,255,255,.85);margin-top:2px}.liq-prod-price{font-size:.88rem;font-weight:700;color:#f87171;white-space:nowrap}.liq-prod-old{font-size:.65rem;color:rgba(255,255,255,.4);text-decoration:line-through}.liq-prod-discount{font-size:.52rem;background:#dc2626;color:#fff;padding:1px 6px;border-radius:2px;font-weight:700;letter-spacing:.08em;margin-left:6px;white-space:nowrap}@media(max-width:660px){#liq-dashboard{padding:20px 16px}.liq-kpi-num{font-size:1.5rem}.liq-prod-row{grid-template-columns:1fr 1fr}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"El Viejo Artesano - Barra Arte & Estilo","image":"https://barraleather.com/wp-content/uploads/2025/12/cropped-Diseno-sin-titulo-5.png","telephone":"+51929974727","address":{"@type":"PostalAddress","addressLocality":"Lima","addressRegion":"Lima","addressCountry":"PE"},"url":"https://barraventa-creator.github.io/catalogo-barra","priceRange":"S/5 - S/600","description":"Artículos de cuero genuino hechos a mano en Lima, Perú."}
@@ -772,10 +644,8 @@ body.modal-open{overflow:hidden}
   </div>
 </div>
 
-<div class="active-filters" id="activeFilters">
-  <span class="active-filters-label">Filtros:</span>
-  <div id="filterTags"></div>
 </div>
+
 
 
 <div id="liq-dashboard" role="region" aria-label="Dashboard Liquidación">
@@ -783,7 +653,6 @@ body.modal-open{overflow:hidden}
   <div class="liq-kpi-row" id="liqKpiRow"></div>
   <div class="liq-prod-row" id="liqProdRow"></div>
 </div>
-
 <main id="grid" class="grid" role="region" aria-label="Productos"></main>
 <div class="empty" id="empty" role="status">
   <div style="font-size:2.5rem;margin-bottom:12px;opacity:.3" aria-hidden="true">🔍</div>
@@ -987,15 +856,15 @@ const productos = [
   {code:'MO01',name:'Mochila',cat:'Liquidacion',price:200,priceOld:250,medidas:'26×22×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7586825786410257684',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO01.jpg'},
   {code:'MO02',name:'Mochila',cat:'Mochila',price:280,medidas:'26×22×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277436265069432070',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO02.jpg'},
   {code:'MO03',name:'Mochila',cat:'Mochila',price:320,medidas:'38×26.5×11 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7276987113986559237',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO03.jpg'},
-  {code:'MO06',name:'Mochila Yute Mediano',cat:'Liquidacion',price:220,medidas:'32×26×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277439712921439494',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO06.jpg'},
-  {code:'MO07',name:'Mochila Yute Grande',cat:'Liquidacion',price:250,medidas:'40.5×30×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7616390965498088720',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO07.jpg'},
+  {code:'MO06',name:'Mochila Yute Mediano',cat:'Liquidacion',price:209,priceOld:250,medidas:'32×26×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277439712921439494',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO06.jpg'},
+  {code:'MO07',name:'Mochila Yute Grande',cat:'Liquidacion',price:239,priceOld:300,medidas:'40.5×30×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7616390965498088720',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO07.jpg'},
   {code:'MO09',name:'Vintage Mediano',cat:'Mochila',price:550,medidas:'36.5×26.5×11 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277624014011518214',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO09.jpg'},
   {code:'MO11',name:'Mochila',cat:'Mochila',price:550,medidas:'32×42×9.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO11.jpg'},
   {code:'MO13',name:'Mochila',cat:'Mochila',price:600,medidas:'40.5×30×10 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277426482698341637',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO13.jpg'},
   {code:'MO14',name:'Vintage Grande',cat:'Mochila',price:680,medidas:'42×31×16 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277623307963206917',img:'https://barraleather.com/wp-content/uploads/2026/03/MOCHILA-DE-CUERO-MO14.jpg'},
   {code:'CN01',name:'Canguro Mediano',cat:'Canguro',price:120,medidas:'32×12×6 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/03/CAGUNRO-DE-CUERO-CN01.jpg'},
-  {code:'CN02',name:'Canguro',cat:'Liquidacion',price:120,medidas:'—',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277636755740708101',img:'https://barraleather.com/wp-content/uploads/2026/03/CAGUNRO-DE-CUERO-CN02.jpg'},
-  {code:'CN03',name:'Canguro',cat:'Liquidacion',price:150,medidas:'—',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277684451784543493',img:'https://barraleather.com/wp-content/uploads/2026/03/CAGUNRO-DE-CUERO-CN03.jpg'},
+  {code:'CN02',name:'Canguro',cat:'Liquidacion',price:109,priceOld:150,medidas:'—',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277636755740708101',img:'https://barraleather.com/wp-content/uploads/2026/03/CAGUNRO-DE-CUERO-CN02.jpg'},
+  {code:'CN03',name:'Canguro',cat:'Liquidacion',price:139,priceOld:180,medidas:'—',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277684451784543493',img:'https://barraleather.com/wp-content/uploads/2026/03/CAGUNRO-DE-CUERO-CN03.jpg'},
   {code:'CN04',name:'Canguro Grande',cat:'Canguro',price:150,medidas:'40×14×8 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/03/CAGUNRO-DE-CUERO-CN04.jpg'},
   {code:'CN05',name:'Canguro',cat:'Canguro',price:120,medidas:'40×14×8 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7612679047398690069',img:'https://barraleather.com/wp-content/uploads/2026/03/CN-05-CAMEL.jpg'},
   {code:'CN06',name:'Canguro Grande',cat:'Canguro',price:280,medidas:'40×14×8 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7588187082045148437',img:'https://barraleather.com/wp-content/uploads/2026/03/CAGUNRO-DE-CUERO-CN06.jpg'},
@@ -1003,7 +872,7 @@ const productos = [
   {code:'NE02',name:'Neceser Mediano',cat:'Neceser',price:120,medidas:'18×9.5×6 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7277637317190274309',img:'https://barraleather.com/wp-content/uploads/2026/03/NECESER-DE-CUERO-NE02.jpg'},
   {code:'NE03',name:'Neceser Mediano',cat:'Neceser',price:130,medidas:'21×12×8 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7277637317190274309',img:'https://barraleather.com/wp-content/uploads/2026/03/NECESER-DE-CUERO-NE03.jpg'},
   {code:'NE04',name:'Neceser Grande',cat:'Neceser',price:150,medidas:'22×13.5×8 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7277637317190274309',img:'https://barraleather.com/wp-content/uploads/2026/03/NECESER-DE-CUERO-NE04.jpg'},
-  {code:'NE05',name:'Porta Cosmético',cat:'Liquidacion',price:120,medidas:'21×13 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7612679047398690069',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTUCHERA-DE-CUERO-NE05.jpg'},
+  {code:'NE05',name:'Porta Cosmético',cat:'Liquidacion',price:109,priceOld:150,medidas:'21×13 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7612679047398690069',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTUCHERA-DE-CUERO-NE05.jpg'},
   {code:'NE06',name:'Porta Cosmético',cat:'Neceser',price:150,medidas:'23×10×10 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7335318383539260678',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTUCHERA-DE-CUERO-NE06.jpg'},
   {code:'NE07',name:'Neceser Grande',cat:'Neceser',price:280,medidas:'26×10×15 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/CARTUCHERA-DE-CUERO-NE07.jpg'},
   {code:'CR01-DA',name:'Correa',cat:'Correa',price:85,medidas:'Tallas 32 a 44',emoji:'👔',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/CORREA-DE-CUERO-CR01-DA-.jpg'},
@@ -1025,7 +894,7 @@ const productos = [
   {code:'BC09',name:'Billetera Rec',cat:'Billetera Hombre',price:100,medidas:'11×11 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7273164568640179462',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC09.jpg'},
   {code:'BC10',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'11×8.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7273639799305571589',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC10.jpg'},
   {code:'BC11',name:'Billetera RFID',cat:'Billetera Hombre',price:100,medidas:'10×8 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7613819453796535572',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC11.jpg'},
-  {code:'BC12',name:'Billetera',cat:'Liquidacion',price:35,medidas:'11×8.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7626513774287080724',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC12.jpg'},
+  {code:'BC12',name:'Billetera',cat:'Liquidacion',price:35,priceOld:100,medidas:'11×8.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7626513774287080724',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC12.jpg'},
   {code:'BC13',name:'Chequera',cat:'Billetera Hombre',price:120,medidas:'10×17 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7588273257539718421',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC13.jpg'},
   {code:'BC14',name:'Chequera',cat:'Billetera Hombre',price:120,medidas:'10×18 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7588271235151285524',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC14.jpg'},
   {code:'BC16',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'10×8 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC16.jpg'},
@@ -1048,14 +917,14 @@ const productos = [
   {code:'TJ06',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'11×8.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7410991428739910917',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ06.jpg'},
   {code:'MV01',name:'Maleta',cat:'Bolso de Viaje',price:600,medidas:'43×23×19 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622057567786683664',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-01-MARRON.jpg'},
   {code:'MV03',name:'Maletín California',cat:'Bolso de Viaje',price:650,medidas:'54×35×22.5 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622401038313639184',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-01-CAMEL.png'},
-  {code:'MV04',name:'Maleta',cat:'Liquidacion',price:450,medidas:'67×38×23 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622078472361364753',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-03-CALIFORNIA-NEGRO.jpg'},
-  {code:'MN01',name:'Maletín',cat:'Liquidacion',price:250,medidas:'26×28×6.5 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MN01.png'},
+  {code:'MV04',name:'Maleta',cat:'Liquidacion',price:450,priceOld:950,medidas:'67×38×23 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622078472361364753',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-03-CALIFORNIA-NEGRO.jpg'},
+  {code:'MN01',name:'Maletín',cat:'Liquidacion',price:229,priceOld:280,medidas:'26×28×6.5 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MN01.png'},
   {code:'MN04',name:'Maletín',cat:'Maletín',price:320,medidas:'34×25×7 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7276988812230790405',img:'https://barraleather.com/wp-content/uploads/2026/03/Morral-de-cuero-MN04.png'},
   {code:'MN07',name:'Maletín',cat:'Maletín',price:480,medidas:'35×26×8 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7283622304184077574',img:'https://barraleather.com/wp-content/uploads/2026/03/Morral-de-cuero-MN07.png'},
   {code:'MN08',name:'Maletín',cat:'Maletín',price:450,medidas:'35×26×11 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7276989522028547334',img:'https://barraleather.com/wp-content/uploads/2026/03/MALETIN-DE-CUERO-MN08.jpg'},
   {code:'CA01',name:'Cartera',cat:'Cartera',price:120,medidas:'20×20×5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo','Rosado','Guinda'],tiktok:'7618608212262227218',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA01.jpg'},
   {code:'CA02',name:'Cartera',cat:'Cartera',price:150,medidas:'13×21.5×7 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo','Rosado','Guinda'],tiktok:'7288361697541246213',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA02.jpg'},
-  {code:'CA04',name:'Cartera',cat:'Liquidacion',price:350,medidas:'32×43×11.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7619385318310939925',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA04.jpg'},
+  {code:'CA04',name:'Cartera',cat:'Liquidacion',price:339,priceOld:390,medidas:'32×43×11.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7619385318310939925',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA04.jpg'},
   {code:'CA05',name:'Cartera',cat:'Cartera',price:350,medidas:'32×43×11.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Verde','Lila','Rojo'],tiktok:'7632081764755918101',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA05.jpg'},
   {code:'CA06',name:'Cartera',cat:'Cartera',price:350,medidas:'32×43×11.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7629856901072735508',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA06.jpg'},
   {code:'CA07',name:'Cartera',cat:'Cartera',price:350,medidas:'32×43×11.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA07.jpg'},
@@ -1063,7 +932,7 @@ const productos = [
   {code:'CA09',name:'Cartera',cat:'Cartera',price:250,medidas:'20.5×17×7 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7492432779402185990',img:'https://barraleather.com/wp-content/uploads/2026/05/CARTERA-CUERO-CA09.jpg'},
   {code:'CA10',name:'Cartera',cat:'Cartera',price:250,medidas:'14×28.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7563868452381822219',img:'https://barraleather.com/wp-content/uploads/2026/03/CA10-AMARILLO-1.jpg'},
   {code:'CA11',name:'Cartera',cat:'Cartera',price:680,medidas:'52×31 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7582243126417427723',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA11.jpg'},
-  {code:'PE01',name:'Pechera',cat:'Liquidacion',price:250,medidas:'26.5×16×6.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277371701040598277',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-PE01.jpg'},
+  {code:'PE01',name:'Pechera',cat:'Liquidacion',price:229,priceOld:300,medidas:'26.5×16×6.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277371701040598277',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-PE01.jpg'},
   {code:'PE02',name:'Pechera',cat:'Pechera',price:280,medidas:'32×17.5×7 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277369674285763846',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-DE-CUERO-PE02.jpg'},
   {code:'PE03',name:'Pechera',cat:'Pechera',price:280,medidas:'32.5×14×7 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7616417152798706945',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-DE-CUERO-PE03.jpg'},
   {code:'PE04',name:'Pechera',cat:'Pechera',price:300,medidas:'32.5×14.5×7 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7396338747874233605',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-DE-CUERO-PE04.jpg'},
@@ -1077,33 +946,33 @@ const productos = [
   {code:'ML07',name:'Morralito',cat:'Morral',price:160,medidas:'23.5×16.5×6.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7584499625936063764',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML07.jpg'},
   {code:'ML08',name:'Morralito',cat:'Morral',price:200,medidas:'24×21.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7277313311937400069',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML08.png'},
   {code:'ML09',name:'Morralito',cat:'Morral',price:250,medidas:'27×21.5×8 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7277312559970127109',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML09.jpg'},
-  {code:'ML10',name:'Morral Gallero',cat:'Liquidacion',price:250,medidas:'28.5×23×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7605276354724023572',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML10.jpg'},
+  {code:'ML10',name:'Morral Gallero',cat:'Liquidacion',price:239,priceOld:300,medidas:'28.5×23×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7605276354724023572',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML10.jpg'},
   {code:'ML11',name:'Morralito',cat:'Morral',price:200,medidas:'24×21.5×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7632447196905966868',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML11.jpg'},
   {code:'ML13',name:'Morral',cat:'Morral',price:320,medidas:'34×25×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7277318730286124294',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML13.jpg'},
   {code:'ML14',name:'Morral',cat:'Morral',price:320,medidas:'33×25.5×6 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML14.jpg'},
-  {code:'ML15',name:'Morral',cat:'Liquidacion',price:320,medidas:'33×25.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML15.jpg'},
+  {code:'ML15',name:'Morral',cat:'Liquidacion',price:299,priceOld:350,medidas:'33×25.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML15.jpg'},
   {code:'ML20',name:'Morral',cat:'Morral',price:280,medidas:'30×22×6 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7396375561460894981',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML20.jpg'},
   {code:'LL01',name:'Llavero',cat:'Liquidacion',price:5,medidas:'—',emoji:'✨',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL01.jpg'},
-  {code:'LL02',name:'Llavero',cat:'Liquidacion',price:10,medidas:'—',emoji:'✨',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL02.jpg'},
+  {code:'LL02',name:'Llavero',cat:'Liquidacion',price:8,priceOld:15,medidas:'—',emoji:'✨',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL02.jpg'},
   {code:'LL03',name:'Llavero',cat:'Accesorio',price:15,medidas:'—',emoji:'✨',colores:['Negro','Marrón'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL03.jpg'},
   {code:'LL04',name:'Llavero',cat:'Accesorio',price:35,medidas:'—',emoji:'✨',colores:['Marrón'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL04.jpg'},
   {code:'LL05',name:'Llavero Corazón',cat:'Accesorio',price:30,medidas:'—',emoji:'✨',colores:['Rojo'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL05.jpg'},
   {code:'LL06',name:'Llavero',cat:'Accesorio',price:30,medidas:'—',emoji:'✨',colores:['Guinda'],tiktok:'7400007079152389382',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL06.jpg'},
   {code:'PT01',name:'Llavero Porta Llaves',cat:'Accesorio',price:15,medidas:'9.5×7 cm',emoji:'✨',colores:['Negro','Camel'],tiktok:'7619446973007170837',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-PT01.jpg'},
-  {code:'PT02',name:'Llavero Multiusos',cat:'Liquidacion',price:30,medidas:'—',emoji:'✨',colores:['Negro','Camel'],tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
-  {code:'PT04',name:'Porta Celular',cat:'Liquidacion',price:95,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
+  {code:'PT02',name:'Llavero Multiusos',cat:'Liquidacion',price:25,priceOld:50,medidas:'—',emoji:'✨',colores:['Negro','Camel'],tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
+  {code:'PT04',name:'Porta Celular',cat:'Liquidacion',price:89,priceOld:120,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
   {code:'PT11',name:'Porta Pasaporte',cat:'Accesorio',price:95,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7400023049052916998',img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-PASAPORTE-PT11.jpg'},
   {code:'SO01',name:'Sombrero',cat:'Accesorio',price:160,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7593493155433991442',img:'https://barraleather.com/wp-content/uploads/2026/03/SOMBRERO-DE-CUERO-SO01.jpg'},
   {code:'GR01',name:'Gorro',cat:'Accesorio',price:120,medidas:'—',emoji:'✨',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/GORRO-DE-CUERO-GR01.jpg'},
   {code:'GU01',name:'Guantes',cat:'Accesorio',price:95,medidas:'Consultar tallas',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7632081280133238036',img:'https://barraleather.com/wp-content/uploads/2026/03/GUANTES-DE-CUERO-GU01.jpg'},
-  {code:'PD01',name:'Pulsera',cat:'Liquidacion',price:75,medidas:'18 a 23 cm',emoji:'✨',colores:['Negro','Camel'],tiktok:'7619448226713832725',img:'https://barraleather.com/wp-content/uploads/2026/03/PULSERA-DE-CUERO-PD01.jpg'},
+  {code:'PD01',name:'Pulsera',cat:'Liquidacion',price:65,priceOld:100,medidas:'18 a 23 cm',emoji:'✨',colores:['Negro','Camel'],tiktok:'7619448226713832725',img:'https://barraleather.com/wp-content/uploads/2026/03/PULSERA-DE-CUERO-PD01.jpg'},
   {code:'MR02',name:'Monedero',cat:'Monedero',price:5,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613900073486896400',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR02.jpg'},
   {code:'MR03',name:'Monedero',cat:'Monedero',price:5,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR03.jpg'},
-  {code:'MR04',name:'Monedero',cat:'Liquidacion',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619350173596011797',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR04.jpg'},
+  {code:'MR04',name:'Monedero',cat:'Liquidacion',price:25,priceOld:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619350173596011797',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR04.jpg'},
   {code:'MR05',name:'Monedero',cat:'Monedero',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627189019897580820',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR05.jpg'},
   {code:'MR05-V1',name:'Monedero V.1',cat:'Monedero',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627189019897580820',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR051.jpg'},
   {code:'MR06',name:'Monedero',cat:'Monedero',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7626521410118143252',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR06.jpg'},
-  {code:'MR07',name:'Monedero',cat:'Liquidacion',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR07.jpg'},
+  {code:'MR07',name:'Monedero',cat:'Liquidacion',price:39,priceOld:65,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR07.jpg'},
   {code:'MR08',name:'Monedero',cat:'Monedero',price:25,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7626524313012817173',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR08.jpg'},
   {code:'MR09',name:'Monedero',cat:'Monedero',price:45,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619814174431989013',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR09.jpg'},
   {code:'MR10',name:'Monedero',cat:'Monedero',price:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619806544842034453',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR10.jpg'},
@@ -1111,12 +980,12 @@ const productos = [
   {code:'MR12',name:'Monedero',cat:'Monedero',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619821056089427221',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR12.jpg'},
   {code:'MR13',name:'Monedero',cat:'Monedero',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613894444831477009',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR13.jpg'},
   {code:'MR14',name:'Monedero',cat:'Monedero',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627211816262765845',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR14.jpg'},
-  {code:'MR16',name:'Monedero',cat:'Liquidacion',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627212701177138452',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR16.jpg'},
-  {code:'MR17',name:'Monedero',cat:'Liquidacion',price:20,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613896889343249665',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR17.jpg'},
+  {code:'MR16',name:'Monedero',cat:'Liquidacion',price:15,priceOld:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627212701177138452',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR16.jpg'},
+  {code:'MR17',name:'Monedero',cat:'Liquidacion',price:15,priceOld:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613896889343249665',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR17.jpg'},
   {code:'MR18',name:'Monedero',cat:'Monedero',price:20,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR18.jpg'},
   {code:'MR19',name:'Monedero',cat:'Monedero',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7629837099943922964',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR19.jpg'},
-  {code:'MR20',name:'Monedero',cat:'Liquidacion',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613872033918651649',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR20.jpg'},
-  {code:'MR21',name:'Monedero',cat:'Liquidacion',price:15,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7629835359148379412',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21.jpg'},
+  {code:'MR20',name:'Monedero',cat:'Liquidacion',price:15,priceOld:29,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613872033918651649',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR20.jpg'},
+  {code:'MR21',name:'Monedero',cat:'Liquidacion',price:12,priceOld:25,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7629835359148379412',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21.jpg'},
   {code:'MR22',name:'Monedero',cat:'Monedero',price:35,medidas:'—',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613869031845563664',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21-1.jpg'},
   {code:'AC01',name:'Crema para Cuero',cat:'Accesorio',price:15,medidas:'—',emoji:'✨',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC01.jpg'},
   {code:'AC02',name:'Crema Nutripiel',cat:'Accesorio',price:35,medidas:'—',emoji:'✨',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC02.jpg'},
@@ -1656,24 +1525,22 @@ updateActiveTags();
 if (viewMode === 'list') setView('list');
 else render(getFiltered());
 
+
+
 // ── LIQUIDACION DASHBOARD ─────────────────────────────────────────────────
 function buildLiqDashboard() {
   const liqProds = productos.filter(p => p.cat === 'Liquidacion');
   const dash = document.getElementById('liq-dashboard');
   const kpiRow = document.getElementById('liqKpiRow');
   const prodRow = document.getElementById('liqProdRow');
-  if (!liqProds.length) return;
+  if (!liqProds.length || !dash) return;
 
-  // Show dashboard only when Liquidacion category is active
   function toggleDash() {
     dash.classList.toggle('visible', categoriaActiva === 'Liquidacion');
   }
-  // Hook into category change — patch setCategoria
-  const _orig = window.setCategoria || null;
 
-  // KPIs
   const withDiscount = liqProds.filter(p => p.priceOld);
-  const totalAhorro = withDiscount.reduce((s,p) => s + (p.priceOld - p.price), 0);
+  const totalAhorro  = withDiscount.reduce((s,p) => s + (p.priceOld - p.price), 0);
   const avgDesc = withDiscount.length
     ? Math.round(withDiscount.reduce((s,p) => s + (1 - p.price/p.priceOld)*100, 0) / withDiscount.length)
     : 0;
@@ -1682,18 +1549,18 @@ function buildLiqDashboard() {
     : 0;
 
   kpiRow.innerHTML = [
-    {num: liqProds.length,          label: 'Productos en liquidación'},
-    {num: withDiscount.length,      label: 'Con descuento activo'},
-    {num: `S/ ${totalAhorro}`,     label: 'Ahorro total acumulado'},
-    {num: `${avgDesc}%`,            label: 'Descuento promedio'},
-    {num: `${maxDesc}%`,            label: 'Mayor descuento'},
+    {num: liqProds.length,         label: 'Productos en liquidación'},
+    {num: withDiscount.length,     label: 'Con descuento activo'},
+    {num: 'S/ ' + totalAhorro,     label: 'Ahorro total acumulado'},
+    {num: avgDesc + '%',           label: 'Descuento promedio'},
+    {num: maxDesc + '%',           label: 'Mayor descuento'},
   ].map(k => `<div class="liq-kpi"><div class="liq-kpi-num">${k.num}</div><div class="liq-kpi-label">${k.label}</div></div>`).join('');
 
   prodRow.innerHTML = liqProds.map(p => {
-    const pct = p.priceOld ? Math.round((1-p.price/p.priceOld)*100) : 0;
-    return `<div class="liq-prod-chip" onclick="openModal(productos.indexOf(p))" data-code="${p.code}">
+    const saving = p.priceOld ? (p.priceOld - p.price) : 0;
+    return `<div class="liq-prod-chip" data-code="${p.code}">
       <div>
-        <div class="liq-prod-code">${p.code}${pct ? `<span class="liq-prod-discount">-S/${p.priceOld - p.price}</span>` : ''}</div>
+        <div class="liq-prod-code">${p.code}${saving ? `<span class="liq-prod-discount">-S/${saving}</span>` : ''}</div>
         <div class="liq-prod-name">${p.name}</div>
         ${p.priceOld ? `<div class="liq-prod-old">S/ ${p.priceOld}</div>` : ''}
       </div>
@@ -1701,21 +1568,18 @@ function buildLiqDashboard() {
     </div>`;
   }).join('');
 
-  // make chips clickable
   prodRow.querySelectorAll('.liq-prod-chip').forEach(chip => {
-    const code = chip.dataset.code;
     chip.addEventListener('click', () => {
-      const idx = productos.findIndex(p => p.code === code);
+      const idx = productos.findIndex(p => p.code === chip.dataset.code);
       if (idx >= 0) openModal(idx);
     });
   });
 
-  // observe category changes via MutationObserver on catBar
   const observer = new MutationObserver(toggleDash);
   observer.observe(document.getElementById('catBar'), {subtree:true, attributes:true, attributeFilter:['class']});
   toggleDash();
 }
-document.addEventListener('DOMContentLoaded', () => { setTimeout(buildLiqDashboard, 200); });
+document.addEventListener('DOMContentLoaded', () => { setTimeout(buildLiqDashboard, 300); });
 
 </script>
 </body>
