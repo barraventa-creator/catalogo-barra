@@ -330,10 +330,9 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .spec{padding:10px 12px;background:var(--arena)}
 .spec-l{font-size:.57rem;letter-spacing:.22em;text-transform:uppercase;color:#111010;margin-bottom:3px}
 .spec-v{font-size:.83rem;font-weight:500;color:var(--texto)}
-.color-list{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.color-item{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
-.color-dot{width:13px;height:13px;border-radius:50%;display:inline-block;border:1px solid rgba(17,16,16,.18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
-.color-name{font-size:.75rem;font-weight:500;color:var(--texto)}
+.color-consulta{display:inline-flex;align-items:center;gap:6px;color:#168f48;text-decoration:none;font-weight:600;cursor:pointer}
+.color-consulta:hover{text-decoration:underline;color:#11733a}
+.color-consulta svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
 
 .m-recs{margin-bottom:16px}
 .m-recs-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
@@ -1252,37 +1251,15 @@ function openModal(idx) {
     ? `<div class="modal-price-old">Precio normal: <s>S/ ${p.priceOld}</s></div><span class="modal-price-discount"><small>S/ </small>${p.price}</span><span class="modal-discount-badge">-${Math.round((1-p.price/p.priceOld)*100)}% OFF</span>`
     : `<small style="font-size:1rem;font-weight:300;color:var(--muted)">S/ </small>${p.price}`;
 
-  const coloresProducto = Array.isArray(p.colores)
-    ? p.colores
-    : (Array.isArray(p.color) ? p.color : ['—']);
-
-  const colorStyles = {
-    'Negro':'#242424',
-    'Camel':'#D6A46A',
-    'Marrón':'#6B3F2A',
-    'Rojo':'#B3261E',
-    'Rosado':'#E7A0B4',
-    'Amarillo':'#E7C84A',
-    'Lila':'#B9A0D8',
-    'Verde':'#6F8F5B',
-    'Azul':'#4F78A8',
-    'Azul marino':'#263B5A',
-    'Guinda':'#6E2638'
-  };
-
-  const coloresHTML = coloresProducto.includes('—')
-    ? '—'
-    : coloresProducto.map(color => {
-        const nombre = String(color);
-        const fondo = colorStyles[nombre] || '#B8B8B8';
-        return `<span class="color-item"><span class="color-dot" style="background:${fondo}" aria-hidden="true"></span><span class="color-name">${esc(nombre)}</span></span>`;
-      }).join('');
+  const waColorMessage = `Hola, quisiera consultar los colores disponibles del producto ${p.name} (código ${p.code}).`;
+  const waColorLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waColorMessage)}`;
 
   DOM.mSpecs.innerHTML =
     `<div class="spec"><div class="spec-l">Código</div><div class="spec-v">${esc(p.code)}</div></div>` +
     `<div class="spec"><div class="spec-l">Medidas</div><div class="spec-v">${esc(p.medidas)}</div></div>` +
     `<div class="spec"><div class="spec-l">Material</div><div class="spec-v">Cuero genuino</div></div>` +
-    `<div class="spec"><div class="spec-l">Colores</div><div class="spec-v color-list">${coloresHTML}</div></div>`;
+    `<div class="spec"><div class="spec-l">Colores</div><div class="spec-v"><a class="color-consulta" href="${waColorLink}" target="_blank" rel="noopener noreferrer" aria-label="Consultar colores por WhatsApp">` +
+      `${WA_SVG} Consultar al WhatsApp</a></div></div>`;
 
   // Recommendations — pick 3 random same-category items
   const recs = productos.filter(r => r.cat === p.cat && r.code !== p.code)
