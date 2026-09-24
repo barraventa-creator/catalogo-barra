@@ -144,46 +144,174 @@ header{
 .cat-tile.tile-todos{grid-column:span 2;flex-direction:row;gap:10px;padding:11px 16px;font-size:.62rem}
 .cat-tile.tile-todos .cat-tile-icon{font-size:1.1rem}
 
-.filter-bar{color:#111010;
-  background:var(--arena-dark);padding:12px 40px;
-  border-bottom:1px solid var(--borde);
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+/* ── BARRA DE FILTROS OPTIMIZADA UX ── */
+.filter-bar{
+  color:#111010;
+  background:var(--arena-dark);
+  padding:14px 40px;
+  border-bottom:2px solid var(--borde);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
-.filter-row2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.search-wrap{display:flex;flex:1;min-width:200px;max-width:420px}
-.search-icon{background:var(--negro);padding:13px 16px;display:flex;align-items:center}
-.search-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
+.filter-row2{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  flex:1;
+}
+.search-wrap{
+  display:flex;
+  flex:1;
+  min-width:240px;
+  max-width:420px;
+  box-shadow:0 2px 5px rgba(0,0,0,.05);
+}
+.search-icon{
+  background:var(--negro);
+  width:46px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1.5px solid var(--negro);
+  border-right:none;
+}
+.search-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2}
 input[type=text]{
-  flex:1;padding:13px 18px;border:1.5px solid var(--borde);border-left:none;
-  background:#fff;font-family:'Fredoka',sans-serif;font-size:.9rem;color:var(--texto);
-  outline:none;transition:border-color .2s;
+  flex:1;
+  height:46px;
+  padding:0 16px;
+  border:1.5px solid #2A2420;
+  border-left:none;
+  background:#fff;
+  font-family:'Fredoka',sans-serif;
+  font-size:.9rem;
+  color:var(--texto);
+  outline:none;
+  transition:border-color .2s,box-shadow .2s;
 }
-input[type=text]:focus{border-color:var(--camel)}
-input[type=text]::placeholder{color:#111010;font-size:.83rem}
-.sort-wrap{display:flex;align-items:center;gap:6px}
-.sort-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#111010;white-space:nowrap}
+input[type=text]:focus{border-color:var(--camel);box-shadow:inset 0 0 0 1px var(--camel)}
+input[type=text]::placeholder{color:#666;font-size:.85rem}
+
+.sort-wrap{display:flex;align-items:center;gap:8px}
+.sort-label{
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#111010;
+  white-space:nowrap;
+}
 .sort-btn{
-  padding:10px 14px;background:transparent;border:1.5px solid var(--borde);
-  font-family:'Fredoka',sans-serif;font-size:.72rem;letter-spacing:.12em;
-  text-transform:uppercase;color:#111010;cursor:pointer;
-  transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:6px;
+  height:46px;
+  padding:0 16px;
+  background:#fff;
+  border:1.5px solid #2A2420;
+  border-radius:4px;
+  font-family:'Fredoka',sans-serif;
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#111010;
+  cursor:pointer;
+  transition:all .2s;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 2px 5px rgba(0,0,0,.05);
 }
-.sort-btn:hover,.sort-btn.active{border-color:var(--camel);color:var(--camel);background:rgba(196,134,42,.06)}
-.sort-btn svg{width:12px;height:12px;fill:currentColor}
-.view-toggle{display:flex;border:1.5px solid var(--borde);overflow:hidden}
-.view-btn{padding:9px 12px;background:transparent;border:none;cursor:pointer;color:#111010;transition:all .2s;display:flex;align-items:center}
-.view-btn:hover{background:rgba(196,134,42,.06);color:var(--camel)}
+.sort-btn:hover{border-color:var(--camel);color:var(--camel);background:#FAF7F3}
+.sort-btn.active{background:var(--camel);border-color:var(--camel);color:#fff}
+.sort-btn svg{
+  width:14px;
+  height:14px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  flex-shrink:0;
+}
+
+.view-toggle{
+  display:inline-flex;
+  height:46px;
+  border:1.5px solid #2A2420;
+  border-radius:4px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 2px 5px rgba(0,0,0,.05);
+}
+.view-btn{
+  height:100%;
+  width:46px;
+  background:#fff;
+  border:none;
+  cursor:pointer;
+  color:#111010;
+  transition:all .2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.view-btn:hover:not(.active){background:#FAF7F3;color:var(--camel)}
 .view-btn.active{background:var(--negro);color:#fff}
-.view-btn svg{width:14px;height:14px;fill:currentColor}
+.view-btn svg{width:18px;height:18px;fill:currentColor}
+
 .btn-limpiar{
-  padding:13px 20px;background:transparent;border:1.5px solid var(--borde);
-  font-family:'Fredoka',sans-serif;font-size:.72rem;letter-spacing:.15em;
-  text-transform:uppercase;color:#111010;cursor:pointer;
-  transition:all .2s;white-space:nowrap;
+  height:46px;
+  padding:0 18px;
+  background:#fff;
+  border:1.5px solid #2A2420;
+  border-radius:4px;
+  font-family:'Fredoka',sans-serif;
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#111010;
+  cursor:pointer;
+  transition:all .2s;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  box-shadow:0 2px 5px rgba(0,0,0,.05);
 }
-.btn-limpiar:hover{border-color:var(--camel);color:var(--camel)}
-.results-info{font-size:.72rem;letter-spacing:.1em;color:#111010;text-transform:uppercase;margin-left:auto;white-space:nowrap}
-.results-info b{color:var(--camel)}
+.btn-limpiar svg{
+  width:13px;
+  height:13px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.btn-limpiar:hover{border-color:#b3261e;background:#b3261e;color:#fff}
+
+.results-info{
+  font-size:.74rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  color:#111010;
+  text-transform:uppercase;
+  margin-left:auto;
+  white-space:nowrap;
+  background:#fff;
+  height:46px;
+  padding:0 16px;
+  display:inline-flex;
+  align-items:center;
+  border:1.5px solid #2A2420;
+  border-radius:4px;
+  box-shadow:0 2px 5px rgba(0,0,0,.05);
+}
+.results-info b{color:var(--camel);font-size:.95rem;font-weight:700;margin:0 4px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1px;padding:1px;background:var(--borde);min-height:200px}
 .grid.list-mode{grid-template-columns:1fr;gap:0;background:transparent;padding:0}
@@ -244,7 +372,7 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .card-price small{font-size:.78rem;font-weight:300;color:#111010}
 .card-medidas{font-size:.65rem;color:#111010;letter-spacing:.05em}
 
-/* List card — all layout via CSS, no inline styles */
+/* List card */
 .card.list-card{
   display:flex;flex-direction:row;
   border-bottom:1px solid var(--borde);
@@ -297,7 +425,6 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .modal-close:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .modal-close::after{content:none}
 
-/* imgArea: fondo blanco — igual que el fondo de las fotos, sin marco visible */
 #imgArea{
   width:100%;
   flex:1;
@@ -306,10 +433,9 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
   background:#fff;
   overflow:hidden;
 }
-/* Imagen absolute con inset como margen interno — object-fit:contain respeta el ratio exacto */
 #mImg{
   position:absolute;
-  inset:28px;                      /* 28px de espacio en los 4 lados */
+  inset:28px;
   width:calc(100% - 56px);
   height:calc(100% - 56px);
   object-fit:contain;
@@ -324,8 +450,7 @@ input[type=text]::placeholder{color:#111010;font-size:.83rem}
 .modal-info{padding:28px 26px;display:flex;flex-direction:column;overflow-y:auto}
 .m-name{font-size:1.75rem;font-weight:400;color:var(--texto);line-height:1.2;margin-bottom:4px}
 .m-divider{height:1px;background:var(--borde);margin:14px 0}
-.m-price{font-size:2.2rem;font-weight:700;color:var(--texto)}
-.m-price-note{font-size:.68rem;letter-spacing:.08em;color:#111010;margin-top:3px;margin-bottom:16px}
+.m-price{font-size:2.2rem;font-weight:700;color:var(--texto);margin-bottom:18px}
 .m-specs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
 .spec{padding:10px 12px;background:var(--arena)}
 .spec-l{font-size:.57rem;letter-spacing:.22em;text-transform:uppercase;color:#111010;margin-bottom:3px}
@@ -490,14 +615,17 @@ body.modal-open{overflow:hidden}
   .wa-float{width:50px;height:50px;bottom:20px;right:20px}
   .wa-float svg{width:26px;height:26px}
   .wa-float-tooltip{display:none}
-  .filter-bar{color:#111010;padding:10px 16px;gap:8px;flex-direction:column;align-items:stretch}
+
+  /* Filtros en móvil */
+  .filter-bar{padding:12px 16px;gap:8px;flex-direction:column;align-items:stretch}
   .search-wrap{width:100%;max-width:100%;min-width:0}
   .filter-row2{width:100%;gap:8px;flex-wrap:nowrap}
   .sort-label{display:none}
-  .sort-btn{flex:1;justify-content:center;padding:10px 8px;font-size:.68rem}
-  .btn-limpiar{flex:1;padding:10px 8px;font-size:.68rem;text-align:center}
-  .view-toggle{flex-shrink:0}
-  .view-btn{padding:9px 11px}
+  .sort-btn{flex:1;justify-content:center;padding:0 8px;font-size:.68rem;height:44px}
+  .btn-limpiar{flex:1;padding:0 8px;font-size:.68rem;height:44px;text-align:center;justify-content:center}
+  .view-toggle{flex-shrink:0;height:44px}
+  .view-btn{width:38px}
+
   .overlay{padding:0;align-items:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch}
   .overlay .modal{max-height:none;min-height:100dvh;overflow-y:auto}
   .modal-media{min-height:clamp(300px,52dvh,460px);height:clamp(300px,52dvh,460px)}
@@ -518,7 +646,7 @@ body.modal-open{overflow:hidden}
 }
 
 .cat-tile[data-cat="Liquidacion"]{background:linear-gradient(135deg,rgba(220,38,38,.25) 0%,rgba(234,88,12,.2) 100%);border-color:rgba(220,38,38,.55);color:#ff6b6b}.cat-tile[data-cat="Liquidacion"]:hover,.cat-tile[data-cat="Liquidacion"].active{background:linear-gradient(135deg,rgba(220,38,38,.45) 0%,rgba(234,88,12,.35) 100%);border-color:#ef4444;color:#fff;box-shadow:0 0 18px rgba(220,38,38,.45)}.cat-tile[data-cat="Liquidacion"].active{box-shadow:0 0 22px rgba(220,38,38,.6)}
-.price-old{display:block;font-size:.72rem;color:#111010;letter-spacing:.04em;line-height:1.2;margin-bottom:1px}.price-old s{text-decoration:line-through;color:#111010;opacity:1}.price-discount small{color:#b91c1c}.price-discount{color:#b91c1c !important;font-weight:700}.liq-badge{display:inline-block;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;margin-bottom:4px;box-shadow:0 2px 8px rgba(220,38,38,.35)}.modal-price-old{font-size:.82rem;color:var(--muted);margin-bottom:4px;letter-spacing:.04em}.modal-price-old s{text-decoration:line-through;color:#111010;opacity:1}.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}.modal-discount-badge{display:inline-block;margin-left:12px;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.14em;padding:4px 11px;vertical-align:middle;box-shadow:0 3px 10px rgba(220,38,38,.4)}
+.price-old{display:block;font-size:.72rem;color:#111010;letter-spacing:.04em;line-height:1.2;margin-bottom:1px}.price-old s{text-decoration:line-through;color:#111010;opacity:1}.price-discount small{color:#b91c1c}.price-discount{color:#b91c1c !important;font-weight:700}.liq-badge{display:inline-block;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;margin-bottom:4px;box-shadow:0 2px 8px rgba(220,38,38,.35)}.modal-price-old{font-size:.82rem;color:var(--muted);margin-bottom:4px;letter-spacing:.04em}.modal-price-old s{text-decoration:line-through;color:#111010;opacity:1}.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}.modal-discount-badge{display:inline-block;margin-left:12px;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.08em;padding:4px 10px;vertical-align:middle;box-shadow:0 3px 10px rgba(220,38,38,.35);border-radius:3px}
 .liq-badge-img{position:absolute;top:10px;right:10px;z-index:10;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;box-shadow:0 3px 10px rgba(220,38,38,.5);pointer-events:none}
 </style>
 <script type="application/ld+json">
@@ -581,30 +709,34 @@ body.modal-open{overflow:hidden}
   </div>
 </section>
 
+<!-- BARRA DE BÚSQUEDA Y FILTROS -->
 <div class="filter-bar" role="search" aria-label="Filtros de búsqueda">
   <div class="search-wrap">
     <div class="search-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     </div>
-    <input type="text" id="searchInput" placeholder="código / nombre" aria-label="Buscar productos">
+    <input type="text" id="searchInput" placeholder="Buscar por código o nombre..." aria-label="Buscar productos">
   </div>
   <div class="filter-row2">
     <div class="sort-wrap">
-      <span class="sort-label">Orden:</span>
+      <span class="sort-label">Ordenar:</span>
       <button class="sort-btn" id="sortBtn" aria-label="Ordenar por precio">
         <span id="sortLabel">Precio</span>
-        <svg id="sortIcon" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+        <svg id="sortIcon" viewBox="0 0 24 24"><path d="M7 15l5 5 5-5M7 9l5-5 5 5"/></svg>
       </button>
     </div>
-    <div class="view-toggle" role="radiogroup" aria-label="Vista">
-      <button class="view-btn active" id="btnGrid" role="radio" aria-checked="true" aria-label="Vista grilla">
-        <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg>
+    <div class="view-toggle" role="radiogroup" aria-label="Vista de catálogo">
+      <button class="view-btn active" id="btnGrid" role="radio" aria-checked="true" aria-label="Vista cuadrícula" title="Vista cuadrícula">
+        <svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg>
       </button>
-      <button class="view-btn" id="btnList" role="radio" aria-checked="false" aria-label="Vista lista">
-        <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="3"/><rect x="1" y="7" width="14" height="3"/><rect x="1" y="12" width="14" height="3"/></svg>
+      <button class="view-btn" id="btnList" role="radio" aria-checked="false" aria-label="Vista lista" title="Vista lista">
+        <svg viewBox="0 0 16 16"><rect x="1.5" y="2" width="13" height="3" rx="1"/><rect x="1.5" y="6.5" width="13" height="3" rx="1"/><rect x="1.5" y="11" width="13" height="3" rx="1"/></svg>
       </button>
     </div>
-    <button class="btn-limpiar" id="btnLimpiar" aria-label="Limpiar filtros">Limpiar</button>
+    <button class="btn-limpiar" id="btnLimpiar" aria-label="Limpiar filtros" title="Restablecer filtros">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      <span>Limpiar</span>
+    </button>
     <div class="results-info" aria-live="polite">Mostrando <b id="countNum">0</b> productos</div>
   </div>
 </div>
@@ -642,7 +774,6 @@ body.modal-open{overflow:hidden}
       <div class="m-name" id="mName"></div>
       <div class="m-divider"></div>
       <div class="m-price" id="mPrice"></div>
-      <div class="m-price-note">Precio en soles · Incluye IGV · Envíos a todo el Perú</div>
       <div class="m-specs" id="mSpecs"></div>
 
       <div class="m-ship-section">
@@ -902,7 +1033,7 @@ const productos = [
   {code:'MV03',name:'Bolso California',cat:'Bolso de Viaje',price:700,medidas:'53.5×37.5×23.5 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622401038313639184',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-01-CAMEL.png'},
   {code:'MN01',name:'Maletín',cat:'Maletín',liquidacion:true,price:229,priceOld:280,medidas:'24×28×7 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MN01.png'},
   {code:'MN04',name:'Maletín',cat:'Maletín',price:320,medidas:'34×25×7 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7276988812230790405',img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-CUERO-MN04-MARRON-CUERO-GENUINO-CUERO-LISO-UNISEX.webp'},
-  {code:'MN07',name:'Maletín',cat:'Maletín',liquidacion:true,price:480,priceOld:450,medidas:'38×28.5×9.5 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7283622304184077574',img:'https://barraleather.com/wp-content/uploads/2026/03/Morral-de-cuero-MN07.png'},
+  {code:'MN07',name:'Maletín',cat:'Maletín',price:480,medidas:'38×28.5×9.5 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7283622304184077574',img:'https://barraleather.com/wp-content/uploads/2026/03/Morral-de-cuero-MN07.png'},
   {code:'MN08',name:'Maletín',cat:'Maletín',price:450,medidas:'36.5×25×10.5 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7276989522028547334',img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-CUERO-MN08-NEGRO-CUERO-GENUINO-CUERO-FLOTER.webp'},
   {code:'CA01',name:'Cartera Bombón',cat:'Cartera',price:120,medidas:'21.5×17.5×4 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo','Rosado','Guinda'],tiktok:'7618608212262227218',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-CUERO-CA01-MARRON-CUERO-GENUINO-DAMA.webp'},
   {code:'CA02',name:'Cartera',cat:'Cartera',price:150,medidas:'13×21×7.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo','Rosado','Guinda'],tiktok:'7288361697541246213',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-DAMA-CA02-CAMEL-CUERO-GENUINO.webp'},
@@ -928,7 +1059,7 @@ const productos = [
   {code:'ML03',name:'Morralito',cat:'Morral',price:190,medidas:'17.5×20×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo','Amarillo'],tiktok:'7632448535065103637',img:'https://barraleather.com/wp-content/uploads/2026/07/morral-de-cuero-color-camel-ML03-V2.webp'},
   {code:'ML04',name:'Morralito',cat:'Morral',price:150,medidas:'15×21×5 cm',emoji:'👜',colores:['Rojo','Marrón','Verde','Camel','Amarillo','Negro'],tiktok:'7632445995762273557',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML09.jpg'},
   {code:'ML05',name:'Morral',cat:'Morral',price:190,medidas:'17×21.5×6.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7277376048235433221',img:'https://barraleather.com/wp-content/uploads/2026/07/Morralito-de-cuero-ML05-V1.webp'},
-  {code:'ML06',name:'Morral',cat:'Morral',liquidacion:true,price:160,medidas:'17.5×23×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7588208350957980948',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML06.jpg'},
+  {code:'ML06',name:'Morral',cat:'Morral',liquidacion:true,price:160,medidas:'17.5×23×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7588208350957980948',img:'https://barraleather.com/wp-content/uploads/2026/07/Morral-de-cuero-ML04-color-camel.webp'},
   {code:'ML07',name:'Morralito',cat:'Morral',liquidacion:true,price:160,medidas:'17.5×24.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7584499625936063764',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML07.jpg'},
   {code:'ML08',name:'Morralito',cat:'Morral',liquidacion:true,price:200,medidas:'22.5×24.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7277313311937400069',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML08.png'},
   {code:'ML09',name:'Morralito',cat:'Morral',price:250,medidas:'21×28.5×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7277312559970127109',img:'https://barraleather.com/wp-content/uploads/2026/07/Morral-de-cuero-ML04-color-camel.webp'},
@@ -993,7 +1124,7 @@ const WA_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentCol
 
 const VIDEO_SVG = `<svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 00-2.13-2.14C19.53 3.5 12 3.5 12 3.5s-7.53 0-9.37.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.13 2.14C4.47 20.5 12 20.5 12 20.5s7.53 0 9.37-.55a3.02 3.02 0 002.13-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>`;
 
-// ── DOM CACHE — eliminates repeated getElementById calls ──────────────────────
+// ── DOM CACHE ─────────────────────────────────────────────────────────────────
 const DOM = {
   grid:         document.getElementById('grid'),
   empty:        document.getElementById('empty'),
@@ -1136,7 +1267,7 @@ function applySortUI() {
     DOM.sortIcon.innerHTML = '<path d="M12 5v14M5 12l7 7 7-7"/>';
     DOM.sortLabel.textContent = 'Mayor precio';
   } else {
-    DOM.sortIcon.innerHTML = '<path d="M12 5v14M5 12l7-7 7 7"/>';
+    DOM.sortIcon.innerHTML = '<path d="M7 15l5 5 5-5M7 9l5-5 5 5"/>';
     DOM.sortLabel.textContent = 'Precio';
   }
 }
@@ -1280,8 +1411,9 @@ function openModal(idx) {
   const isCare = /^AC0[1-4]$/.test(p.code);
   DOM.mName.textContent = p.name;
 
+  /* Descuento en monto fijo en soles */
   DOM.mPrice.innerHTML = p.priceOld
-    ? `<div class="modal-price-old">Precio normal: <s>S/ ${p.priceOld}</s></div><span class="modal-price-discount"><small>S/ </small>${p.price}</span><span class="modal-discount-badge">-${Math.round((1-p.price/p.priceOld)*100)}% OFF</span>`
+    ? `<div class="modal-price-old">Precio normal: <s>S/ ${p.priceOld}</s></div><span class="modal-price-discount"><small>S/ </small>${p.price}</span><span class="modal-discount-badge">🔥 -S/ ${p.priceOld - p.price}</span>`
     : `<small style="font-size:1rem;font-weight:300;color:var(--muted)">S/ </small>${p.price}`;
 
   const waColorMessage = `Hola, quisiera consultar los colores disponibles del producto ${p.name} (código ${p.code}).`;
