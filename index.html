@@ -631,6 +631,7 @@ body.modal-open{overflow:hidden}
   .modal-media{min-height:clamp(300px,52dvh,460px);height:clamp(300px,52dvh,460px)}
   #imgArea{min-height:clamp(240px,44dvh,400px)}
   #mImg{inset:16px;width:calc(100% - 32px);height:calc(100% - 32px)}
+  .video-area{min-height:clamp(280px,48dvh,460px)}
   .modal-info{overflow-y:auto;padding:20px 16px calc(88px + env(safe-area-inset-bottom))}
   .btn-wa{position:sticky;bottom:0;z-index:5}
   .m-recs-grid{grid-template-columns:1fr 1fr}
@@ -992,8 +993,8 @@ const productos = [
   {code:'NE07',name:'Neceser Grande',cat:'Neceser',price:280,medidas:'26×15×10.5 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/Neceser-de-cuero-color-negro-NE07-V2.webp'},
   {code:'CR08',name:'Correa Vestir',cat:'Correa',price:100,medidas:'Tallas 32 a 44 - (3.5 ancho)',emoji:'👔',colores:['Negro','Camel','Marrón'],tiktok:'7629082972465155348',img:'https://barraleather.com/wp-content/uploads/2026/07/Correa-de-cuero-CR07-Negro-v1.webp'},
   {code:'CR09',name:'Correa Clásica',cat:'Correa',price:100,medidas:'Tallas 32 a 44 - (3.5 ancho)',emoji:'👔',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/correa-de-cuero-CR09-Camel-v1.webp'},
-  {code:'BC01',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'10×8 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7613902453272022273',img:'https://barraleather.com/wp-content/uploads/2026/09/BC01-billetera-de-cuero-para-hombre.webp'},
-  {code:'BC02',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'10X8 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/09/BC02-billetera-de-cuero-para-hombre.webp'},
+  {code:'BC01',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'10×8 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7613902453272022273',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC01.jpg'},
+  {code:'BC02',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'10X8 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/BILLETERA-DE-CUERO-BC02-COLOR-CAMEL.webp'},
   {code:'BC03',name:'Billetera Clásica Clip',cat:'Billetera Hombre',price:100,medidas:'11×8.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7677654328655727892',img:'https://barraleather.com/wp-content/uploads/2026/07/BILLETERA-DE-CUERO-BC03-NEGRO.webp'},
   {code:'BC04',name:'Billetera Tres-C',cat:'Billetera Hombre',price:100,medidas:'13×9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7186105144658955525',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC04.jpg'},
   {code:'BC05',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'12.5x9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7619764138130263316',img:'https://barraleather.com/wp-content/uploads/2026/07/BILLETERA-DE-CUERO-BC05.webp'},
@@ -1010,7 +1011,6 @@ const productos = [
   {code:'BC17',name:'Billetera Bufalo',cat:'Billetera Hombre',price:134,medidas:'10×8 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7664713508541500673',img:'https://barraleather.com/wp-content/uploads/2026/07/Billetera-de-cuero-BC17-camel.webp'},
   {code:'BC18',name:'Billetera Grados',cat:'Billetera Hombre',price:134,medidas:'13×9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7674292755971181831',img:'https://barraleather.com/wp-content/uploads/2026/08/BILLETERA-DE-CUERO-BC18-MARRON.webp'},
   {code:'BC19',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'13×9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/BC19-BILLETERA-DE-CUERO-DISENO-MACHUPICHU.jpg'},
-  {code:'BC20',name:'Billetera Dian',cat:'Billetera Hombre',price:75,medidas:'11x8.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/09/Billetera-de-cuero-BC20-.webp'},
   {code:'BD02',name:'Billetera Tres-P',cat:'Billetera Mujer',price:55,medidas:'9.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7406497950353935621',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD02.jpg'},
   {code:'BD03',name:'Billetera',cat:'Billetera Mujer',price:85,medidas:'9.5×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7619804728884579605',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD03.jpg'},
   {code:'BD04',name:'Billetera Tres',cat:'Billetera Mujer',price:100,medidas:'10.5×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7666474730777627924',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD04.jpg'},
@@ -1166,6 +1166,7 @@ const DOM = {
 
 // ── ESTADO ────────────────────────────────────────────────────────────────────
 let busqueda = '', categoriaActiva = 'Todos', sortDir = null, viewMode = 'grid';
+let currentTiktokId = null, currentProductName = '';
 
 const categorias = ['Todos', 'Liquidacion', ...[...new Set(productos.map(p => p.cat))]];
 
@@ -1388,7 +1389,23 @@ function clearAll() {
   applySortUI(); render(getFiltered()); pushURL();
 }
 
-// ── MEDIA TABS ────────────────────────────────────────────────────────────────
+// ── GESTIÓN DE VIDEO TIKTOK (LAZY LOAD + PLAYER V1) ───────────────────────────
+function loadVideoIframe(tiktokId, name) {
+  if (!tiktokId) return;
+  DOM.videoArea.innerHTML =
+    `<div style="width:100%;height:100%;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:560px;position:relative;">` +
+      `<iframe src="https://www.tiktok.com/player/v1/${esc(tiktokId)}" ` +
+        `style="width:100%;height:100%;flex:1;min-height:500px;border:none;display:block;" ` +
+        `allow="autoplay;encrypted-media;fullscreen" referrerpolicy="no-referrer-when-downgrade" allowfullscreen loading="lazy" title="${esc(name)}"></iframe>` +
+      `<div style="padding:10px 14px;background:#111;width:100%;text-align:center;border-top:1px solid rgba(255,255,255,.1)">` +
+        `<a href="https://www.tiktok.com/@cuerobarra/video/${esc(tiktokId)}" target="_blank" rel="noopener noreferrer" ` +
+          `style="display:inline-flex;align-items:center;gap:6px;color:var(--camel-light);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;">` +
+          `🎵 Ver directamente en TikTok ↗` +
+        `</a>` +
+      `</div>` +
+    `</div>`;
+}
+
 function showTab(tab) {
   const hasV = DOM.videoArea.dataset.hasVideo === 'true';
   const showImg = tab !== 'vid' || !hasV;
@@ -1397,6 +1414,13 @@ function showTab(tab) {
   DOM.tabImg.classList.toggle('active', showImg);
   DOM.tabVid.classList.toggle('active', !showImg);
   DOM.tabVid.style.opacity = hasV ? '1' : '0.4';
+
+  // Solo se carga el video si el usuario hace clic expresamente en la pestaña Video
+  if (!showImg && hasV && currentTiktokId) {
+    if (!DOM.videoArea.querySelector('iframe')) {
+      loadVideoIframe(currentTiktokId, currentProductName);
+    }
+  }
 }
 DOM.tabImg.addEventListener('click', () => showTab('img'));
 DOM.tabVid.addEventListener('click', () => showTab('vid'));
@@ -1426,7 +1450,7 @@ function openModal(idx) {
     (isCare ? '' : `<div class="spec"><div class="spec-l">Colores</div><div class="spec-v"><a class="color-consulta" href="${waColorLink}" target="_blank" rel="noopener noreferrer" aria-label="Consultar colores por WhatsApp">` +
       `${WA_SVG} Consultar al WhatsApp</a></div></div>`);
 
-  // Recommendations — pick 3 random same-category items
+  // Recomendaciones: 3 productos de la misma categoría
   const recs = productos.filter(r => r.cat === p.cat && r.code !== p.code)
     .sort(() => Math.random() - .5).slice(0, 3);
   if (recs.length) {
@@ -1450,7 +1474,7 @@ function openModal(idx) {
     DOM.mRecs.style.display = 'none';
   }
 
-  // Product image
+  // Foto de producto
   DOM.mImg.classList.remove('loaded');
   DOM.mImg.removeAttribute('style');
   DOM.mImg.alt = `${p.name} ${p.code}`;
@@ -1458,30 +1482,27 @@ function openModal(idx) {
   DOM.mImg.onerror = () => { DOM.mImg.style.display = 'none'; };
   DOM.mImg.src = p.img;
 
-  // TikTok video
+  // Estado del Video (sin insertar el iframe aún)
+  currentTiktokId = p.tiktok || null;
+  currentProductName = p.name || '';
+  DOM.videoArea.innerHTML = '';
   if (p.tiktok) {
-    DOM.videoArea.innerHTML =
-      `<div style="width:100%;height:100%;background:#000;display:flex;align-items:center;justify-content:center;min-height:560px;">` +
-        `<iframe src="https://www.tiktok.com/embed/v2/${esc(p.tiktok)}" ` +
-          `style="width:100%;height:100%;min-height:560px;border:none;display:block;" ` +
-          `allow="autoplay;encrypted-media" allowfullscreen loading="lazy" title="${esc(p.name)}"></iframe>` +
-      `</div>`;
     DOM.videoArea.dataset.hasVideo = 'true';
   } else {
+    DOM.videoArea.dataset.hasVideo = 'false';
     DOM.videoArea.innerHTML =
       `<div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:40px 24px;text-align:center;color:rgba(255,255,255,.3)">` +
         `<div style="font-size:2.5rem;opacity:.2">♪</div>` +
         `<p style="font-size:.78rem;line-height:1.6">Video próximamente</p>` +
-        `<a href="https://www.tiktok.com/@elviejoartesanobarra" target="_blank" rel="noopener noreferrer" ` +
-          `style="font-size:.65rem;color:rgba(255,255,255,1);text-decoration:none;letter-spacing:.1em">@elviejoartesanobarra</a>` +
+        `<a href="https://www.tiktok.com/@cuerobarra" target="_blank" rel="noopener noreferrer" ` +
+          `style="font-size:.65rem;color:rgba(255,255,255,1);text-decoration:none;letter-spacing:.1em">@cuerobarra</a>` +
       `</div>`;
-    DOM.videoArea.dataset.hasVideo = 'false';
   }
 
   resetShipUI();
   showTab('img');
 
-  // WhatsApp button
+  // WhatsApp
   DOM.mWA.onclick = () => {
     showToast();
     const msg = encodeURIComponent(
@@ -1507,6 +1528,8 @@ function closeModal() {
   DOM.overlay.classList.remove('open');
   DOM.videoArea.innerHTML = '';
   DOM.videoArea.dataset.hasVideo = 'false';
+  currentTiktokId = null;
+  currentProductName = '';
   DOM.mImg.src = '';
   resetShipUI();
   document.body.classList.remove('modal-open');
