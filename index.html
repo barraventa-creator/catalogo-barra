@@ -3,75 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Productos - Cueros Barra</title>
+  <title>Catálogo - Cueros Barra</title>
   <style>
     /* ==============================================================
-       RESETEO Y ESTILOS BASE
+       1. VARIABLES Y RESET GENERAL
        ============================================================== */
+    :root {
+      --color-black: #000000;
+      --color-gold: #c89332;
+      --color-bg-specs: #f6f3ee;
+      --color-border: #000000; /* Líneas divisorias en negro */
+      --color-text-main: #111111;
+      --color-text-muted: #666666;
+      --whatsapp-color: #25d366;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background-color: #f8f8f8;
-      color: #111;
-      padding-bottom: 70px;
+      background-color: #ffffff;
+      color: var(--color-text-main);
+      padding-bottom: 80px;
     }
 
     /* ==============================================================
-       PUNTO 2: CATÁLOGO CON LÍNEAS DIVISORIAS EN COLOR NEGRO
+       2. CATÁLOGO CON LÍNEAS DIVISORIAS EN COLOR NEGRO (MISMO GROSOR)
        ============================================================== */
-    .catalog-container {
-      max-width: 1100px;
-      margin: 20px auto;
-      padding: 0 10px;
+    .catalog-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px;
     }
 
-    /* La cuadrícula usa fondo negro con gap de 1px para trazar líneas negras exactas */
-    .products-grid {
+    /* Grilla con líneas negras de 1px entre cada espacio */
+    .catalog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      background-color: #000000; /* Color de las líneas divisorias */
-      gap: 1px;                  /* Grosor de las líneas */
-      border: 1px solid #000000; /* Borde exterior negro */
+      grid-template-columns: repeat(2, 1fr);
+      background-color: var(--color-border); /* Color negro para las divisiones */
+      gap: 1px;                              /* Grosor de 1px */
+      border: 1px solid var(--color-border); /* Borde perimetral negro */
     }
 
-    .product-card {
+    @media (min-width: 768px) {
+      .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .catalog-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Celda individual de producto */
+    .product-cell {
       background-color: #ffffff;
-      padding: 12px;
       display: flex;
       flex-direction: column;
+      padding: 12px;
       cursor: pointer;
       position: relative;
     }
 
-    .card-media-wrapper {
+    .product-cell:hover {
+      background-color: #fafafa;
+    }
+
+    .card-thumbnail-box {
       position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
-      background-color: #f0f0f0;
+      background-color: #f1f1f1;
       overflow: hidden;
       margin-bottom: 8px;
     }
 
-    .card-media-wrapper img {
+    .card-thumbnail-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    /* Botón flotante VIDEO en la tarjeta */
-    .badge-video {
+    /* Botón VIDEO sobre la imagen */
+    .btn-card-video {
       position: absolute;
       bottom: 8px;
       left: 8px;
       background: rgba(0, 0, 0, 0.75);
-      color: #fff;
+      color: #ffffff;
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 4px 8px;
       border-radius: 4px;
       display: flex;
@@ -80,51 +109,52 @@
     }
 
     .card-code {
-      color: #b5832a; /* Tono dorado/mostaza del código */
       font-size: 12px;
       font-weight: 700;
-      text-transform: uppercase;
+      color: var(--color-gold);
+      letter-spacing: 0.5px;
       margin-bottom: 2px;
     }
 
     .card-title {
       font-size: 14px;
       font-weight: 600;
-      color: #222;
-      margin-bottom: 6px;
+      color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin-bottom: 6px;
     }
 
-    /* Línea divisoria interna de la tarjeta en negro */
-    .card-divider {
+    /* Línea divisoria interna en negro */
+    .card-separator {
       border: 0;
       height: 1px;
-      background-color: #000000;
-      margin: 6px 0 8px 0;
+      background-color: var(--color-border);
+      margin: 4px 0 8px 0;
     }
 
     .card-footer {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       margin-top: auto;
     }
 
     .card-price {
       font-size: 16px;
-      font-weight: 700;
-      color: #000;
+      font-weight: 800;
+      color: var(--color-black);
     }
 
     .card-dims {
       font-size: 11px;
-      color: #666;
+      color: var(--color-text-muted);
+      white-space: nowrap;
     }
 
     /* ==============================================================
-       PUNTO 1: MODAL DE PRODUCTO (CORRECCIÓN VERTICAL Y TEXTOS)
+       3. MODAL DE PRODUCTO (FORMATO VERTICAL Y CONTROL DE SOLAPAMIENTO)
        ============================================================== */
     .modal-overlay {
       position: fixed;
@@ -132,73 +162,88 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: none; /* Se activa mediante JS */
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      padding: 10px;
+      padding: 0;
     }
 
     .modal-overlay.active {
       display: flex;
     }
 
-    .modal-sheet {
+    .modal-content-card {
       background: #ffffff;
       width: 100%;
       max-width: 480px;
-      max-height: 94vh;
-      border-radius: 12px;
-      overflow-y: auto;
-      position: relative;
+      height: 100vh;
+      max-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-y: auto;
+      position: relative;
     }
 
-    /* Botones de navegación superior: FOTO / VIDEO / CERRAR */
-    .modal-top-bar {
+    @media (min-width: 500px) {
+      .modal-overlay {
+        padding: 15px;
+      }
+      .modal-content-card {
+        height: auto;
+        max-height: 94vh;
+        border-radius: 12px;
+        border: 1px solid #000;
+      }
+    }
+
+    /* Barra superior: Pestañas FOTO, VIDEO y botón cerrar */
+    .modal-nav-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 14px;
-      background: #fff;
-      border-bottom: 1px solid #000;
+      background: #ffffff;
+      border-bottom: 1px solid var(--color-border);
       position: sticky;
       top: 0;
       z-index: 50;
     }
 
-    .media-toggle-group {
+    .nav-toggle-group {
       display: flex;
       gap: 8px;
     }
 
-    .btn-toggle {
-      border: 1px solid #333;
+    .btn-nav-tab {
+      border: 1px solid #222;
       background: #222;
       color: #fff;
-      padding: 6px 12px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
+      padding: 6px 12px;
       border-radius: 4px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .btn-toggle.active {
-      border-color: #b5832a;
-      background: #111;
-      color: #e5a93c;
+    .btn-nav-tab.active {
+      background: #000;
+      border-color: var(--color-gold);
+      color: var(--color-gold);
     }
 
-    .btn-close {
+    .btn-close-modal {
       background: #d32f2f;
-      color: #fff;
+      color: #ffffff;
       border: none;
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 4px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: bold;
       cursor: pointer;
       display: flex;
@@ -206,368 +251,436 @@
       justify-content: center;
     }
 
-    /* Contenedor multimedia en formato vertical en móvil */
-    .modal-media-container {
+    /* Formato vertical en móvil: aspect-ratio 9/16 y altura contenida */
+    .modal-media-wrapper {
       position: relative;
       width: 100%;
-      aspect-ratio: 9 / 16; /* Formato vertical óptimo para móviles */
-      max-height: 65vh;     /* Límite para no desplazar el contenido inferior */
+      aspect-ratio: 9 / 16;
+      max-height: 60vh;
       background: #000000;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 0 auto;
     }
 
-    .modal-media-container video,
-    .modal-media-container img {
+    .modal-media-wrapper video,
+    .modal-media-wrapper img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Evita bandas laterales borrosas */
+      object-fit: cover;
       display: block;
     }
 
-    /* Botones laterales de interacción (estilo Reels / TikTok) */
-    .side-actions {
+    /* Botones de interacción laterales */
+    .media-side-actions {
       position: absolute;
       right: 12px;
-      bottom: 50px; /* Deja espacio sobre la barra de progreso */
+      bottom: 52px; /* Margen para no interferir con la barra de reproducción */
       display: flex;
       flex-direction: column;
       gap: 12px;
-      z-index: 20;
+      z-index: 25;
     }
 
-    .action-pill {
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #fff;
+    .pill-action {
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
       padding: 6px 10px;
       border-radius: 20px;
       font-size: 12px;
+      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 5px;
-      cursor: pointer;
       backdrop-filter: blur(4px);
+      cursor: pointer;
     }
 
-    /* Barra de controles del video */
-    .video-custom-controls {
+    /* Barra inferior con contador de tiempo */
+    .video-timeline-bar {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 8px 12px;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: #fff;
+      gap: 10px;
+      color: #ffffff;
       font-size: 11px;
-      z-index: 15;
+      z-index: 20;
     }
 
-    .progress-bar-track {
+    .timeline-track {
       flex: 1;
       height: 4px;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.35);
       border-radius: 2px;
-      overflow: hidden;
+      position: relative;
     }
 
-    .progress-bar-fill {
-      width: 30%;
+    .timeline-progress {
+      width: 25%;
       height: 100%;
-      background: #b5832a;
+      background: var(--color-gold);
+      border-radius: 2px;
     }
 
-    /* ==============================================================
-       INFORMACIÓN DEL PRODUCTO (SIN SOLAPAMIENTO)
-       ============================================================== */
-    .product-info-body {
+    /* Ficha inferior: Título y precio fuera del video para evitar solapamientos */
+    .product-details-container {
       padding: 16px;
       background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    /* Título en su flujo normal, sin colisionar con el video ni con el precio */
-    .product-title {
-      font-size: 20px;
+    .detail-product-title {
+      font-size: 22px;
       font-weight: 700;
-      color: #111;
-      margin-bottom: 6px;
-      line-height: 1.2;
+      color: var(--color-text-main);
+      line-height: 1.25;
+      margin-top: 4px;
     }
 
-    .product-price {
-      font-size: 26px;
+    .detail-product-price {
+      font-size: 28px;
       font-weight: 800;
-      color: #000;
-      margin-bottom: 14px;
+      color: var(--color-black);
+      line-height: 1;
     }
 
-    .product-price span {
-      font-size: 16px;
+    .detail-product-price small {
+      font-size: 18px;
       font-weight: 600;
+      margin-right: 2px;
     }
 
-    /* Tabla de especificaciones en cuadrícula */
-    .specs-grid {
+    /* Tabla de especificaciones */
+    .detail-specs-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      background-color: #f5f1eb; /* Fondo beige claro */
-      padding: 10px;
+      gap: 10px;
+      background-color: var(--color-bg-specs);
+      border: 1px solid var(--color-border);
       border-radius: 6px;
-      border: 1px solid #000000; /* Borde negro */
-      margin-bottom: 16px;
+      padding: 12px;
       font-size: 12px;
     }
 
-    .spec-item {
+    .spec-entry {
       display: flex;
       flex-direction: column;
+      gap: 2px;
     }
 
-    .spec-label {
+    .spec-entry-label {
+      font-weight: 800;
+      color: #222;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .spec-entry-value {
+      color: #444;
+      font-size: 12px;
+    }
+
+    .whatsapp-spec-link {
+      color: #128c7e;
       font-weight: 700;
-      color: #333;
-    }
-
-    .spec-val {
-      color: #555;
-    }
-
-    .spec-link {
-      color: #1b8e3e;
-      font-weight: 600;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    /* Acordeón ¿CÓMO TE ENVIAMOS? */
-    .accordion-box {
-      border: 1px solid #000000;
+    /* Acordeón de envíos */
+    .accordion-shipping {
+      border: 1px solid var(--color-border);
       border-radius: 6px;
-      margin-bottom: 16px;
       overflow: hidden;
     }
 
-    .accordion-header {
+    .accordion-trigger-btn {
+      width: 100%;
       background: #ffffff;
+      border: none;
       padding: 12px;
-      font-size: 13px;
-      font-weight: 700;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-black);
       cursor: pointer;
-      border: none;
-      width: 100%;
-      text-align: left;
     }
 
-    .accordion-content {
+    .accordion-body-text {
       padding: 12px;
       font-size: 12px;
-      background: #fafafa;
-      border-top: 1px solid #000000;
+      color: #333;
+      line-height: 1.45;
+      background-color: #fafafa;
+      border-top: 1px solid var(--color-border);
       display: none;
-      line-height: 1.4;
-      color: #444;
     }
 
-    .accordion-content.open {
+    .accordion-body-text.open {
       display: block;
     }
 
-    /* Sección También te puede interesar */
-    .related-title {
+    .related-section-header {
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
+      color: #333;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #000000;
-      padding-bottom: 4px;
+      padding-top: 6px;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 6px;
     }
 
-    /* Botón flotante de WhatsApp */
-    .btn-floating-whatsapp {
+    /* Botón Flotante de WhatsApp */
+    .whatsapp-floating-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
       width: 52px;
       height: 52px;
-      background: #25d366;
+      background-color: var(--whatsapp-color);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      color: #ffffff;
       text-decoration: none;
       font-size: 26px;
-      z-index: 1001;
+      z-index: 999;
     }
   </style>
 </head>
 <body>
 
   <!-- ==============================================================
-       CATÁLOGO DE PRODUCTOS (LÍNEAS DIVISORIAS EN NEGRO)
+       CATÁLOGO DE PRODUCTOS (LÍNEAS DIVISORIAS EN COLOR NEGRO)
        ============================================================== -->
-  <div class="catalog-container">
-    <div class="products-grid">
+  <main class="catalog-wrapper">
+    <div class="catalog-grid">
 
-      <!-- Producto 1: ML04 -->
-      <div class="product-card" onclick="openProductModal('ML04', 'Morralito Cuero', 'S/ 150', '15x21x5 cm')">
-        <div class="card-media-wrapper">
-          <img src="https://via.placeholder.com/300x300?text=ML04" alt="ML04">
-          <span class="badge-video">▶ VIDEO</span>
+      <!-- PRODUCTO 1: ML04 -->
+      <article class="product-cell" onclick="openModal('ML04', 'Morralito Cuero', 'S/ 150', '15x21x5 cm', 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop')">
+        <div class="card-thumbnail-box">
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop" alt="ML04 - Morralito">
+          <span class="btn-card-video">▶ VIDEO</span>
         </div>
         <div class="card-code">ML04</div>
-        <div class="card-title">Morralito</div>
-        <hr class="card-divider">
+        <h2 class="card-title">Morralito</h2>
+        <hr class="card-separator">
         <div class="card-footer">
           <span class="card-price">S/ 150</span>
           <span class="card-dims">15x21x5 cm</span>
         </div>
-      </div>
+      </article>
 
-      <!-- Producto 2: ML05 -->
-      <div class="product-card" onclick="openProductModal('ML05', 'Morral Cuero Genuino', 'S/ 190', '17x21.5x6.5 cm')">
-        <div class="card-media-wrapper">
-          <img src="https://via.placeholder.com/300x300?text=ML05" alt="ML05">
-          <span class="badge-video">▶ VIDEO</span>
+      <!-- PRODUCTO 2: ML05 -->
+      <article class="product-cell" onclick="openModal('ML05', 'Morral Cuero Genuino', 'S/ 190', '17x21.5x6.5 cm', 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop')">
+        <div class="card-thumbnail-box">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop" alt="ML05 - Morral">
+          <span class="btn-card-video">▶ VIDEO</span>
         </div>
         <div class="card-code">ML05</div>
-        <div class="card-title">Morral...</div>
-        <hr class="card-divider">
+        <h2 class="card-title">Morral...</h2>
+        <hr class="card-separator">
         <div class="card-footer">
           <span class="card-price">S/ 190</span>
           <span class="card-dims">17x21.5x6.5 cm</span>
         </div>
-      </div>
+      </article>
+
+      <!-- PRODUCTO 3: ML06 -->
+      <article class="product-cell" onclick="openModal('ML06', 'Morral Ejecutivo', 'S/ 210', '20x25x7 cm', 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&auto=format&fit=crop')">
+        <div class="card-thumbnail-box">
+          <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&auto=format&fit=crop" alt="ML06">
+          <span class="btn-card-video">▶ VIDEO</span>
+        </div>
+        <div class="card-code">ML06</div>
+        <h2 class="card-title">Morral Ejecutivo</h2>
+        <hr class="card-separator">
+        <div class="card-footer">
+          <span class="card-price">S/ 210</span>
+          <span class="card-dims">20x25x7 cm</span>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 4: BC01 -->
+      <article class="product-cell" onclick="openModal('BC01', 'Billetera Clásica', 'S/ 85', '11x9x2 cm', 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&auto=format&fit=crop')">
+        <div class="card-thumbnail-box">
+          <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&auto=format&fit=crop" alt="BC01">
+          <span class="btn-card-video">▶ VIDEO</span>
+        </div>
+        <div class="card-code">BC01</div>
+        <h2 class="card-title">Billetera Cuero</h2>
+        <hr class="card-separator">
+        <div class="card-footer">
+          <span class="card-price">S/ 85</span>
+          <span class="card-dims">11x9x2 cm</span>
+        </div>
+      </article>
 
     </div>
-  </div>
+  </main>
 
   <!-- ==============================================================
-       MODAL DE DETALLE / VIDEO (FORMATO VERTICAL EN CELULAR)
+       MODAL DE PRODUCTO (FORMATO VERTICAL EN CELULAR)
        ============================================================== -->
   <div class="modal-overlay" id="productModal">
-    <div class="modal-sheet">
+    <div class="modal-content-card">
 
-      <!-- Barra superior: botones FOTO, VIDEO y X -->
-      <div class="modal-top-bar">
-        <div class="media-toggle-group">
-          <button class="btn-toggle" onclick="setMediaType('foto')">■ FOTO</button>
-          <button class="btn-toggle active" onclick="setMediaType('video')">▶ VIDEO</button>
+      <!-- Barra superior: botones FOTO, VIDEO y Cerrar -->
+      <header class="modal-nav-bar">
+        <div class="nav-toggle-group">
+          <button class="btn-nav-tab" id="btnFoto" onclick="switchMedia('foto')">■ FOTO</button>
+          <button class="btn-nav-tab active" id="btnVideo" onclick="switchMedia('video')">▶ VIDEO</button>
         </div>
-        <button class="btn-close" onclick="closeProductModal()">✖</button>
-      </div>
+        <button class="btn-close-modal" onclick="closeModal()" title="Cerrar">✖</button>
+      </header>
 
-      <!-- Contenedor multimedia vertical (aspect-ratio: 9/16 en móvil) -->
-      <div class="modal-media-container">
-        <video id="modalVideo" autoplay loop muted playsinline poster="https://via.placeholder.com/450x800?text=Video+ML05">
+      <!-- Contenedor del reproductor: Formato Vertical (9:16) en celular -->
+      <div class="modal-media-wrapper">
+        <video id="modalVideoEl" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop">
           <source src="" type="video/mp4">
         </video>
+        <img id="modalImgEl" src="" alt="Vista previa producto" style="display: none;">
 
-        <!-- Botones laterales estilo TikTok/Reels sin solapar controles -->
-        <div class="side-actions">
-          <div class="action-pill">🤍 70</div>
-          <div class="action-pill">💬 8</div>
-          <div class="action-pill">↗ 9</div>
+        <!-- Botones estilo TikTok/Reels ubicados a la derecha -->
+        <div class="media-side-actions">
+          <button class="pill-action">🤍 70</button>
+          <button class="pill-action">💬 8</button>
+          <button class="pill-action">↗ 9</button>
         </div>
 
-        <!-- Barra inferior de reproducción con tiempo -->
-        <div class="video-custom-controls">
+        <!-- Barra de reproducción del video -->
+        <div class="video-timeline-bar">
           <span>00:01 / 00:48</span>
-          <div class="progress-bar-track">
-            <div class="progress-bar-fill"></div>
+          <div class="timeline-track">
+            <div class="timeline-progress"></div>
           </div>
-          <span>⚙ ⛶</span>
+          <span style="font-size: 13px;">⚙ ⛶</span>
         </div>
       </div>
 
-      <!-- Ficha técnica del producto (debajo del video, sin sobreponerse) -->
-      <div class="product-info-body">
-        <h1 class="product-title" id="modalTitle">Morral Cuero Genuino</h1>
-        <div class="product-price" id="modalPrice"><span>S/</span> 190</div>
+      <!-- Ficha de información técnica: El título y precio quedan separados del reproductor -->
+      <section class="product-details-container">
+        <h1 class="detail-product-title" id="mTitle">Morral Cuero Genuino</h1>
+        <div class="detail-product-price" id="mPrice"><small>S/</small> 190</div>
 
-        <!-- Especificaciones -->
-        <div class="specs-grid">
-          <div class="spec-item">
-            <span class="spec-label">CÓDIGO:</span>
-            <span class="spec-val" id="modalCode">ML05</span>
+        <!-- Cuadrícula de especificaciones con borde negro -->
+        <div class="detail-specs-grid">
+          <div class="spec-entry">
+            <span class="spec-entry-label">CÓDIGO:</span>
+            <span class="spec-entry-value" id="mCode">ML05</span>
           </div>
-          <div class="spec-item">
-            <span class="spec-label">MEDIDAS:</span>
-            <span class="spec-val" id="modalDims">17x21.5x6.5 cm</span>
+          <div class="spec-entry">
+            <span class="spec-entry-label">MEDIDAS:</span>
+            <span class="spec-entry-value" id="mDims">17x21.5x6.5 cm</span>
           </div>
-          <div class="spec-item">
-            <span class="spec-label">MATERIAL:</span>
-            <span class="spec-val">Cuero genuino</span>
+          <div class="spec-entry">
+            <span class="spec-entry-label">MATERIAL:</span>
+            <span class="spec-entry-value">Cuero genuino</span>
           </div>
-          <div class="spec-item">
-            <span class="spec-label">COLORES:</span>
-            <a href="https://wa.me/51931374360" class="spec-link" target="_blank">💬 Consultar WhatsApp</a>
+          <div class="spec-entry">
+            <span class="spec-entry-label">COLORES:</span>
+            <a href="https://wa.me/51931374360?text=Hola,%20quisiera%20consultar%20colores%20disponibles" target="_blank" class="whatsapp-spec-link">
+              💬 Consultar al WhatsApp
+            </a>
           </div>
         </div>
 
-        <!-- Acordeón de envíos -->
-        <div class="accordion-box">
-          <button class="accordion-header" onclick="toggleAccordion()">
+        <!-- Acordeón ¿CÓMO TE ENVIAMOS? -->
+        <div class="accordion-shipping">
+          <button class="accordion-trigger-btn" onclick="toggleShippingInfo()">
             <span>📦 ¿CÓMO TE ENVIAMOS?</span>
-            <span id="accordionIcon">∨</span>
+            <span id="accArrow">∨</span>
           </button>
-          <div class="accordion-content" id="accordionBody">
-            Envíos a todo el Perú mediante agencia Shalom y Olva Courier. En Lima con motorizado contra entrega o recojo en tienda.
+          <div class="accordion-body-text" id="accText">
+            Realizamos envíos a todo el Perú mediante agencia <strong>Shalom</strong> y <strong>Olva Courier</strong> con número de seguimiento. En Lima metropolitana contamos con motorizado contra entrega o retiro directo en taller/tienda.
           </div>
         </div>
 
-        <div class="related-title">TAMBIÉN TE PUEDE INTERESAR</div>
-      </div>
+        <h3 class="related-section-header">TAMBIÉN TE PUEDE INTERESAR</h3>
+      </section>
 
     </div>
   </div>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/51931374360" class="btn-floating-whatsapp" target="_blank" title="WhatsApp">
+  <!-- Botón flotante de WhatsApp permanente -->
+  <a href="https://wa.me/51931374360?text=Hola,%20deseo%20información%20del%20catálogo" class="whatsapp-floating-btn" target="_blank" title="Contactar por WhatsApp">
     💬
   </a>
 
   <!-- ==============================================================
-       JAVASCRIPT
+       LÓGICA JAVASCRIPT
        ============================================================== -->
   <script>
-    function openProductModal(code, title, price, dims) {
-      document.getElementById('modalCode').textContent = code;
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalPrice').innerHTML = `<span>S/</span> ${price.replace('S/', '').trim()}`;
-      document.getElementById('modalDims').textContent = dims;
+    function openModal(code, title, price, dims, imgUrl) {
+      document.getElementById('mCode').textContent = code;
+      document.getElementById('mTitle').textContent = title;
+      document.getElementById('mPrice').innerHTML = `<small>S/</small> ${price.replace('S/', '').trim()}`;
+      document.getElementById('mDims').textContent = dims;
+      document.getElementById('modalImgEl').src = imgUrl;
+
+      switchMedia('video');
+
       document.getElementById('productModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
 
-    function closeProductModal() {
+    function closeModal() {
       document.getElementById('productModal').classList.remove('active');
+      document.body.style.overflow = '';
+      const video = document.getElementById('modalVideoEl');
+      if (video) video.pause();
     }
 
-    function toggleAccordion() {
-      const body = document.getElementById('accordionBody');
-      const icon = document.getElementById('accordionIcon');
-      const isOpen = body.classList.toggle('open');
-      icon.textContent = isOpen ? '∧' : '∨';
-    }
+    function switchMedia(type) {
+      const btnFoto = document.getElementById('btnFoto');
+      const btnVideo = document.getElementById('btnVideo');
+      const videoEl = document.getElementById('modalVideoEl');
+      const imgEl = document.getElementById('modalImgEl');
 
-    function setMediaType(type) {
-      const buttons = document.querySelectorAll('.btn-toggle');
-      buttons.forEach(btn => btn.classList.remove('active'));
       if (type === 'video') {
-        buttons[1].classList.add('active');
+        btnVideo.classList.add('active');
+        btnFoto.classList.remove('active');
+        videoEl.style.display = 'block';
+        imgEl.style.display = 'none';
+        videoEl.play().catch(() => {});
       } else {
-        buttons[0].classList.add('active');
+        btnFoto.classList.add('active');
+        btnVideo.classList.remove('active');
+        videoEl.style.display = 'none';
+        imgEl.style.display = 'block';
+        videoEl.pause();
       }
     }
+
+    function toggleShippingInfo() {
+      const accText = document.getElementById('accText');
+      const accArrow = document.getElementById('accArrow');
+      const isOpen = accText.classList.toggle('open');
+      accArrow.textContent = isOpen ? '∧' : '∨';
+    }
+
+    document.getElementById('productModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
