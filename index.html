@@ -647,8 +647,73 @@ body.modal-open{overflow:hidden}
 }
 
 .cat-tile[data-cat="Liquidacion"]{background:linear-gradient(135deg,rgba(220,38,38,.25) 0%,rgba(234,88,12,.2) 100%);border-color:rgba(220,38,38,.55);color:#ff6b6b}.cat-tile[data-cat="Liquidacion"]:hover,.cat-tile[data-cat="Liquidacion"].active{background:linear-gradient(135deg,rgba(220,38,38,.45) 0%,rgba(234,88,12,.35) 100%);border-color:#ef4444;color:#fff;box-shadow:0 0 18px rgba(220,38,38,.45)}.cat-tile[data-cat="Liquidacion"].active{box-shadow:0 0 22px rgba(220,38,38,.6)}
-.price-old{display:block;font-size:.72rem;color:#111010;letter-spacing:.04em;line-height:1.2;margin-bottom:1px}.price-old s{text-decoration:line-through;color:#111010;opacity:1}.price-discount small{color:#b91c1c}.price-discount{color:#b91c1c !important;font-weight:700}.liq-badge{display:inline-block;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;margin-bottom:4px;box-shadow:0 2px 8px rgba(220,38,38,.35)}.modal-price-old{font-size:.82rem;color:var(--muted);margin-bottom:4px;letter-spacing:.04em}.modal-price-old s{text-decoration:line-through;color:#111010;opacity:1}.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}.modal-discount-badge{display:inline-block;margin-left:12px;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.08em;padding:4px 10px;vertical-align:middle;box-shadow:0 3px 10px rgba(220,38,38,.35);border-radius:3px}
-.liq-badge-img{position:absolute;top:10px;right:10px;z-index:10;background:linear-gradient(90deg,#dc2626,#ea580c);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;box-shadow:0 3px 10px rgba(220,38,38,.5);pointer-events:none}
+.price-old{display:block;font-size:.72rem;color:#111010;letter-spacing:.04em;line-height:1.2;margin-bottom:1px}.price-old s{text-decoration:line-through;color:#777;opacity:1}.price-discount small{color:#b91c1c}.price-discount{color:#b91c1c !important;font-weight:700}.modal-price-old{font-size:.82rem;color:var(--muted);margin-bottom:4px;letter-spacing:.04em}.modal-price-old s{text-decoration:line-through;color:#777;opacity:1}.modal-price-discount{font-size:2.2rem;font-weight:700;color:#b91c1c}.modal-price-discount small{font-size:1rem;font-weight:300;color:#b91c1c}
+
+/* ── NUEVO DISEÑO DISTINGUIDO DEL FUEGUITO Y DESCUENTO ── */
+.badge-fire{
+  background:#fff;
+  border-radius:50%;
+  width:20px;
+  height:20px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.78rem;
+  line-height:1;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);
+  flex-shrink:0;
+}
+.liq-badge-img{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:10;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:linear-gradient(135deg,#a81919 0%,#dc2626 100%);
+  border:1.5px solid rgba(255,255,255,.9);
+  color:#fff;
+  padding:3px 10px 3px 3px;
+  border-radius:20px;
+  box-shadow:0 4px 14px rgba(168,25,25,.4),0 2px 6px rgba(0,0,0,.25);
+  pointer-events:none;
+}
+.liq-badge-img .badge-amount{
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#fff;
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
+  white-space:nowrap;
+}
+.modal-discount-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-left:12px;
+  background:linear-gradient(135deg,#a81919 0%,#dc2626 100%);
+  border:1.5px solid rgba(255,255,255,.9);
+  color:#fff;
+  padding:4px 12px 4px 4px;
+  vertical-align:middle;
+  border-radius:20px;
+  box-shadow:0 4px 14px rgba(168,25,25,.35),0 2px 6px rgba(0,0,0,.2);
+}
+.modal-discount-badge .badge-fire{
+  width:23px;
+  height:23px;
+  font-size:.85rem;
+}
+.modal-discount-badge .badge-amount{
+  font-size:.82rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  color:#fff;
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
+  white-space:nowrap;
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"El Viejo Artesano - Barra Arte & Estilo","image":"https://barraleather.com/wp-content/uploads/2025/12/cropped-Diseno-sin-titulo-5.png","telephone":"+51901046082","address":{"@type":"PostalAddress","addressLocality":"Lima","addressRegion":"Lima","addressCountry":"PE"},"url":"https://barraventa-creator.github.io/catalogo-barra","priceRange":"S/5 - S/600","description":"Artículos de cuero genuino hechos a mano en Lima, Perú."}
@@ -867,8 +932,8 @@ body.modal-open{overflow:hidden}
       </div>
       <button class="btn-wa" id="mWA">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Escribe para consultar stock
-      </button>
+  Escribe para consultar stock
+</button>
     </div>
   </div>
 </div>
@@ -1068,6 +1133,7 @@ const productos = [
   {code:'ML11',name:'Morralito',cat:'Morral',liquidacion:true,price:200,medidas:'21×24.5×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7632447196905966868',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML11.jpg'},
   {code:'ML13',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7277318730286124294',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML13.jpg'},
   {code:'ML14',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7665484353492880641',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML14.jpg'},
+  {code:'ML15',name:'Morral',cat:'Morral',liquidacion:true,price:299,priceOld:350,medidas:'33×25.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML15.jpg'},
   {code:'ML20',name:'Morral',cat:'Morral',price:280,medidas:'22×29×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7396375561460894981',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML20.jpg'},
   {code:'LL01',name:'Llavero',cat:'Accesorio',liquidacion:true,price:5,medidas:'7x5.5 cm',emoji:'✨',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL01.jpg'},
   {code:'LL02',name:'Llavero',cat:'Accesorio',liquidacion:true,price:8,priceOld:15,medidas:'7x6 cm',emoji:'✨',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL02.jpg'},
@@ -1324,13 +1390,18 @@ function render(list) {
       const p = list[i];
       const pi = productos.indexOf(p);
       const hasVid = p.tiktok ? `<div class="video-badge" style="position:static;margin-left:8px">${VIDEO_SVG}<span>Video</span></div>` : '';
+      const priceBlock = p.priceOld
+        ? `<div class="card-price"><span class="price-old">S/ <s>${p.priceOld}</s></span><span class="price-discount"><small>S/ </small>${p.price}</span></div>` +
+          `<span class="modal-discount-badge" style="margin-left:0;padding:2px 8px 2px 2px;"><span class="badge-fire" style="width:18px;height:18px;font-size:.7rem;">🔥</span><span class="badge-amount" style="font-size:.68rem;">-S/${p.priceOld - p.price}</span></span>`
+        : `<div class="card-price"><small>S/ </small>${p.price}</div>`;
+
       parts.push(
         `<div class="card list-card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}">` +
           `<div class="card-img"><span class="card-emoji" aria-hidden="true">${p.emoji || '👜'}</span>` +
             `<img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.classList.add('error')"></div>` +
           `<div class="card-body">` +
             `<div><div class="card-code">${esc(p.code)}</div><div class="card-name">${esc(p.name)}</div><div class="card-medidas">${esc(p.medidas)}</div></div>` +
-            `<div class="list-info"><div class="card-price"><small>S/ </small>${p.price}</div>${hasVid}</div>` +
+            `<div class="list-info">${priceBlock}${hasVid}</div>` +
           `</div>` +
         `</div>`
       );
@@ -1345,7 +1416,7 @@ function render(list) {
       parts.push(
         `<div class="card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}">` +
           `<div class="card-img skeleton" id="${cid}">` +
-            `${p.priceOld ? '<div class="liq-badge-img">🔥 -S/' + (p.priceOld - p.price) + '</div>' : ''}` +
+            `${p.priceOld ? '<div class="liq-badge-img"><span class="badge-fire" aria-hidden="true">🔥</span><span class="badge-amount">-S/' + (p.priceOld - p.price) + '</span></div>' : ''}` +
             `<span class="card-emoji" aria-hidden="true">${p.emoji || '👜'}</span>` +
             `<img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"` +
               ` onload="this.classList.add('loaded');this.parentElement.classList.remove('skeleton')"` +
@@ -1415,7 +1486,6 @@ function showTab(tab) {
   DOM.tabVid.classList.toggle('active', !showImg);
   DOM.tabVid.style.opacity = hasV ? '1' : '0.4';
 
-  // Solo se carga el video si el usuario hace clic expresamente en la pestaña Video
   if (!showImg && hasV && currentTiktokId) {
     if (!DOM.videoArea.querySelector('iframe')) {
       loadVideoIframe(currentTiktokId, currentProductName);
@@ -1435,9 +1505,9 @@ function openModal(idx) {
   const isCare = /^AC0[1-4]$/.test(p.code);
   DOM.mName.textContent = p.name;
 
-  /* Descuento en monto fijo en soles */
+  /* Descuento en monto fijo en soles con diseño de fueguito distinguido */
   DOM.mPrice.innerHTML = p.priceOld
-    ? `<div class="modal-price-old">Precio normal: <s>S/ ${p.priceOld}</s></div><span class="modal-price-discount"><small>S/ </small>${p.price}</span><span class="modal-discount-badge">🔥 -S/ ${p.priceOld - p.price}</span>`
+    ? `<div class="modal-price-old">Precio normal: <s>S/ ${p.priceOld}</s></div><span class="modal-price-discount"><small>S/ </small>${p.price}</span><span class="modal-discount-badge"><span class="badge-fire" aria-hidden="true">🔥</span><span class="badge-amount">-S/ ${p.priceOld - p.price}</span></span>`
     : `<small style="font-size:1rem;font-weight:300;color:var(--muted)">S/ </small>${p.price}`;
 
   const waColorMessage = `Hola, quisiera consultar los colores disponibles del producto ${p.name} (código ${p.code}).`;
@@ -1450,7 +1520,6 @@ function openModal(idx) {
     (isCare ? '' : `<div class="spec"><div class="spec-l">Colores</div><div class="spec-v"><a class="color-consulta" href="${waColorLink}" target="_blank" rel="noopener noreferrer" aria-label="Consultar colores por WhatsApp">` +
       `${WA_SVG} Consultar al WhatsApp</a></div></div>`);
 
-  // Recomendaciones: 3 productos de la misma categoría
   const recs = productos.filter(r => r.cat === p.cat && r.code !== p.code)
     .sort(() => Math.random() - .5).slice(0, 3);
   if (recs.length) {
@@ -1474,7 +1543,6 @@ function openModal(idx) {
     DOM.mRecs.style.display = 'none';
   }
 
-  // Foto de producto
   DOM.mImg.classList.remove('loaded');
   DOM.mImg.removeAttribute('style');
   DOM.mImg.alt = `${p.name} ${p.code}`;
@@ -1482,7 +1550,6 @@ function openModal(idx) {
   DOM.mImg.onerror = () => { DOM.mImg.style.display = 'none'; };
   DOM.mImg.src = p.img;
 
-  // Estado del Video (sin insertar el iframe aún)
   currentTiktokId = p.tiktok || null;
   currentProductName = p.name || '';
   DOM.videoArea.innerHTML = '';
@@ -1502,7 +1569,6 @@ function openModal(idx) {
   resetShipUI();
   showTab('img');
 
-  // WhatsApp
   DOM.mWA.onclick = () => {
     showToast();
     const msg = encodeURIComponent(
