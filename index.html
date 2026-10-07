@@ -28,23 +28,21 @@
 /* styles.css — Barra Arte & Estilo (Catálogo Oficial 2026) */
 :root {
   /* ── PALETA MODO DÍA: CUERO SUAVE Y MEDIO GRIS CÁLIDO ── */
-  --negro: #1a140e;
-  --carbon: #2b1f14;
-  --blanco: #f5f1eb;            /* Cuero marfil suave para tarjetas */
-  --fondo-suave: #ded8ce;       /* Gris medio cálido cuero suave (no blanco frío) */
+  --fondo-pagina: #ded8ce;       /* Gris medio cálido cuero suave (no blanco frío) */
+  --fondo-tarjeta: #f5f1eb;      /* Cuero marfil suave para tarjetas */
   --fondo-alt: #d5cec2;
-  --borde: #2a2016;             /* Borde artesanal definido */
-  --borde-suave: #c8c0b2;
-  --texto: #1a140e;
-  --texto-muted: #4a3828;
+  --borde-principal: #111010;    /* Bordes negros notables y definidos en Día */
+  --raya-divisoria: #111010;     /* Rayas divisorias negras notables en Día */
+  --texto-principal: #111010;
+  --texto-secundario: #4a3828;
   --rojo: #dc2626;
   --rojo-oscuro: #a81919;
   --wa: #25D366;
   --wa-hover: #1ebd5a;
   --trans-fast: .15s ease;
   --trans-med: .25s ease;
-  --shadow-sm: 0 2px 8px rgba(35, 20, 10, 0.08);
-  --shadow-lg: 0 14px 36px rgba(35, 20, 10, 0.16);
+  --shadow-sm: 0 2px 8px rgba(17, 16, 16, 0.08);
+  --shadow-lg: 0 14px 36px rgba(17, 16, 16, 0.16);
 }
 
 * {
@@ -59,8 +57,8 @@ html {
 
 body {
   font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--fondo-suave);
-  color: var(--texto);
+  background: var(--fondo-pagina);
+  color: var(--texto-principal);
   min-height: 100vh;
   overflow-x: hidden;
   transition: background-color .25s ease, color .25s ease;
@@ -77,7 +75,7 @@ body.modal-open {
   left: 16px;
   z-index: 9999;
   padding: 12px 20px;
-  background: var(--negro);
+  background: #111010;
   color: #fff;
   border: 1.5px solid #fff;
   font-size: .85rem;
@@ -89,13 +87,13 @@ body.modal-open {
 /* ── BARRAS SUPERIORES ── */
 .topbar {
   background: #d4cdc1;
-  padding: 8px 40px;
+  padding: 9px 40px;
   text-align: center;
-  font-size: .72rem;
+  font-size: .74rem;
   letter-spacing: .25em;
-  color: #1a140e;
+  color: var(--texto-principal);
   text-transform: uppercase;
-  border-bottom: 1.5px solid #2a2016;
+  border-bottom: 1.5px solid var(--raya-divisoria);
   font-weight: 600;
   transition: background-color .25s ease, color .25s ease, border-color .25s ease;
 }
@@ -113,8 +111,8 @@ body.modal-open {
   gap: 10px;
   position: relative;
   z-index: 99;
-  border-bottom: 1.5px solid #1a140e;
-  transition: background-color .25s ease;
+  border-bottom: 1.5px solid var(--raya-divisoria);
+  transition: background-color .25s ease, border-color .25s ease;
 }
 .shipping-bar strong { font-weight: 700; font-size: .95rem; }
 
@@ -129,7 +127,7 @@ header {
   top: 0;
   z-index: 100;
   box-shadow: 0 4px 20px rgba(0,0,0,.35);
-  border-bottom: 1.5px solid #38291a;
+  border-bottom: 1.5px solid var(--borde-principal);
   transition: background-color .25s ease, border-color .25s ease;
 }
 
@@ -173,7 +171,7 @@ header {
   justify-content: center;
   gap: 7px;
   background: #332417;
-  border: 1.5px solid #5a422d;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 20px;
   padding: 6px 14px;
   color: #fff;
@@ -199,8 +197,8 @@ header {
   padding: 44px 40px;
   position: relative;
   overflow: hidden;
-  border-bottom: 2px solid #1a120b;
-  transition: background .25s ease;
+  border-bottom: 2px solid var(--borde-principal);
+  transition: background .25s ease, border-color .25s ease;
 }
 .hero::after {
   content: '';
@@ -285,7 +283,7 @@ header {
   gap: 32px;
   margin-top: 8px;
   padding-top: 16px;
-  border-top: 1px solid #4a3423;
+  border-top: 1.5px solid var(--raya-divisoria);
   flex-wrap: wrap;
 }
 .stat-item { display: flex; flex-direction: column; }
@@ -306,7 +304,7 @@ header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  border-bottom: 1px solid #4a3423;
+  border-bottom: 1.5px solid var(--raya-divisoria);
   padding-bottom: 8px;
 }
 .cat-grid-title {
@@ -329,7 +327,7 @@ header {
 }
 .cat-grid-sub { font-size: .65rem; color: #d8cebf; letter-spacing: .1em; text-transform: uppercase; }
 
-/* ── CUADRÍCULA DE CATEGORÍAS PERFECTA (4 COLUMNAS SIN HUECOS) ── */
+/* ── CUADRÍCULA DE CATEGORÍAS (4 COLUMNAS CONTINUAS SIN HUECOS) ── */
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -345,7 +343,7 @@ header {
   gap: 5px;
   padding: 12px 6px 10px;
   background: #2a1c11;
-  border: 1.5px solid #4a3423;
+  border: 1.5px solid var(--borde-principal);
   cursor: pointer;
   transition: background .18s, border-color .18s, color .18s;
   font-size: .6rem;
@@ -358,15 +356,15 @@ header {
   border-radius: 4px;
 }
 .cat-tile span { color: #ffffff !important; }
-.cat-tile:hover { background: #3e2a1b; border-color: #c68642; color: #fff !important; }
+.cat-tile:hover { background: #3e2a1b; border-color: var(--borde-principal); color: #fff !important; }
 
 .cat-tile.active {
-  background: #fff;
-  border-color: #fff;
-  color: #1a140e !important;
+  background: var(--borde-principal);
+  border-color: var(--borde-principal);
+  color: #fff !important;
   font-weight: 700;
 }
-.cat-tile.active span { color: #1a140e !important; }
+.cat-tile.active span { color: #fff !important; }
 .cat-tile.active::after {
   content: '';
   position: absolute;
@@ -375,13 +373,13 @@ header {
   transform: translateX(-50%);
   width: 20px;
   height: 2px;
-  background: #1a140e;
+  background: #fff;
   border-radius: 2px;
 }
-.cat-tile:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.cat-tile:focus-visible { outline: 2px solid var(--borde-principal); outline-offset: 2px; }
 .cat-tile-icon { font-size: 1.25rem; line-height: 1; display: block; }
 
-/* Título Todos (ocupa 2 columnas en primera fila) */
+/* Todos ocupa 2 columnas al inicio */
 .cat-tile.tile-todos {
   grid-column: span 2;
   flex-direction: row;
@@ -391,7 +389,7 @@ header {
 }
 .cat-tile.tile-todos .cat-tile-icon { font-size: 1.15rem; }
 
-/* Categorías anchas al final (Monedero y Accesorio ocupan 2 columnas cada una en la última fila = 4 columnas) */
+/* Monedero y Accesorio ocupan 2 columnas cada uno al final (2 + 2 = 4 columnas exactas) */
 .cat-tile.tile-wide {
   grid-column: span 2;
   flex-direction: row;
@@ -420,12 +418,12 @@ header {
 }
 .cat-tile[data-cat="Liquidacion"].active span { color: #fff !important; }
 
-/* ── BARRA DE FILTROS (DÍA) ── */
+/* ── BARRA DE FILTROS ── */
 .filter-bar {
-  color: var(--negro);
+  color: var(--texto-principal);
   background: #e8e2d8;
   padding: 14px 40px;
-  border-bottom: 2px solid #2a2016;
+  border-bottom: 2px solid var(--borde-principal);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -445,7 +443,7 @@ header {
   flex: 1;
   min-width: 240px;
   max-width: 440px;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   overflow: hidden;
   background: #f5f1eb;
@@ -467,9 +465,9 @@ header {
   height: 46px;
   flex-shrink: 0;
 }
-.search-clear-btn:hover { color: var(--negro); }
+.search-clear-btn:hover { color: var(--texto-principal); }
 .search-icon {
-  background: #2a2016;
+  background: var(--borde-principal);
   width: 46px;
   height: 46px;
   display: flex;
@@ -486,7 +484,7 @@ input[type=text] {
   background: #f5f1eb;
   font-family: inherit;
   font-size: .9rem;
-  color: var(--negro);
+  color: var(--texto-principal);
   outline: none;
   transition: background-color .25s ease, color .25s ease;
 }
@@ -498,21 +496,21 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--negro);
+  color: var(--texto-principal);
   white-space: nowrap;
 }
 .sort-btn {
   height: 46px;
   padding: 0 16px;
   background: #f5f1eb;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   font-family: inherit;
   font-size: .75rem;
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--negro);
+  color: var(--texto-principal);
   cursor: pointer;
   transition: all .18s;
   white-space: nowrap;
@@ -521,7 +519,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   gap: 8px;
 }
 .sort-btn:hover { background: #ece6dc; }
-.sort-btn.active { background: #2a2016; color: #fff; }
+.sort-btn.active { background: var(--borde-principal); color: #fff; }
 .sort-btn svg {
   width: 14px;
   height: 14px;
@@ -536,7 +534,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 .view-toggle {
   display: inline-flex;
   height: 46px;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   overflow: hidden;
   background: #f5f1eb;
@@ -548,28 +546,28 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   background: #f5f1eb;
   border: none;
   cursor: pointer;
-  color: var(--negro);
+  color: var(--texto-principal);
   transition: all .18s;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .view-btn:hover:not(.active) { background: #ece6dc; }
-.view-btn.active { background: #2a2016; color: #fff; }
+.view-btn.active { background: var(--borde-principal); color: #fff; }
 .view-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
 .btn-limpiar {
   height: 46px;
   padding: 0 18px;
   background: #f5f1eb;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   font-family: inherit;
   font-size: .75rem;
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--negro);
+  color: var(--texto-principal);
   cursor: pointer;
   transition: all .18s;
   white-space: nowrap;
@@ -592,7 +590,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: .74rem;
   font-weight: 600;
   letter-spacing: .1em;
-  color: var(--negro);
+  color: var(--texto-principal);
   text-transform: uppercase;
   margin-left: auto;
   white-space: nowrap;
@@ -601,19 +599,19 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   padding: 0 16px;
   display: inline-flex;
   align-items: center;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   transition: background-color .25s ease, border-color .25s ease, color .25s ease;
 }
-.results-info b { color: var(--negro); font-size: .95rem; font-weight: 700; margin: 0 4px; }
+.results-info b { color: var(--texto-principal); font-size: .95rem; font-weight: 700; margin: 0 4px; }
 
-/* ── GRILLA DE PRODUCTOS (DÍA) ── */
+/* ── GRILLA DE PRODUCTOS ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 16px;
   padding: 24px 40px;
-  background: var(--fondo-suave);
+  background: var(--fondo-pagina);
   min-height: 200px;
   transition: background-color .25s ease;
 }
@@ -623,17 +621,18 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   padding: 20px 40px;
 }
 
+/* ── TARJETAS DE PRODUCTO CON BORDES Y RAYAS NOTABLES ── */
 .card {
-  background: var(--blanco);
+  background: var(--fondo-tarjeta);
   cursor: pointer;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 6px;
   transition: transform .18s ease, box-shadow .18s ease, background-color .25s ease, border-color .25s ease;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 3px 8px rgba(35, 20, 10, 0.08);
+  box-shadow: 0 3px 8px rgba(17, 16, 16, 0.08);
   outline: none;
 }
 .card:hover {
@@ -641,8 +640,9 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   transform: translateY(-2px);
   z-index: 2;
 }
-.card:focus-visible { outline: 3px solid #2a2016; outline-offset: 2px; z-index: 2; }
+.card:focus-visible { outline: 3px solid var(--borde-principal); outline-offset: 2px; z-index: 2; }
 
+/* Raya divisoria notable bajo la foto */
 .card-img {
   width: 100%;
   aspect-ratio: 1;
@@ -653,7 +653,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: 4rem;
   position: relative;
   overflow: hidden;
-  border-bottom: 1.5px solid #2a2016;
+  border-bottom: 1.5px solid var(--raya-divisoria);
   transition: background-color .25s ease, border-color .25s ease;
 }
 .card-img.skeleton::before {
@@ -702,9 +702,9 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: .72rem;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: #1a140e;
-  background: #f5f1eb;
-  border: 1.5px solid #2a2016;
+  color: var(--texto-principal);
+  background: var(--fondo-tarjeta);
+  border: 1.5px solid var(--borde-principal);
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -719,7 +719,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background: rgba(26,20,14,.88);
+  background: rgba(17,16,16,.9);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255,255,255,.3);
   border-radius: 4px;
@@ -737,7 +737,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: var(--blanco);
+  background: var(--fondo-tarjeta);
   transition: background-color .25s ease;
 }
 
@@ -745,37 +745,39 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: .68rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: #5a4430;
+  color: var(--texto-secundario);
   font-weight: 700;
   margin-bottom: 3px;
 }
 .card-name {
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--negro);
+  color: var(--texto-principal);
   line-height: 1.25;
   margin-bottom: 10px;
 }
+
+/* Raya divisoria notable sobre el precio */
 .card-footer {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   padding-top: 10px;
   margin-top: auto;
-  border-top: 1px solid var(--borde-suave);
+  border-top: 1.5px solid var(--raya-divisoria);
   gap: 8px;
 }
 
 .card-price {
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--negro);
+  color: var(--texto-principal);
   line-height: 1;
 }
 
 .card-medidas {
   font-size: .75rem;
-  color: #5a4430;
+  color: var(--texto-secundario);
   letter-spacing: .02em;
   font-weight: 600;
   text-align: right;
@@ -802,7 +804,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 
 .badge-fire {
   background: #fff;
-  border: 1px solid var(--negro);
+  border: 1px solid var(--borde-principal);
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -823,7 +825,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   align-items: center;
   gap: 6px;
   background: linear-gradient(135deg, var(--rojo-oscuro) 0%, var(--rojo) 100%);
-  border: 1.5px solid var(--negro);
+  border: 1.5px solid var(--borde-principal);
   color: #fff;
   padding: 3px 10px 3px 3px;
   border-radius: 20px;
@@ -845,7 +847,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   gap: 7px;
   margin-left: 12px;
   background: linear-gradient(135deg, var(--rojo-oscuro) 0%, var(--rojo) 100%);
-  border: 1.5px solid var(--negro);
+  border: 1.5px solid var(--borde-principal);
   color: #fff;
   padding: 4px 12px 4px 4px;
   vertical-align: middle;
@@ -859,7 +861,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 .card.list-card {
   display: flex;
   flex-direction: row;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -870,7 +872,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   aspect-ratio: unset;
   flex-shrink: 0;
   border-bottom: none;
-  border-right: 1.5px solid #2a2016;
+  border-right: 1.5px solid var(--raya-divisoria);
 }
 .card.list-card .card-body {
   flex: 1;
@@ -893,8 +895,8 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   padding: 80px 20px;
   display: none;
 }
-.empty h3 { font-size: 1.5rem; color: var(--negro); margin-bottom: 8px; }
-.empty p { font-size: .85rem; color: var(--texto-muted); }
+.empty h3 { font-size: 1.5rem; color: var(--texto-principal); margin-bottom: 8px; }
+.empty p { font-size: .85rem; color: var(--texto-secundario); }
 
 /* ── MODAL ── */
 .overlay {
@@ -913,7 +915,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 .overlay.open { display: flex; }
 
 .modal {
-  background: var(--blanco);
+  background: var(--fondo-tarjeta);
   width: 100%;
   max-width: 1020px;
   max-height: 96vh;
@@ -921,7 +923,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   border-radius: 6px;
-  border: 2px solid #2a2016;
+  border: 2px solid var(--borde-principal);
   box-shadow: 0 24px 64px rgba(0,0,0,.5);
   transition: background-color .25s ease, border-color .25s ease;
 }
@@ -938,7 +940,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #222;
+  border-bottom: 1.5px solid var(--raya-divisoria);
   background: #111;
   gap: 8px;
   flex-shrink: 0;
@@ -963,7 +965,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 }
 .media-label svg { width: 15px; height: 15px; fill: currentColor; opacity: .75; flex-shrink: 0; }
 .media-label:hover { background: #333; border-color: #fff; }
-.media-label.active { color: var(--negro); background: #fff; border-color: #fff; font-weight: 700; }
+.media-label.active { color: #111; background: #fff; border-color: #fff; font-weight: 700; }
 .media-label.active svg { opacity: 1; }
 
 .modal-close {
@@ -1024,20 +1026,26 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  background: var(--blanco);
+  background: var(--fondo-tarjeta);
   transition: background-color .25s ease;
 }
 .m-name {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--negro);
+  color: var(--texto-principal);
   line-height: 1.25;
   margin-bottom: 6px;
   word-break: break-word;
 }
-.m-divider { height: 1.5px; background: #2a2016; margin: 14px 0; }
+
+/* Raya divisoria notable bajo el título del modal */
+.m-divider {
+  height: 2px;
+  background: var(--raya-divisoria);
+  margin: 14px 0;
+}
 .m-price { margin-bottom: 18px; }
-.modal-price-val { font-size: 2.2rem; font-weight: 700; color: var(--negro); }
+.modal-price-val { font-size: 2.2rem; font-weight: 700; color: var(--texto-principal); }
 .modal-price-old { font-size: .9rem; color: #6e5845; margin-bottom: 4px; font-weight: 600; }
 .modal-price-old s { text-decoration: line-through; color: #7a6350; }
 .modal-price-discount { font-size: 2.2rem; font-weight: 700; color: var(--rojo); }
@@ -1047,12 +1055,12 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 .spec {
   padding: 10px 12px;
   background: #e8e2d8;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   transition: background-color .25s ease, border-color .25s ease;
 }
-.spec-l { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: #5a4430; margin-bottom: 3px; font-weight: 700; }
-.spec-v { font-size: .85rem; font-weight: 600; color: var(--negro); }
+.spec-l { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--texto-secundario); margin-bottom: 3px; font-weight: 700; }
+.spec-v { font-size: .85rem; font-weight: 600; color: var(--texto-principal); }
 .color-consulta { display: inline-flex; align-items: center; gap: 6px; color: #168f48; text-decoration: none; font-weight: 700; cursor: pointer; }
 .color-consulta:hover { text-decoration: underline; color: #11733a; }
 .color-consulta svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
@@ -1083,8 +1091,8 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   flex: 1;
   padding: 15px 12px;
   background: #e8e2d8;
-  color: var(--negro);
-  border: 1.5px solid #2a2016;
+  color: var(--texto-principal);
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   font-family: inherit;
   font-size: .78rem;
@@ -1101,7 +1109,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 .btn-share:hover { background: #ded7cb; }
 
 /* Envíos */
-.m-ship-section { border: 1.5px solid #2a2016; margin-bottom: 16px; border-radius: 4px; overflow: hidden; }
+.m-ship-section { border: 1.5px solid var(--borde-principal); margin-bottom: 16px; border-radius: 4px; overflow: hidden; }
 .m-ship-toggle {
   width: 100%;
   display: flex;
@@ -1115,7 +1123,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: .78rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--negro);
+  color: var(--texto-principal);
   font-weight: 700;
   transition: background .2s;
 }
@@ -1123,9 +1131,9 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 .m-ship-toggle-left { display: flex; align-items: center; gap: 8px; }
 .m-ship-arrow { transition: transform .28s ease; flex-shrink: 0; }
 .m-ship-toggle[aria-expanded="true"] .m-ship-arrow { transform: rotate(180deg); }
-.m-ship-body { max-height: 0; overflow: hidden; transition: max-height .38s ease; background: var(--blanco); }
+.m-ship-body { max-height: 0; overflow: hidden; transition: max-height .38s ease; background: var(--fondo-tarjeta); }
 .m-ship-body.open { max-height: 2000px; overflow: visible; }
-.ship-tab-bar { display: flex; border-bottom: 1.5px solid #2a2016; }
+.ship-tab-bar { display: flex; border-bottom: 1.5px solid var(--raya-divisoria); }
 .ship-tab {
   flex: 1;
   padding: 10px 12px;
@@ -1135,23 +1143,23 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: .72rem;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: #5a4430;
+  color: var(--texto-secundario);
   cursor: pointer;
   border-bottom: 2.5px solid transparent;
   margin-bottom: -1px;
   transition: all .18s;
 }
-.ship-tab.active { color: var(--negro); border-bottom-color: #2a2016; font-weight: 700; }
-.ship-tab:hover:not(.active) { color: var(--negro); background: #ded7cb; }
+.ship-tab.active { color: var(--texto-principal); border-bottom-color: var(--raya-divisoria); font-weight: 700; }
+.ship-tab:hover:not(.active) { color: var(--texto-principal); background: #ded7cb; }
 .ship-tab-content { padding: 14px; }
 .ship-select {
   width: 100%;
   padding: 10px 12px;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   background: #f5f1eb;
   font-family: inherit;
   font-size: .85rem;
-  color: var(--negro);
+  color: var(--texto-principal);
   outline: none;
   cursor: pointer;
   margin-bottom: 10px;
@@ -1163,22 +1171,22 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: .76rem;
   font-weight: 700;
   letter-spacing: .05em;
-  color: var(--negro);
+  color: var(--texto-principal);
   text-align: center;
-  border-bottom: 1.5px solid #2a2016;
+  border-bottom: 1.5px solid var(--raya-divisoria);
 }
 .ship-schedule-pill {
   background: #e8e2d8;
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   padding: 8px 12px;
   font-size: .76rem;
-  color: var(--negro);
+  color: var(--texto-principal);
   margin-bottom: 10px;
   line-height: 1.4;
 }
 .ship-result-minimal {
-  border: 1.5px solid #2a2016;
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   padding: 10px 12px;
   background: #ece7de;
@@ -1186,24 +1194,24 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   flex-direction: column;
   gap: 6px;
 }
-.ship-result-line { display: flex; justify-content: space-between; align-items: center; font-size: .8rem; color: var(--negro); }
-.ship-result-total { padding-top: 6px; margin-top: 2px; border-top: 1.5px solid #2a2016; font-size: .86rem; font-weight: 700; }
-.total-amount { font-size: 1.15rem; font-weight: 800; color: var(--negro); }
+.ship-result-line { display: flex; justify-content: space-between; align-items: center; font-size: .8rem; color: var(--texto-principal); }
+.ship-result-total { padding-top: 6px; margin-top: 2px; border-top: 1.5px solid var(--raya-divisoria); font-size: .86rem; font-weight: 700; }
+.total-amount { font-size: 1.15rem; font-weight: 800; color: var(--texto-principal); }
 
 .ship-agency-list { display: flex; flex-direction: column; gap: 8px; }
-.ship-agency-item { border: 1.5px solid #2a2016; border-radius: 4px; padding: 10px 12px; background: #f5f1eb; }
+.ship-agency-item { border: 1.5px solid var(--borde-principal); border-radius: 4px; padding: 10px 12px; background: #f5f1eb; }
 .ship-agency-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-.ship-agency-title { font-size: .84rem; font-weight: 700; color: var(--negro); }
-.ship-agency-badge { font-size: .56rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: #2a2016; color: #fff; padding: 2px 7px; border-radius: 2px; }
+.ship-agency-title { font-size: .84rem; font-weight: 700; color: var(--texto-principal); }
+.ship-agency-badge { font-size: .56rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: var(--borde-principal); color: #fff; padding: 2px 7px; border-radius: 2px; }
 .ship-agency-desc { font-size: .72rem; color: #4a3828; line-height: 1.45; }
-.ship-agency-extra { margin-top: 10px; font-size: .7rem; color: #5a4430; line-height: 1.4; text-align: center; }
+.ship-agency-extra { margin-top: 10px; font-size: .7rem; color: var(--texto-secundario); line-height: 1.4; text-align: center; }
 
 /* Recomendaciones */
-.m-recs-label { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: #5a4430; margin-bottom: 10px; font-weight: 700; }
+.m-recs-label { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: var(--texto-secundario); margin-bottom: 10px; font-weight: 700; }
 .m-recs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .m-rec-card {
-  background: var(--blanco);
-  border: 1.5px solid #2a2016;
+  background: var(--fondo-tarjeta);
+  border: 1.5px solid var(--borde-principal);
   border-radius: 4px;
   cursor: pointer;
   transition: box-shadow .15s ease;
@@ -1220,27 +1228,27 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: 1.6rem;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid #2a2016;
+  border-bottom: 1.5px solid var(--raya-divisoria);
 }
 .m-rec-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity .3s; }
 .m-rec-img img.loaded { opacity: 1; }
 .m-rec-body { padding: 7px 8px 9px; }
-.m-rec-code { font-size: .5rem; letter-spacing: .2em; text-transform: uppercase; color: #5a4430; font-weight: 700; }
-.m-rec-name { font-size: .74rem; color: var(--negro); line-height: 1.2; margin-bottom: 3px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.m-rec-price { font-size: .95rem; font-weight: 700; color: var(--negro); }
+.m-rec-code { font-size: .5rem; letter-spacing: .2em; text-transform: uppercase; color: var(--texto-secundario); font-weight: 700; }
+.m-rec-name { font-size: .74rem; color: var(--texto-principal); line-height: 1.2; margin-bottom: 3px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-rec-price { font-size: .95rem; font-weight: 700; color: var(--texto-principal); }
 
 /* ── SECCIÓN TESTIMONIOS (DÍA) ── */
 .trust-section {
   background: #d4cdc1;
   padding: 48px 40px;
-  border-top: 2px solid #2a2016;
-  border-bottom: 2px solid #2a2016;
-  transition: background-color .25s ease;
+  border-top: 2px solid var(--borde-principal);
+  border-bottom: 2px solid var(--borde-principal);
+  transition: background-color .25s ease, border-color .25s ease;
 }
 .trust-title {
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--texto);
+  color: var(--texto-principal);
   letter-spacing: .2em;
   text-transform: uppercase;
   text-align: center;
@@ -1253,8 +1261,8 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   align-items: center;
   gap: 10px;
   padding: 22px 16px;
-  background: var(--blanco);
-  border: 1.5px solid #2a2016;
+  background: var(--fondo-tarjeta);
+  border: 1.5px solid var(--borde-principal);
   border-radius: 6px;
   text-align: center;
   transition: box-shadow .15s ease;
@@ -1262,14 +1270,14 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 }
 .trust-item:hover { box-shadow: 0 8px 24px rgba(0,0,0,.12); }
 .trust-icon { font-size: 2rem; line-height: 1; }
-.trust-label { font-size: 1rem; font-weight: 600; color: var(--texto); line-height: 1.3; }
-.trust-sub { font-size: .72rem; color: #5a4430; letter-spacing: .05em; margin-top: 4px; font-weight: 600; }
+.trust-label { font-size: 1rem; font-weight: 600; color: var(--texto-principal); line-height: 1.3; }
+.trust-sub { font-size: .72rem; color: var(--texto-secundario); letter-spacing: .05em; margin-top: 4px; font-weight: 600; }
 
 /* ── SECCIÓN MAPA ── */
-.map-section { background: #21170e; padding: 48px 40px; border-bottom: 2px solid #2a2016; }
+.map-section { background: #21170e; padding: 48px 40px; border-bottom: 2px solid var(--borde-principal); }
 .map-title { font-size: 1.4rem; font-weight: 600; color: #fff; text-align: center; margin-bottom: 6px; }
 .map-subtitle { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: #d8cebf; text-align: center; margin-bottom: 24px; }
-.map-wrap { max-width: 860px; margin: 0 auto; border: 2px solid #4a3423; overflow: hidden; }
+.map-wrap { max-width: 860px; margin: 0 auto; border: 2px solid var(--borde-principal); overflow: hidden; }
 .map-wrap iframe { width: 100%; height: 360px; border: none; display: block; filter: grayscale(15%) contrast(1.05); }
 .map-actions { margin-top: 14px; text-align: center; }
 .map-actions a {
@@ -1289,11 +1297,11 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 .map-actions a:hover { background: #fff; color: #21170e; }
 
 /* ── FOOTER ── */
-footer { background: #1a120b; padding: 48px 40px 32px; text-align: center; border-top: 2px solid #4a3423; }
+footer { background: #1a120b; padding: 48px 40px 32px; text-align: center; border-top: 2px solid var(--borde-principal); }
 footer img { height: 46px; width: auto; max-width: 180px; filter: brightness(0) invert(1); margin-bottom: 16px; display: inline-block; }
 footer p { font-size: .78rem; color: #d8cebf; letter-spacing: .08em; line-height: 1.8; margin-bottom: 4px; }
 footer a { color: #fff; text-decoration: none; }
-.ftcopy { display: block; margin-top: 20px; padding-top: 20px; border-top: 1px solid #332317; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: #9c8874; }
+.ftcopy { display: block; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--borde-principal); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: #9c8874; }
 
 /* ── BOTÓN FLOTANTE Y TOAST ── */
 .wa-float {
@@ -1319,7 +1327,7 @@ footer a { color: #fff; text-decoration: none; }
   right: 68px;
   bottom: 50%;
   transform: translateY(50%);
-  background: #1a140e;
+  background: #111;
   color: #fff;
   font-size: .75rem;
   letter-spacing: .1em;
@@ -1337,7 +1345,7 @@ footer a { color: #fff; text-decoration: none; }
   top: 50%;
   transform: translateY(-50%);
   border: 6px solid transparent;
-  border-left-color: #1a140e;
+  border-left-color: #111;
   border-right: none;
 }
 .wa-float:hover .wa-float-tooltip { opacity: 1; }
@@ -1347,7 +1355,7 @@ footer a { color: #fff; text-decoration: none; }
   bottom: 28px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background: #1a140e;
+  background: #111010;
   color: #fff;
   padding: 12px 22px;
   font-size: .8rem;
@@ -1377,7 +1385,7 @@ footer a { color: #fff; text-decoration: none; }
   border-radius: 50%;
   background: #2a2016;
   color: #fff;
-  border: 1.5px solid #fff;
+  border: 1.5px solid var(--borde-principal);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1393,9 +1401,13 @@ footer a { color: #fff; text-decoration: none; }
 .back-to-top svg { width: 18px; height: 18px; fill: currentColor; }
 
 /* ══════════════════════════════════════════════════════════════════════
-   ── MODO NOCHE: SOLO BLANCO Y NEGRO EN TODOS LOS FONDOS Y ELEMENTOS ──
+   ── MODO NOCHE: PARTE SUPERIOR SUTIL COMO ANTES (FOTO 1) + RAYAS BLANCAS EN PRODUCTOS (FOTO 2) ──
    ══════════════════════════════════════════════════════════════════════ */
 body.dark-theme {
+  --fondo-pagina: #000000;
+  --fondo-tarjeta: #101010;
+  --texto-principal: #ffffff;
+  --texto-secundario: #cccccc;
   background: #000000 !important;
   color: #ffffff !important;
 }
@@ -1440,16 +1452,16 @@ body.dark-theme .eyebrow-pill {
 }
 body.dark-theme .hero-title { color: #ffffff !important; }
 body.dark-theme .hero-desc { color: #d0d0d0 !important; }
-body.dark-theme .hero-stats { border-top-color: #222222 !important; }
+body.dark-theme .hero-stats { border-top: 1px solid #222222 !important; }
 body.dark-theme .stat-num { color: #ffffff !important; }
 body.dark-theme .stat-label { color: #aaaaaa !important; }
 
-body.dark-theme .cat-grid-header { border-bottom-color: #222222 !important; }
+body.dark-theme .cat-grid-header { border-bottom: 1px solid #222222 !important; }
 body.dark-theme .cat-grid-title { color: #ffffff !important; }
 body.dark-theme .cat-grid-title::before { background: #ffffff !important; }
 body.dark-theme .cat-grid-sub { color: #aaaaaa !important; }
 
-/* Botones de categorías en modo noche: fondos negros/oscuros puros con texto blanco */
+/* Botones de categorías en modo noche: sutiles sin rayas blancas agresivas */
 body.dark-theme .cat-tile {
   background: #121212 !important;
   border: 1.5px solid #282828 !important;
@@ -1487,7 +1499,7 @@ body.dark-theme .cat-tile[data-cat="Liquidacion"].active {
 }
 body.dark-theme .cat-tile[data-cat="Liquidacion"].active span { color: #ffffff !important; }
 
-/* Barra de filtros en modo noche: fondo negro limpio */
+/* Barra de filtros en modo noche: limpia y elegante como antes */
 body.dark-theme .filter-bar {
   background: #0a0a0a !important;
   color: #ffffff !important;
@@ -1498,7 +1510,7 @@ body.dark-theme .sort-label { color: #ffffff !important; }
 
 body.dark-theme .search-wrap {
   background: #161616 !important;
-  border-color: #2e2e2e !important;
+  border: 1.5px solid #2e2e2e !important;
 }
 
 body.dark-theme input[type=text] {
@@ -1510,6 +1522,7 @@ body.dark-theme input[type=text]::placeholder { color: #888888 !important; }
 body.dark-theme .search-icon {
   background: #222222 !important;
 }
+body.dark-theme .search-icon svg { stroke: #ffffff !important; }
 
 body.dark-theme .search-clear-btn { color: #cccccc !important; }
 body.dark-theme .search-clear-btn:hover { color: #ffffff !important; }
@@ -1520,7 +1533,7 @@ body.dark-theme .results-info,
 body.dark-theme .view-toggle {
   background: #161616 !important;
   color: #ffffff !important;
-  border-color: #2e2e2e !important;
+  border: 1.5px solid #2e2e2e !important;
 }
 
 body.dark-theme .results-info b { color: #ffffff !important; }
@@ -1544,23 +1557,25 @@ body.dark-theme .grid {
   background: #000000 !important;
 }
 
-/* Tarjetas en modo noche: fondos negros profundos con letras en blanco nítido */
+/* ── PRODUCTOS EN MODO NOCHE (FOTO 2): BORDES BLANCOS Y RAYAS BLANCAS DE SEPARACIÓN ── */
 body.dark-theme .card {
   background: #101010 !important;
-  border: 1.5px solid #242424 !important;
-  box-shadow: 0 4px 14px rgba(0,0,0,.65) !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,.85) !important;
 }
 body.dark-theme .card:hover {
-  box-shadow: 0 14px 36px rgba(255,255,255,.08) !important;
+  box-shadow: 0 14px 36px rgba(255,255,255,.16) !important;
   border-color: #ffffff !important;
+  transform: translateY(-3px);
 }
 
+/* Raya blanca divisoria bajo la foto del producto (Foto 2) */
 body.dark-theme .card-img {
   background: #080808 !important;
-  border-bottom-color: #242424 !important;
+  border-bottom: 1.5px solid #ffffff !important;
 }
 body.dark-theme .card.list-card .card-img {
-  border-right-color: #242424 !important;
+  border-right: 1.5px solid #ffffff !important;
   border-bottom: none !important;
 }
 body.dark-theme .card-img.skeleton::before {
@@ -1574,7 +1589,6 @@ body.dark-theme .card-body {
 /* Textos de tarjeta en modo noche: BLANCO NÍTIDO */
 body.dark-theme .card-code {
   color: #ffffff !important;
-  opacity: 0.95;
   font-weight: 700;
 }
 
@@ -1583,8 +1597,9 @@ body.dark-theme .card-name {
   font-weight: 700;
 }
 
+/* Raya blanca divisoria sobre el precio (Foto 2) */
 body.dark-theme .card-footer {
-  border-top-color: #242424 !important;
+  border-top: 1.5px solid #ffffff !important;
 }
 
 body.dark-theme .card-price {
@@ -1593,51 +1608,59 @@ body.dark-theme .card-price {
 
 body.dark-theme .card-medidas {
   color: #ffffff !important;
-  opacity: 0.95;
   font-weight: 600;
 }
 
 body.dark-theme .price-old,
 body.dark-theme .price-old s {
   color: #ffffff !important;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 body.dark-theme .card-hover-label {
   background: #000000 !important;
   color: #ffffff !important;
-  border-color: #444444 !important;
+  border: 1.5px solid #ffffff !important;
 }
 
-/* ── TESTIMONIOS NOCHE ── */
+/* ── SECCIONES INFERIORES: BORDES DISCRETOS COMO ANTES ── */
 body.dark-theme .trust-section {
   background: #080808 !important;
-  border-top-color: #222222 !important;
-  border-bottom-color: #222222 !important;
+  border-top: 2px solid #222222 !important;
+  border-bottom: 2px solid #222222 !important;
 }
 body.dark-theme .trust-title { color: #ffffff !important; }
 body.dark-theme .trust-item {
   background: #141414 !important;
-  border-color: #262626 !important;
+  border: 1.5px solid #262626 !important;
 }
 body.dark-theme .trust-label { color: #ffffff !important; }
 body.dark-theme .trust-sub { color: #bbbbbb !important; }
 
 body.dark-theme .empty h3 { color: #ffffff !important; }
 body.dark-theme .empty p { color: #cccccc !important; }
+body.dark-theme .empty { border-color: #2c2c2c !important; }
 
-/* ── MODAL NOCHE: BLANCO Y NEGRO ── */
+/* ── MODAL NOCHE ── */
 body.dark-theme .overlay {
   background: rgba(0, 0, 0, 0.92) !important;
 }
 body.dark-theme .modal {
   background: #121212 !important;
-  border-color: #333333 !important;
+  border: 2px solid #333333 !important;
   box-shadow: 0 24px 64px rgba(0,0,0,.95) !important;
+}
+body.dark-theme .modal-media-header {
+  border-bottom: 1.5px solid #222222 !important;
 }
 body.dark-theme .modal-info { background: #121212 !important; }
 body.dark-theme .m-name { color: #ffffff !important; }
-body.dark-theme .m-divider { background: #262626 !important; }
+
+/* Divisor del modal */
+body.dark-theme .m-divider {
+  background: #262626 !important;
+  height: 1.5px !important;
+}
 body.dark-theme .modal-price-val { color: #ffffff !important; }
 body.dark-theme .modal-price-old,
 body.dark-theme .modal-price-old s { color: #ffffff !important; opacity: 0.85; }
@@ -1645,7 +1668,7 @@ body.dark-theme #imgArea { background: #080808 !important; }
 
 body.dark-theme .spec {
   background: #1a1a1a !important;
-  border-color: #2c2c2c !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .spec-l {
   color: #ffffff !important;
@@ -1661,11 +1684,11 @@ body.dark-theme .color-consulta:hover { color: #6bf2a3 !important; }
 body.dark-theme .m-recs-label { color: #ffffff !important; }
 body.dark-theme .m-rec-card {
   background: #181818 !important;
-  border-color: #2c2c2c !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .m-rec-img {
   background: #0a0a0a !important;
-  border-bottom-color: #2c2c2c !important;
+  border-bottom: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .m-rec-code { color: #ffffff !important; }
 body.dark-theme .m-rec-name { color: #ffffff !important; }
@@ -1675,12 +1698,12 @@ body.dark-theme .m-rec-price small { color: #ffffff !important; }
 body.dark-theme .btn-share {
   background: #1c1c1c !important;
   color: #ffffff !important;
-  border-color: #333333 !important;
+  border: 1.5px solid #333333 !important;
 }
 body.dark-theme .btn-share:hover { background: #2a2a2a !important; }
 
 /* ── ENVÍOS NOCHE ── */
-body.dark-theme .m-ship-section { border-color: #2c2c2c !important; }
+body.dark-theme .m-ship-section { border: 1.5px solid #2c2c2c !important; }
 body.dark-theme .m-ship-toggle {
   background: #1a1a1a !important;
   color: #ffffff !important;
@@ -1690,9 +1713,9 @@ body.dark-theme .m-ship-body { background: #121212 !important; }
 body.dark-theme .ship-top-banner {
   background: #1a1a1a !important;
   color: #ffffff !important;
-  border-bottom-color: #2c2c2c !important;
+  border-bottom: 1.5px solid #2c2c2c !important;
 }
-body.dark-theme .ship-tab-bar { border-bottom-color: #2c2c2c !important; }
+body.dark-theme .ship-tab-bar { border-bottom: 1.5px solid #2c2c2c !important; }
 body.dark-theme .ship-tab { color: #aaaaaa !important; }
 body.dark-theme .ship-tab.active {
   color: #ffffff !important;
@@ -1705,25 +1728,25 @@ body.dark-theme .ship-tab:hover:not(.active) {
 }
 body.dark-theme .ship-schedule-pill {
   background: #1a1a1a !important;
-  border-color: #2c2c2c !important;
+  border: 1.5px solid #2c2c2c !important;
   color: #ffffff !important;
 }
 body.dark-theme .ship-select {
   background: #1a1a1a !important;
   color: #ffffff !important;
-  border-color: #2c2c2c !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .ship-result-minimal {
   background: #161616 !important;
-  border-color: #2c2c2c !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .ship-result-line { color: #ffffff !important; }
-body.dark-theme .ship-result-total { border-top-color: #2c2c2c !important; }
+body.dark-theme .ship-result-total { border-top: 1.5px solid #2c2c2c !important; }
 body.dark-theme .total-amount { color: #ffffff !important; }
 
 body.dark-theme .ship-agency-item {
   background: #1a1a1a !important;
-  border-color: #2c2c2c !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .ship-agency-title { color: #ffffff !important; }
 body.dark-theme .ship-agency-desc { color: #cccccc !important; }
@@ -1733,8 +1756,15 @@ body.dark-theme .ship-agency-badge {
 }
 
 body.dark-theme .map-section { background: #000000 !important; border-bottom: 2px solid #222222 !important; }
+body.dark-theme .map-wrap { border: 2px solid #333333 !important; }
 body.dark-theme footer { background: #000000 !important; border-top: 2px solid #222222 !important; color: #cccccc !important; }
-body.dark-theme .ftcopy { border-top-color: #1e1e1e !important; color: #777777 !important; }
+body.dark-theme .ftcopy { border-top: 1px solid #1e1e1e !important; color: #777777 !important; }
+body.dark-theme .back-to-top {
+  background: #222222 !important;
+  border: 1.5px solid #444444 !important;
+  color: #ffffff !important;
+}
+
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
@@ -2181,23 +2211,23 @@ window.APP_DATA = {
   ],
 
   catIcons: {
-    'Todos': '🏠',
+    'Todos': '✨',
     'Liquidacion': '🔥',
     'Mochila': '🎒',
+    'Cartera': '👜',
+    'Bolso': '🛍️',
+    'Morral': '📁',
+    'Pechera': '🎽',
     'Canguro': '👝',
-    'Neceser': '🧴',
-    'Correa': '🔗',
-    'Billetera Hombre': '💵',
+    'Maletín': '💼',
+    'Bolso de Viaje': '🧳',
+    'Correa': '👔',
+    'Billetera Hombre': '💳',
     'Billetera Mujer': '👛',
     'Tarjetero': '🪪',
-    'Bolso de Viaje': '🧳',
-    'Maletín': '💼',
-    'Cartera': '👜',
-    'Bolso': '👜',
-    'Pechera': '🦺',
-    'Morral': '🛍️',
-    'Accesorio': '⌚',
-    'Monedero': '💰'
+    'Neceser': '🧴',
+    'Monedero': '🪙',
+    'Accesorio': '🔑'
   },
 
   COLOR_HEX: {
@@ -2284,15 +2314,15 @@ window.APP_DATA = {
     {code:'MO09',name:'Vintage Mediano',cat:'Mochila',price:550,medidas:'36.5×26.5×11 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7661312779676044561',img:'https://barraleather.com/wp-content/uploads/2026/07/Portada-de-categoria-mochila-general.webp'},
     {code:'MO13',name:'Mochila',cat:'Mochila',price:600,medidas:'40.5×30×10 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277426482698341637',img:'https://barraleather.com/wp-content/uploads/2026/07/Mochila-de-cuero-mo13-color-camel.webp'},
     {code:'MO14',name:'Vintage Grande',cat:'Mochila',price:680,medidas:'42X31X16 cm',emoji:'🎒',colores:['—'],tiktok:'7661312779676044561',img:'https://barraleather.com/wp-content/uploads/2026/07/Portada-de-categoria-mochila-general.webp'},
-    {code:'MO05',name:'Mochila Manta',cat:'Mochila',liquidacion:true,price:220,priceOld:280,medidas:'38X24.5X16.5',emoji:'🏷️',colores:['—'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/06/MOCHILA-MO05-NA-ATRAS-MANTA-CUZQUENA-1.webp'},
-    {code:'MV04',name:'Maleta',cat:'Bolso de Viaje',liquidacion:true,price:550,priceOld:650,medidas:'52x26x24 cm',emoji:'🏷️',colores:['Negro'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-DE-CUERO-MV03-V2-CUERO-LISO-CUERO-GENUINO.webp'},
-    {code:'CN01',name:'Canguro Mediano',cat:'Canguro',price:120,medidas:'32×12×6 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/07/Canguro-de-cuero-color-verde-CN01.webp'},
-    {code:'CN02 - Rosa',name:'Canguro',cat:'Canguro',liquidacion:true,price:109,priceOld:150,medidas:'23x17x9 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277636755740708101',img:'https://barraleather.com/wp-content/uploads/2026/07/CANGURO-CN02-ROSA-NEGRO-CUERO-GENUINO-DAMAS.webp'},
-    {code:'CN02 - Rojo',name:'Canguro',cat:'Canguro',liquidacion:true,price:220,priceOld:250,medidas:'29x14x7 cm',emoji:'🏷️',colores:['Rojo'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/CANGURO-ROJO-CUERO-GENUINO-CUERO-LISO.webp'},
-    {code:'CN03',name:'Canguro',cat:'Canguro',liquidacion:true,price:139,priceOld:180,medidas:'30x15x7 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277684451784543493',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-camel-CN03.webp'},
-    {code:'CN04',name:'Canguro Grande',cat:'Canguro',price:150,medidas:'40×14×8 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-camel-CN04.webp'},
-    {code:'CN05',name:'Canguro Jazmín',cat:'Canguro',price:120,medidas:'40×14×8 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7612679047398690069',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-camel-CN05.webp'},
-    {code:'CN06',name:'Canguro Grande',cat:'Canguro',price:280,medidas:'22.5×14.5×8.5 cm',emoji:'🏷️',colores:['Negro','Camel','Marrón'],tiktok:'7588187082045148437',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-MARRON-OSCURO-CN06.webp'},
+    {code:'MO05',name:'Mochila Manta',cat:'Mochila',liquidacion:true,price:220,priceOld:280,medidas:'38X24.5X16.5',emoji:'🎒',colores:['—'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/06/MOCHILA-MO05-NA-ATRAS-MANTA-CUZQUENA-1.webp'},
+    {code:'MV04',name:'Maleta',cat:'Bolso de Viaje',liquidacion:true,price:550,priceOld:650,medidas:'52x26x24 cm',emoji:'🧳',colores:['Negro'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-DE-CUERO-MV03-V2-CUERO-LISO-CUERO-GENUINO.webp'},
+    {code:'CN01',name:'Canguro Mediano',cat:'Canguro',price:120,medidas:'32×12×6 cm',emoji:'👝',colores:['Negro','Camel','Marrón'],tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/07/Canguro-de-cuero-color-verde-CN01.webp'},
+    {code:'CN02 - Rosa',name:'Canguro',cat:'Canguro',liquidacion:true,price:109,priceOld:150,medidas:'23x17x9 cm',emoji:'👝',colores:['Negro','Camel','Marrón'],tiktok:'7277636755740708101',img:'https://barraleather.com/wp-content/uploads/2026/07/CANGURO-CN02-ROSA-NEGRO-CUERO-GENUINO-DAMAS.webp'},
+    {code:'CN02 - Rojo',name:'Canguro',cat:'Canguro',liquidacion:true,price:220,priceOld:250,medidas:'29x14x7 cm',emoji:'👝',colores:['Rojo'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/CANGURO-ROJO-CUERO-GENUINO-CUERO-LISO.webp'},
+    {code:'CN03',name:'Canguro',cat:'Canguro',liquidacion:true,price:139,priceOld:180,medidas:'30x15x7 cm',emoji:'👝',colores:['Negro','Camel','Marrón'],tiktok:'7277684451784543493',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-camel-CN03.webp'},
+    {code:'CN04',name:'Canguro Grande',cat:'Canguro',price:150,medidas:'40×14×8 cm',emoji:'👝',colores:['Negro','Camel','Marrón'],tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-camel-CN04.webp'},
+    {code:'CN05',name:'Canguro Jazmín',cat:'Canguro',price:120,medidas:'40×14×8 cm',emoji:'👝',colores:['Negro','Camel','Marrón'],tiktok:'7612679047398690069',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-camel-CN05.webp'},
+    {code:'CN06',name:'Canguro Grande',cat:'Canguro',price:280,medidas:'22.5×14.5×8.5 cm',emoji:'👝',colores:['Negro','Camel','Marrón'],tiktok:'7588187082045148437',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-MARRON-OSCURO-CN06.webp'},
     {code:'NE01',name:'Neceser Pequeño',cat:'Neceser',price:85,medidas:'18.5×6×6 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7632451007213096213',img:'https://barraleather.com/wp-content/uploads/2026/07/Neceser-de-cuero-pequeno-NE01.webp'},
     {code:'NE02',name:'Neceser Mediano',cat:'Neceser',price:120,medidas:'22×9.5×4.5 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7277637317190274309',img:'https://barraleather.com/wp-content/uploads/2026/07/Neceser-de-cuero-pequeno-NE02.webp'},
     {code:'NE03',name:'Neceser Mediano',cat:'Neceser',price:130,medidas:'20.5×13.5×8 cm',emoji:'🧴',colores:['Negro','Camel','Marrón'],tiktok:'7277637317190274309',img:'https://barraleather.com/wp-content/uploads/2026/07/Neceser-de-cuero-pequeno-NE03.webp'},
@@ -2321,23 +2351,23 @@ window.APP_DATA = {
     {code:'BC18',name:'Billetera Grados',cat:'Billetera Hombre',price:134,medidas:'13×9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7674292755971181831',img:'https://barraleather.com/wp-content/uploads/2026/08/BILLETERA-DE-CUERO-BC18-MARRON.webp'},
     {code:'BC19',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'13×9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/BC19-BILLETERA-DE-CUERO-DISENO-MACHUPICHU.jpg'},
     {code:'BC20',name:'Billetera Dian',cat:'Billetera Hombre',price:75,medidas:'11x8.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/09/Billetera-de-cuero-BC20-.webp'},
-    {code:'BD02',name:'Billetera Tres-P',cat:'Billetera Mujer',price:55,medidas:'9.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7406497950353935621',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD02.jpg'},
-    {code:'BD03',name:'Billetera',cat:'Billetera Mujer',price:85,medidas:'9.5×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7619804728884579605',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD03.jpg'},
-    {code:'BD04',name:'Billetera Tres',cat:'Billetera Mujer',price:100,medidas:'10.5×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7666474730777627924',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD04.jpg'},
-    {code:'BD05',name:'Billetera',cat:'Billetera Mujer',price:150,medidas:'10.5×8 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7666207191912729876',img:'https://barraleather.com/wp-content/uploads/2026/07/BILLETERA-DE-CUERO-BD05-AZUL.webp'},
-    {code:'BD06',name:'Billetera Clásica',cat:'Billetera Mujer',price:120,medidas:'17×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Guinda'],tiktok:'7665821198021954837',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD06.jpg'},
-    {code:'BD07',name:'Billetera Clásica BOA',cat:'Billetera Mujer',price:120,medidas:'17×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Guinda'],tiktok:'7666145734172871956',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD07.jpg'},
-    {code:'BD08',name:'Billetera Flores',cat:'Billetera Mujer',price:120,medidas:'17×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7613821967317126421',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD08.jpg'},
-    {code:'BD09',name:'Billetera Cinta',cat:'Billetera Mujer',price:120,medidas:'17×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7613822327482076436',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD09.jpg'},
-    {code:'BD10',name:'Billetera',cat:'Billetera Mujer',price:150,medidas:'17×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/09/BD10-BILLETERA-DE-CUERO-PARA-MUJER.webp'},
-    {code:'BD12',name:'Billetera',cat:'Billetera Mujer',price:150,medidas:'19×10×2.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7613824048572681492',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD12.jpg'},
-    {code:'BD13',name:'Billetera',cat:'Billetera Mujer',price:100,medidas:'10×9×2.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7276221859560000774',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD13.jpg'},
-    {code:'BD14',name:'Billetera Aurora',cat:'Billetera Mujer',price:150,medidas:'19×10×2.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7587076737339624725',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD14.jpg'},
-    {code:'TJ01',name:'Tarjetero',cat:'Tarjetero',price:35,medidas:'11.5×7.7 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7666486267911146772',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ01.jpg'},
-    {code:'TJ02',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'8×10.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón','Rojo','Rosado','Amarillo','Lila'],tiktok:'7584491821452086548',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ02.jpg'},
-    {code:'TJ04',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'10×9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7410988312472702213',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ04.jpg'},
-    {code:'TJ05',name:'Tarjetero',cat:'Tarjetero',price:35,medidas:'10×9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7664674628568222993',img:'https://barraleather.com/wp-content/uploads/2026/07/TARJETERO-DE-CUERO-COLOR-ROJO-TJ05.webp'},
-    {code:'TJ06',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'11×9.5 cm',emoji:'💳',colores:['Negro','Camel','Marrón'],tiktok:'7410991428739910917',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ06.jpg'},
+    {code:'BD02',name:'Billetera Tres-P',cat:'Billetera Mujer',price:55,medidas:'9.5×7 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7406497950353935621',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD02.jpg'},
+    {code:'BD03',name:'Billetera',cat:'Billetera Mujer',price:85,medidas:'9.5×8.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7619804728884579605',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD03.jpg'},
+    {code:'BD04',name:'Billetera Tres',cat:'Billetera Mujer',price:100,medidas:'10.5×8.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7666474730777627924',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD04.jpg'},
+    {code:'BD05',name:'Billetera',cat:'Billetera Mujer',price:150,medidas:'10.5×8 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7666207191912729876',img:'https://barraleather.com/wp-content/uploads/2026/07/BILLETERA-DE-CUERO-BD05-AZUL.webp'},
+    {code:'BD06',name:'Billetera Clásica',cat:'Billetera Mujer',price:120,medidas:'17×8.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Guinda'],tiktok:'7665821198021954837',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD06.jpg'},
+    {code:'BD07',name:'Billetera Clásica BOA',cat:'Billetera Mujer',price:120,medidas:'17×8.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Guinda'],tiktok:'7666145734172871956',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD07.jpg'},
+    {code:'BD08',name:'Billetera Flores',cat:'Billetera Mujer',price:120,medidas:'17×8.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7613821967317126421',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD08.jpg'},
+    {code:'BD09',name:'Billetera Cinta',cat:'Billetera Mujer',price:120,medidas:'17×8.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7613822327482076436',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD09.jpg'},
+    {code:'BD10',name:'Billetera',cat:'Billetera Mujer',price:150,medidas:'17×8.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/09/BD10-BILLETERA-DE-CUERO-PARA-MUJER.webp'},
+    {code:'BD12',name:'Billetera',cat:'Billetera Mujer',price:150,medidas:'19×10×2.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7613824048572681492',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD12.jpg'},
+    {code:'BD13',name:'Billetera',cat:'Billetera Mujer',price:100,medidas:'10×9×2.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7276221859560000774',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD13.jpg'},
+    {code:'BD14',name:'Billetera Aurora',cat:'Billetera Mujer',price:150,medidas:'19×10×2.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7587076737339624725',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD14.jpg'},
+    {code:'TJ01',name:'Tarjetero',cat:'Tarjetero',price:35,medidas:'11.5×7.7 cm',emoji:'🪪',colores:['Negro','Camel','Marrón'],tiktok:'7666486267911146772',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ01.jpg'},
+    {code:'TJ02',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'8×10.5 cm',emoji:'🪪',colores:['Negro','Camel','Marrón','Rojo','Rosado','Amarillo','Lila'],tiktok:'7584491821452086548',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ02.jpg'},
+    {code:'TJ04',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'10×9.5 cm',emoji:'🪪',colores:['Negro','Camel','Marrón'],tiktok:'7410988312472702213',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ04.jpg'},
+    {code:'TJ05',name:'Tarjetero',cat:'Tarjetero',price:35,medidas:'10×9.5 cm',emoji:'🪪',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7664674628568222993',img:'https://barraleather.com/wp-content/uploads/2026/07/TARJETERO-DE-CUERO-COLOR-ROJO-TJ05.webp'},
+    {code:'TJ06',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'11×9.5 cm',emoji:'🪪',colores:['Negro','Camel','Marrón'],tiktok:'7410991428739910917',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ06.jpg'},
     {code:'MV01',name:'Bolso',cat:'Bolso de Viaje',price:600,medidas:'36×28×19 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622057567786683664',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-01-MARRON.jpg'},
     {code:'MV02',name:'Bolso viaje',cat:'Bolso de Viaje',price:650,medidas:'45 ancho x 26 alto x 21.5 fuelle',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/MV02-Bolso-de-Viaje-de-Cuero-Color-Camel.webp'},
     {code:'MV03',name:'Bolso California',cat:'Bolso de Viaje',price:700,medidas:'53.5×37.5×23.5 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622401038313639184',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-01-CAMEL.png'},
@@ -2345,84 +2375,86 @@ window.APP_DATA = {
     {code:'MN04',name:'Maletín',cat:'Maletín',price:320,medidas:'34×25×7 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7276988812230790405',img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-CUERO-MN04-MARRON-CUERO-GENUINO-CUERO-LISO-UNISEX.webp'},
     {code:'MN07',name:'Maletín',cat:'Maletín',price:480,medidas:'38×28.5×9.5 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7283622304184077574',img:'https://barraleather.com/wp-content/uploads/2026/03/Morral-de-cuero-MN07.png'},
     {code:'MN08',name:'Maletín',cat:'Maletín',price:450,medidas:'36.5×25×10.5 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7276989522028547334',img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-CUERO-MN08-NEGRO-CUERO-GENUINO-CUERO-FLOTER.webp'},
-    {code:'CA01',name:'Cartera Bombón',cat:'Cartera',price:120,medidas:'21.5×17.5×4 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo','Rosado','Guinda'],tiktok:'7618608212262227218',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-CUERO-CA01-MARRON-CUERO-GENUINO-DAMA.webp'},
-    {code:'CA02',name:'Cartera',cat:'Cartera',price:150,medidas:'13×21×7.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo','Rosado','Guinda'],tiktok:'7288361697541246213',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-DAMA-CA02-CAMEL-CUERO-GENUINO.webp'},
-    {code:'CA04',name:'Cartera',cat:'Cartera',liquidacion:true,price:339,priceOld:390,medidas:'32×43×11.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7619385318310939925',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA04.jpg'},
-    {code:'CA05',name:'Bolso',cat:'Bolso',price:350,medidas:'31×43×12 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Verde','Lila','Rojo'],tiktok:'7665479086990478593',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-CUERO-DAMA-CA05-AZUL-METALICO-1.webp'},
-    {code:'CA06',name:'Bolso',cat:'Bolso',price:350,medidas:'36.5×45.5×9.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7629856901072735508',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA06.jpg'},
-    {code:'CA07',name:'Cartera',cat:'Cartera',price:300,medidas:'28x31x10 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7665397677877677328',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-CAMEL-CA07-CUERO-FLOTER-CUERO-GENUINO.webp'},
-    {code:'CA08',name:'Cartera Bucket',cat:'Cartera',price:350,medidas:'37.5×26.5×12 cm',emoji:'👛',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7586065259664805141',img:'https://barraleather.com/wp-content/uploads/2026/03/CA-08-ROJO.jpg'},
-    {code:'CA09',name:'Cartera Elia',cat:'Cartera',price:250,medidas:'21.5x16×6.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7492432779402185990',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-CUERO-CA09-VERDE-ESMERALDA-CUERO-GENUINO-DAMA.webp'},
-    {code:'CA10',name:'Cartera Ceci',cat:'Cartera',price:250,medidas:'12×32.5x9 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7563868452381822219',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-CA10-CAMEL-CUERO-COCODRILO-CARTERA-DE-DAMA-CARTERA-GENUINO.webp'},
-    {code:'CA11',name:'Bolso',cat:'Bolso',price:680,medidas:'40.5x35.5x12.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7582243126417427723',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-CUERO-DAMA-CA11-CARTERA-DE-PELO.webp'},
-    {code:'CA12',name:'Bolso',cat:'Bolso',price:400,medidas:'35.5×29x12.5 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7632081764755918101',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-DE-CUERO-CA12-CUERO-GENUINO-CUERO-NEGRO-CUERO-LISO.webp'},
-    {code:'CA13',name:'Cartera Emma',cat:'Cartera',price:480,medidas:'35×25x16 cm',emoji:'👛',colores:['Negro','Camel','Marrón'],tiktok:'7660552350163094801',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-EMMA-CA13-CAMEL.webp'},
-    {code:'CA14',name:'Bolso Baguette',cat:'Bolso',price:300,medidas:'32x17 cm',emoji:'👛',colores:['Negro','Camel'],tiktok:'7660569150896524560',img:'https://barraleather.com/wp-content/uploads/2026/07/Bolso-Baguette-de-cuero-BC14.webp'},
-    {code:'CA15',name:'Bolso Cerrado',cat:'Bolso',price:300,medidas:'35x25x10 cm',emoji:'👛',colores:['Negro','Camel'],tiktok:'7665118015104568577',img:'https://barraleather.com/wp-content/uploads/2026/07/Cartera-de-cuero-Cerrado-CA15.webp'},
-    {code:'PE01',name:'Pechera',cat:'Pechera',liquidacion:true,price:229,priceOld:300,medidas:'26.5×16×6.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277371701040598277',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-PE01.jpg'},
-    {code:'PE02',name:'Pechera',cat:'Pechera',price:280,medidas:'31.5×16.5×7 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277369674285763846',img:'https://barraleather.com/wp-content/uploads/2026/07/PECHERA-CUERO-PE02-CAMEL-CUERO-LISO-CUERO-GENUINO-DAMAS-HOMBRE-UNISEX-CUERO-FLOTER.webp'},
-    {code:'PE03',name:'Pechera',cat:'Pechera',price:280,medidas:'32×15.5×7 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7616417152798706945',img:'https://barraleather.com/wp-content/uploads/2026/07/PECHERA-CUERO-PE03-NEGRO-CUERO-GENUINO-DAMAS-HOMBRE-UNISEX.webp'},
-    {code:'PE04',name:'Pechera',cat:'Pechera',price:300,medidas:'31×14.5×6.5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7396338747874233605',img:'https://barraleather.com/wp-content/uploads/2026/07/PECHERA-CUERO-PE04-CAMEL-CUERO-GENUINO-DAMAS-HOMBRE-UNISEX.webp'},
-    {code:'PE05',name:'Pechera',cat:'Pechera',price:280,medidas:'31.5×18×5 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7616426772841630977',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-DE-CUERO-PE05.jpg'},
-    {code:'ML01',name:'Morralito',cat:'Morral',price:120,medidas:'12×18.5×5.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Verde'],tiktok:'7632443658947644692',img:'https://barraleather.com/wp-content/uploads/2026/07/Morralito-de-cuero-color-camel-ML01.webp'},
-    {code:'ML02',name:'Morralito',cat:'Morral',price:140,medidas:'14.3×18×5.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo','Amarillo'],tiktok:'7277310944030510342',img:'https://barraleather.com/wp-content/uploads/2026/06/morralito-de-cuero-color-azul-marino-ML02.webp'},
-    {code:'ML03',name:'Morralito',cat:'Morral',price:190,medidas:'17.5×20×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo','Amarillo'],tiktok:'7632448535065103637',img:'https://barraleather.com/wp-content/uploads/2026/07/morral-de-cuero-color-camel-ML03-V2.webp'},
-    {code:'ML04',name:'Morralito',cat:'Morral',price:150,medidas:'15×21×5 cm',emoji:'👜',colores:['Rojo','Marrón','Verde','Camel','Amarillo','Negro'],tiktok:'7632445995762273557',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML09.jpg'},
-    {code:'ML05',name:'Morral',cat:'Morral',price:190,medidas:'17×21.5×6.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7277376048235433221',img:'https://barraleather.com/wp-content/uploads/2026/07/Morralito-de-cuero-ML05-V1.webp'},
-    {code:'ML06',name:'Morral',cat:'Morral',liquidacion:true,price:160,priceOld:210,medidas:'17.5×23×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7588208350957980948',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML06.jpg'},
-    {code:'ML07',name:'Morralito',cat:'Morral',liquidacion:true,price:160,priceOld:220,medidas:'17.5×24.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7584499625936063764',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML07.jpg'},
-    {code:'ML08',name:'Morralito',cat:'Morral',liquidacion:true,price:200,priceOld:260,medidas:'22.5×24.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7277313311937400069',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML08.png'},
-    {code:'ML09',name:'Morralito',cat:'Morral',price:250,medidas:'21×28.5×8.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7277312559970127109',img:'https://barraleather.com/wp-content/uploads/2026/07/Morral-de-cuero-ML04-color-camel.webp'},
-    {code:'ML10',name:'Morral Gallero',cat:'Morral',liquidacion:true,price:239,priceOld:300,medidas:'28.5×23×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7605276354724023572',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML10.jpg'},
-    {code:'ML11',name:'Morralito',cat:'Morral',liquidacion:true,price:200,priceOld:250,medidas:'21×24.5×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7632447196905966868',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML11.jpg'},
-    {code:'ML13',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7277318730286124294',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML13.jpg'},
-    {code:'ML14',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7665484353492880641',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML14.jpg'},
-    {code:'ML20',name:'Morral',cat:'Morral',price:280,medidas:'22×29×7 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7396375561460894981',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML20.jpg'},
-    {code:'LL01',name:'Llavero',cat:'Accesorio',liquidacion:true,price:5,priceOld:10,medidas:'7x5.5 cm',emoji:'✨',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL01.jpg'},
-    {code:'LL02',name:'Llavero',cat:'Accesorio',liquidacion:true,price:8,priceOld:15,medidas:'7x6 cm',emoji:'✨',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL02.jpg'},
-    {code:'LL03',name:'Llavero',cat:'Accesorio',price:15,medidas:'12x2.5 cm',emoji:'✨',colores:['Negro','Marrón'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL03.jpg'},
-    {code:'LL04',name:'Llavero',cat:'Accesorio',price:35,medidas:'13x3.5 cm',emoji:'✨',colores:['Marrón'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL04.jpg'},
-    {code:'LL05',name:'Llavero Corazón',cat:'Accesorio',price:30,medidas:'9x8.5',emoji:'✨',colores:['Rojo'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL05.jpg'},
-    {code:'LL06',name:'Llavero',cat:'Accesorio',price:30,medidas:'15x2.5',emoji:'✨',colores:['Guinda'],tiktok:'7400007079152389382',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL06.jpg'},
-    {code:'PT01',name:'Llavero Porta Llaves',cat:'Accesorio',price:15,medidas:'9×7.5 cm',emoji:'✨',colores:['Negro','Camel'],tiktok:'7619446973007170837',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-PT01.jpg'},
-    {code:'PT02',name:'Llavero Multiusos',cat:'Accesorio',liquidacion:true,price:25,priceOld:50,medidas:'13.5x6 cm',emoji:'✨',colores:['Negro','Camel'],tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
-    {code:'PT04',name:'Porta Celular',cat:'Accesorio',price:89,priceOld:120,medidas:'9.5x18.5x3.5',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
-    {code:'PT11',name:'Porta Pasaporte',cat:'Accesorio',price:95,medidas:'10x14',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7400023049052916998',img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-PASAPORTE-PT11.jpg'},
-    {code:'SO01',name:'Sombrero',cat:'Accesorio',price:160,medidas:'60 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7593493155433991442',img:'https://barraleather.com/wp-content/uploads/2026/03/SOMBRERO-DE-CUERO-SO01.jpg'},
-    {code:'GR01',name:'Gorro Clasico',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'✨',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR01-CLASICO-GORRO-DE-CUERO.webp'},
-    {code:'GR02',name:'Gorro Redondo',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'✨',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR02-REDONDO-GORRO-CUERO.webp'},
-    {code:'GR03',name:'Gorro Broche',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'✨',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR03-BROCHE-GORRO-DE-CUERO.webp'},
-    {code:'GR04',name:'Gorro Cubano',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'✨',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR04-CUBANO-GORRO-DE-CUERO.webp'},
-    {code:'GU01',name:'Guantes',cat:'Accesorio',price:95,medidas:'Consultar tallas',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7632081280133238036',img:'https://barraleather.com/wp-content/uploads/2026/03/GUANTES-DE-CUERO-GU01.jpg'},
-    {code:'PT03',name:'Porta lentes',cat:'Accesorio',price:95,medidas:'20x10 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/PORTA-LENTES-PT03.webp'},
-    {code:'MR02',name:'Monedero',cat:'Monedero',price:5,medidas:'8x7 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613900073486896400',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR02.jpg'},
-    {code:'MR03',name:'Monedero',cat:'Monedero',price:8,medidas:'8.5x6.5 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR03.jpg'},
-    {code:'MR04',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'8.3x7.3',emoji:'✨',colores:['Marrón'],tiktok:'7619350173596011797',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR04.jpg'},
-    {code:'MR05',name:'Monedero',cat:'Monedero',price:45,medidas:'9.5x8x4 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627189019897580820',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR05.jpg'},
-    {code:'MR06',name:'Monedero',cat:'Monedero',price:15,medidas:'10x7',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7626521410118143252',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR06.jpg'},
-    {code:'MR07',name:'Monedero',cat:'Monedero',liquidacion:true,price:12,priceOld:35,medidas:'6.5x6x3',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR07.jpg'},
-    {code:'MR08',name:'Monedero',cat:'Monedero',price:25,medidas:'10x8.5 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7626524313012817173',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR08.jpg'},
-    {code:'MR09',name:'Monedero',cat:'Monedero',price:45,medidas:'10x7.5 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619814174431989013',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR09.jpg'},
-    {code:'MR10',name:'Monedero',cat:'Monedero',price:35,medidas:'8.5x10 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619806544842034453',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR10.jpg'},
-    {code:'MR11',name:'Monedero',cat:'Monedero',price:35,medidas:'10x7.5 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613893530804669713',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR11.jpg'},
-    {code:'MR12',name:'Monedero',cat:'Monedero',price:15,medidas:'8x8 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7619821056089427221',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR12.jpg'},
-    {code:'MR13',name:'Monedero',cat:'Monedero',price:18,medidas:'19.5 cm',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613894444831477009',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR13.jpg'},
-    {code:'MR14',name:'Monedero',cat:'Monedero',price:12,medidas:'14',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627211816262765845',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR14.jpg'},
-    {code:'MR16',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'8x8x3',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7627212701177138452',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR16.jpg'},
-    {code:'MR17',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'10x10',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613896889343249665',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR17.jpg'},
-    {code:'MR18',name:'Monedero Sofia',cat:'Monedero',price:20,medidas:'12.5x9.5',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR18.jpg'},
-    {code:'MR19',name:'Monedero',cat:'Monedero',price:15,medidas:'10x7',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7629837099943922964',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR19.jpg'},
-    {code:'MR20',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:29,medidas:'11x10.5',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613872033918651649',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR20.jpg'},
-    {code:'MR21',name:'Monedero',cat:'Monedero',liquidacion:true,price:12,priceOld:25,medidas:'11.5x8',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7629835359148379412',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21.jpg'},
-    {code:'MR22',name:'Monedero',cat:'Monedero',price:35,medidas:'14.5x10.5',emoji:'✨',colores:['Negro','Camel','Marrón'],tiktok:'7613869031845563664',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21-1.jpg'},
-    {code:'AC01',name:'Crema Nutripiel',cat:'Accesorio',price:15,medidas:'30 ml',emoji:'✨',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC01.jpg'},
-    {code:'AC02',name:'Crema Nutripiel',cat:'Accesorio',price:35,medidas:'50 ml',emoji:'✨',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC02.jpg'},
-    {code:'AC03',name:'Crema Nutripiel',cat:'Accesorio',price:55,medidas:'500 ml',emoji:'✨',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/08/Crema-grande-500-ml-con-tapa-negra-para-cuero.webp'},
-    {code:'AC04',name:'Aceite',cat:'Accesorio',price:15,medidas:'100 ml',emoji:'✨',colores:[],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/aceite-para-cuero-accesorios.webp'}
+    {code:'CA01',name:'Cartera Bombón',cat:'Cartera',price:120,medidas:'21.5×17.5×4 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo','Rosado','Guinda'],tiktok:'7618608212262227218',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-CUERO-CA01-MARRON-CUERO-GENUINO-DAMA.webp'},
+    {code:'CA02',name:'Cartera',cat:'Cartera',price:150,medidas:'13×21×7.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo','Rosado','Guinda'],tiktok:'7288361697541246213',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-DAMA-CA02-CAMEL-CUERO-GENUINO.webp'},
+    {code:'CA04',name:'Cartera',cat:'Cartera',liquidacion:true,price:339,priceOld:390,medidas:'32×43×11.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7619385318310939925',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA04.jpg'},
+    {code:'CA05',name:'Bolso',cat:'Bolso',price:350,medidas:'31×43×12 cm',emoji:'🛍️',colores:['Negro','Camel','Marrón','Verde','Lila','Rojo'],tiktok:'7665479086990478593',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-CUERO-DAMA-CA05-AZUL-METALICO-1.webp'},
+    {code:'CA06',name:'Bolso',cat:'Bolso',price:350,medidas:'36.5×45.5×9.5 cm',emoji:'🛍️',colores:['Negro','Camel','Marrón'],tiktok:'7629856901072735508',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTERA-DE-CUERO-CA06.jpg'},
+    {code:'CA07',name:'Cartera',cat:'Cartera',price:300,medidas:'28x31x10 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7665397677877677328',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-CAMEL-CA07-CUERO-FLOTER-CUERO-GENUINO.webp'},
+    {code:'CA08',name:'Cartera Bucket',cat:'Cartera',price:350,medidas:'37.5×26.5×12 cm',emoji:'👜',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7586065259664805141',img:'https://barraleather.com/wp-content/uploads/2026/03/CA-08-ROJO.jpg'},
+    {code:'CA09',name:'Cartera Elia',cat:'Cartera',price:250,medidas:'21.5x16×6.5 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7492432779402185990',img:'https://barraleather.com/wp-content/uploads/2026/06/CARTERA-CUERO-CA09-VERDE-ESMERALDA-CUERO-GENUINO-DAMA.webp'},
+    {code:'CA10',name:'Cartera Ceci',cat:'Cartera',price:250,medidas:'12×32.5x9 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7563868452381822219',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-CA10-CAMEL-CUERO-COCODRILO-CARTERA-DE-DAMA-CARTERA-GENUINO.webp'},
+    {code:'CA11',name:'Bolso',cat:'Bolso',price:680,medidas:'40.5x35.5x12.5 cm',emoji:'🛍️',colores:['Negro','Camel','Marrón'],tiktok:'7582243126417427723',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-CUERO-DAMA-CA11-CARTERA-DE-PELO.webp'},
+    {code:'CA12',name:'Bolso',cat:'Bolso',price:400,medidas:'35.5×29x12.5 cm',emoji:'🛍️',colores:['Negro','Camel','Marrón'],tiktok:'7632081764755918101',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-DE-CUERO-CA12-CUERO-GENUINO-CUERO-NEGRO-CUERO-LISO.webp'},
+    {code:'CA13',name:'Cartera Emma',cat:'Cartera',price:480,medidas:'35×25x16 cm',emoji:'👜',colores:['Negro','Camel','Marrón'],tiktok:'7660552350163094801',img:'https://barraleather.com/wp-content/uploads/2026/07/CARTERA-EMMA-CA13-CAMEL.webp'},
+    {code:'CA14',name:'Bolso Baguette',cat:'Bolso',price:300,medidas:'32x17 cm',emoji:'🛍️',colores:['Negro','Camel'],tiktok:'7660569150896524560',img:'https://barraleather.com/wp-content/uploads/2026/07/Bolso-Baguette-de-cuero-BC14.webp'},
+    {code:'CA15',name:'Bolso Cerrado',cat:'Bolso',price:300,medidas:'35x25x10 cm',emoji:'🛍️',colores:['Negro','Camel'],tiktok:'7665118015104568577',img:'https://barraleather.com/wp-content/uploads/2026/07/Cartera-de-cuero-Cerrado-CA15.webp'},
+    {code:'PE01',name:'Pechera',cat:'Pechera',liquidacion:true,price:229,priceOld:300,medidas:'26.5×16×6.5 cm',emoji:'🎽',colores:['Negro','Camel','Marrón'],tiktok:'7277371701040598277',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-PE01.jpg'},
+    {code:'PE02',name:'Pechera',cat:'Pechera',price:280,medidas:'31.5×16.5×7 cm',emoji:'🎽',colores:['Negro','Camel','Marrón'],tiktok:'7277369674285763846',img:'https://barraleather.com/wp-content/uploads/2026/07/PECHERA-CUERO-PE02-CAMEL-CUERO-LISO-CUERO-GENUINO-DAMAS-HOMBRE-UNISEX-CUERO-FLOTER.webp'},
+    {code:'PE03',name:'Pechera',cat:'Pechera',price:280,medidas:'32×15.5×7 cm',emoji:'🎽',colores:['Negro','Camel','Marrón'],tiktok:'7616417152798706945',img:'https://barraleather.com/wp-content/uploads/2026/07/PECHERA-CUERO-PE03-NEGRO-CUERO-GENUINO-DAMAS-HOMBRE-UNISEX.webp'},
+    {code:'PE04',name:'Pechera',cat:'Pechera',price:300,medidas:'31×14.5×6.5 cm',emoji:'🎽',colores:['Negro','Camel','Marrón'],tiktok:'7396338747874233605',img:'https://barraleather.com/wp-content/uploads/2026/07/PECHERA-CUERO-PE04-CAMEL-CUERO-GENUINO-DAMAS-HOMBRE-UNISEX.webp'},
+    {code:'PE05',name:'Pechera',cat:'Pechera',price:280,medidas:'31.5×18×5 cm',emoji:'🎽',colores:['Negro','Camel','Marrón'],tiktok:'7616426772841630977',img:'https://barraleather.com/wp-content/uploads/2026/03/PECHERA-DE-CUERO-PE05.jpg'},
+    {code:'ML01',name:'Morralito',cat:'Morral',price:120,medidas:'12×18.5×5.5 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Verde'],tiktok:'7632443658947644692',img:'https://barraleather.com/wp-content/uploads/2026/07/Morralito-de-cuero-color-camel-ML01.webp'},
+    {code:'ML02',name:'Morralito',cat:'Morral',price:140,medidas:'14.3×18×5.5 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Rojo','Amarillo'],tiktok:'7277310944030510342',img:'https://barraleather.com/wp-content/uploads/2026/06/morralito-de-cuero-color-azul-marino-ML02.webp'},
+    {code:'ML03',name:'Morralito',cat:'Morral',price:190,medidas:'17.5×20×7.5 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Rojo','Amarillo'],tiktok:'7632448535065103637',img:'https://barraleather.com/wp-content/uploads/2026/07/morral-de-cuero-color-camel-ML03-V2.webp'},
+    {code:'ML04',name:'Morralito',cat:'Morral',price:150,medidas:'15×21×5 cm',emoji:'📁',colores:['Rojo','Marrón','Verde','Camel','Amarillo','Negro'],tiktok:'7632445995762273557',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML09.jpg'},
+    {code:'ML05',name:'Morral',cat:'Morral',price:190,medidas:'17×21.5×6.5 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7277376048235433221',img:'https://barraleather.com/wp-content/uploads/2026/07/Morralito-de-cuero-ML05-V1.webp'},
+    {code:'ML06',name:'Morral',cat:'Morral',liquidacion:true,price:160,priceOld:210,medidas:'17.5×23×7.5 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7588208350957980948',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML06.jpg'},
+    {code:'ML07',name:'Morralito',cat:'Morral',liquidacion:true,price:160,priceOld:220,medidas:'17.5×24.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7584499625936063764',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML07.jpg'},
+    {code:'ML08',name:'Morralito',cat:'Morral',liquidacion:true,price:200,priceOld:260,medidas:'22.5×24.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7277313311937400069',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML08.png'},
+    {code:'ML09',name:'Morralito',cat:'Morral',price:250,medidas:'21×28.5×8.5 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7277312559970127109',img:'https://barraleather.com/wp-content/uploads/2026/07/Morral-de-cuero-ML04-color-camel.webp'},
+    {code:'ML10',name:'Morral Gallero',cat:'Morral',liquidacion:true,price:239,priceOld:300,medidas:'28.5×23×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7605276354724023572',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML10.jpg'},
+    {code:'ML11',name:'Morralito',cat:'Morral',liquidacion:true,price:200,priceOld:250,medidas:'21×24.5×7.5 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7632447196905966868',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML11.jpg'},
+    {code:'ML13',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7277318730286124294',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML13.jpg'},
+    {code:'ML14',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7665484353492880641',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML14.jpg'},
+    {code:'ML15',name:'Morral',cat:'Morral',liquidacion:true,price:299,priceOld:350,medidas:'33×25.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML15.jpg'},
+    {code:'ML20',name:'Morral',cat:'Morral',price:280,medidas:'22×29×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7396375561460894981',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML20.jpg'},
+    {code:'LL01',name:'Llavero',cat:'Accesorio',liquidacion:true,price:5,priceOld:10,medidas:'7x5.5 cm',emoji:'🔑',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL01.jpg'},
+    {code:'LL02',name:'Llavero',cat:'Accesorio',liquidacion:true,price:8,priceOld:15,medidas:'7x6 cm',emoji:'🔑',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL02.jpg'},
+    {code:'LL03',name:'Llavero',cat:'Accesorio',price:15,medidas:'12x2.5 cm',emoji:'🔑',colores:['Negro','Marrón'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL03.jpg'},
+    {code:'LL04',name:'Llavero',cat:'Accesorio',price:35,medidas:'13x3.5 cm',emoji:'🔑',colores:['Marrón'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL04.jpg'},
+    {code:'LL05',name:'Llavero Corazón',cat:'Accesorio',price:30,medidas:'9x8.5',emoji:'🔑',colores:['Rojo'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL05.jpg'},
+    {code:'LL06',name:'Llavero',cat:'Accesorio',price:30,medidas:'15x2.5',emoji:'🔑',colores:['Guinda'],tiktok:'7400007079152389382',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL06.jpg'},
+    {code:'PT01',name:'Llavero Porta Llaves',cat:'Accesorio',price:15,medidas:'9×7.5 cm',emoji:'🔑',colores:['Negro','Camel'],tiktok:'7619446973007170837',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-PT01.jpg'},
+    {code:'PT02',name:'Llavero Multiusos',cat:'Accesorio',liquidacion:true,price:25,priceOld:50,medidas:'13.5x6 cm',emoji:'🔑',colores:['Negro','Camel'],tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
+    {code:'PT04',name:'Porta Celular',cat:'Accesorio',price:89,priceOld:120,medidas:'9.5x18.5x3.5',emoji:'📱',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
+    {code:'PT11',name:'Porta Pasaporte',cat:'Accesorio',price:95,medidas:'10x14',emoji:'🛂',colores:['Negro','Camel','Marrón'],tiktok:'7400023049052916998',img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-PASAPORTE-PT11.jpg'},
+    {code:'SO01',name:'Sombrero',cat:'Accesorio',price:160,medidas:'60 cm',emoji:'🎩',colores:['Negro','Camel','Marrón'],tiktok:'7593493155433991442',img:'https://barraleather.com/wp-content/uploads/2026/03/SOMBRERO-DE-CUERO-SO01.jpg'},
+    {code:'GR01',name:'Gorro Clasico',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR01-CLASICO-GORRO-DE-CUERO.webp'},
+    {code:'GR02',name:'Gorro Redondo',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR02-REDONDO-GORRO-CUERO.webp'},
+    {code:'GR03',name:'Gorro Broche',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR03-BROCHE-GORRO-DE-CUERO.webp'},
+    {code:'GR04',name:'Gorro Cubano',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR04-CUBANO-GORRO-DE-CUERO.webp'},
+    {code:'GU01',name:'Guantes',cat:'Accesorio',price:95,medidas:'Consultar tallas',emoji:'🧤',colores:['Negro','Camel','Marrón'],tiktok:'7632081280133238036',img:'https://barraleather.com/wp-content/uploads/2026/03/GUANTES-DE-CUERO-GU01.jpg'},
+    {code:'PT03',name:'Porta lentes',cat:'Accesorio',price:95,medidas:'20x10 cm',emoji:'🕶️',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/PORTA-LENTES-PT03.webp'},
+    {code:'MR02',name:'Monedero',cat:'Monedero',price:5,medidas:'8x7 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7613900073486896400',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR02.jpg'},
+    {code:'MR03',name:'Monedero',cat:'Monedero',price:8,medidas:'8.5x6.5 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR03.jpg'},
+    {code:'MR04',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'8.3x7.3',emoji:'🪙',colores:['Marrón'],tiktok:'7619350173596011797',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR04.jpg'},
+    {code:'MR05',name:'Monedero',cat:'Monedero',price:45,medidas:'9.5x8x4 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7627189019897580820',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR05.jpg'},
+    {code:'MR06',name:'Monedero',cat:'Monedero',price:15,medidas:'10x7',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7626521410118143252',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR06.jpg'},
+    {code:'MR07',name:'Monedero',cat:'Monedero',liquidacion:true,price:12,priceOld:35,medidas:'6.5x6x3',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR07.jpg'},
+    {code:'MR08',name:'Monedero',cat:'Monedero',price:25,medidas:'10x8.5 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7626524313012817173',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR08.jpg'},
+    {code:'MR09',name:'Monedero',cat:'Monedero',price:45,medidas:'10x7.5 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7619814174431989013',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR09.jpg'},
+    {code:'MR10',name:'Monedero',cat:'Monedero',price:35,medidas:'8.5x10 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7619806544842034453',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR10.jpg'},
+    {code:'MR11',name:'Monedero',cat:'Monedero',price:35,medidas:'10x7.5 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7613893530804669713',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR11.jpg'},
+    {code:'MR12',name:'Monedero',cat:'Monedero',price:15,medidas:'8x8 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7619821056089427221',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR12.jpg'},
+    {code:'MR13',name:'Monedero',cat:'Monedero',price:18,medidas:'19.5 cm',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7613894444831477009',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR13.jpg'},
+    {code:'MR14',name:'Monedero',cat:'Monedero',price:12,medidas:'14',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7627211816262765845',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR14.jpg'},
+    {code:'MR16',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'8x8x3',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7627212701177138452',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR16.jpg'},
+    {code:'MR17',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'10x10',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7613896889343249665',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR17.jpg'},
+    {code:'MR18',name:'Monedero Sofia',cat:'Monedero',price:20,medidas:'12.5x9.5',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR18.jpg'},
+    {code:'MR19',name:'Monedero',cat:'Monedero',price:15,medidas:'10x7',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7629837099943922964',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR19.jpg'},
+    {code:'MR20',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:29,medidas:'11x10.5',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7613872033918651649',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR20.jpg'},
+    {code:'MR21',name:'Monedero',cat:'Monedero',liquidacion:true,price:12,priceOld:25,medidas:'11.5x8',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7629835359148379412',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21.jpg'},
+    {code:'MR22',name:'Monedero',cat:'Monedero',price:35,medidas:'14.5x10.5',emoji:'🪙',colores:['Negro','Camel','Marrón'],tiktok:'7613869031845563664',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21-1.jpg'},
+    {code:'AC01',name:'Crema Nutripiel',cat:'Accesorio',price:15,medidas:'30 ml',emoji:'🧴',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC01.jpg'},
+    {code:'AC02',name:'Crema Nutripiel',cat:'Accesorio',price:35,medidas:'50 ml',emoji:'🧴',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC02.jpg'},
+    {code:'AC03',name:'Crema Nutripiel',cat:'Accesorio',price:55,medidas:'500 ml',emoji:'🧴',colores:[],tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/08/Crema-grande-500-ml-con-tapa-negra-para-cuero.webp'},
+    {code:'AC04',name:'Aceite',cat:'Accesorio',price:15,medidas:'100 ml',emoji:'🧴',colores:[],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/aceite-para-cuero-accesorios.webp'}
   ]
 };
 
-
+</script>
+  <script>
 'use strict';
 (function(){
   const D = window.APP_DATA;
