@@ -27,12 +27,11 @@
   <style>
 /* styles.css — Barra Arte & Estilo (Catálogo Oficial 2026) */
 :root {
-  /* ── PALETA MODO DÍA: CUERO SUAVE Y MEDIO GRIS CÁLIDO ── */
-  --fondo-pagina: #ded8ce;       /* Gris medio cálido cuero suave (no blanco frío) */
-  --fondo-tarjeta: #f5f1eb;      /* Cuero marfil suave para tarjetas */
+  --fondo-pagina: #ded8ce;
+  --fondo-tarjeta: #f5f1eb;
   --fondo-alt: #d5cec2;
-  --borde-principal: #111010;    /* Bordes negros notables y definidos en Día */
-  --raya-divisoria: #111010;     /* Rayas divisorias negras notables en Día */
+  --borde-principal: #111010;
+  --raya-divisoria: #111010;
   --texto-principal: #111010;
   --texto-secundario: #4a3828;
   --rojo: #dc2626;
@@ -327,7 +326,7 @@ header {
 }
 .cat-grid-sub { font-size: .65rem; color: #d8cebf; letter-spacing: .1em; text-transform: uppercase; }
 
-/* ── CUADRÍCULA DE CATEGORÍAS (4 COLUMNAS CONTINUAS SIN HUECOS) ── */
+/* ── CUADRÍCULA DE CATEGORÍAS ── */
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -340,7 +339,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   padding: 12px 6px 10px;
   background: #2a1c11;
   border: 1.5px solid var(--borde-principal);
@@ -377,9 +376,20 @@ header {
   border-radius: 2px;
 }
 .cat-tile:focus-visible { outline: 2px solid var(--borde-principal); outline-offset: 2px; }
-.cat-tile-icon { font-size: 1.25rem; line-height: 1; display: block; }
 
-/* Todos ocupa 2 columnas al inicio */
+/* Estilo para los Iconos SVG de categoría */
+.cat-tile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.cat-tile-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
 .cat-tile.tile-todos {
   grid-column: span 2;
   flex-direction: row;
@@ -387,9 +397,8 @@ header {
   padding: 11px 16px;
   font-size: .65rem;
 }
-.cat-tile.tile-todos .cat-tile-icon { font-size: 1.15rem; }
+.cat-tile.tile-todos .cat-tile-icon svg { width: 20px; height: 20px; }
 
-/* Monedero y Accesorio ocupan 2 columnas cada uno al final (2 + 2 = 4 columnas exactas) */
 .cat-tile.tile-wide {
   grid-column: span 2;
   flex-direction: row;
@@ -397,9 +406,8 @@ header {
   padding: 11px 16px;
   font-size: .65rem;
 }
-.cat-tile.tile-wide .cat-tile-icon { font-size: 1.15rem; }
+.cat-tile.tile-wide .cat-tile-icon svg { width: 20px; height: 20px; }
 
-/* Categoría Liquidación */
 .cat-tile[data-cat="Liquidacion"] {
   background: linear-gradient(135deg, rgba(220,38,38,.45) 0%, rgba(168,25,25,.35) 100%);
   border-color: var(--rojo);
@@ -488,7 +496,7 @@ input[type=text] {
   outline: none;
   transition: background-color .25s ease, color .25s ease;
 }
-input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
+input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
 
 .sort-wrap { display: flex; align-items: center; gap: 8px; }
 .sort-label {
@@ -621,7 +629,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   padding: 20px 40px;
 }
 
-/* ── TARJETAS DE PRODUCTO CON BORDES Y RAYAS NOTABLES ── */
+/* ── TARJETAS DE PRODUCTO ── */
 .card {
   background: var(--fondo-tarjeta);
   cursor: pointer;
@@ -642,7 +650,6 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 }
 .card:focus-visible { outline: 3px solid var(--borde-principal); outline-offset: 2px; z-index: 2; }
 
-/* Raya divisoria notable bajo la foto */
 .card-img {
   width: 100%;
   aspect-ratio: 1;
@@ -757,10 +764,10 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   margin-bottom: 10px;
 }
 
-/* Raya divisoria notable sobre el precio */
+/* ── FOOTER DE LA TARJETA (PRECIO BLINDADO) ── */
 .card-footer {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   justify-content: space-between;
   padding-top: 10px;
   margin-top: auto;
@@ -772,15 +779,18 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--texto-principal);
-  line-height: 1;
+  line-height: 1.1;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .card-medidas {
   font-size: .75rem;
   color: var(--texto-secundario);
-  letter-spacing: .02em;
+  letter-spacing: .01em;
   font-weight: 600;
   text-align: right;
+  line-height: 1.2;
 }
 
 .price-old {
@@ -791,6 +801,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   line-height: 1.2;
   margin-bottom: 2px;
   font-weight: 600;
+  white-space: nowrap;
 }
 .price-old s { text-decoration: line-through; color: #7a6350; }
 
@@ -800,6 +811,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   font-size: 1.35rem;
   display: inline-flex;
   align-items: baseline;
+  white-space: nowrap;
 }
 
 .badge-fire {
@@ -853,6 +865,7 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   vertical-align: middle;
   border-radius: 20px;
   box-shadow: 0 3px 10px rgba(0,0,0,.2);
+  white-space: nowrap;
 }
 .modal-discount-badge .badge-fire { width: 23px; height: 23px; font-size: .85rem; }
 .modal-discount-badge .badge-amount { font-size: .82rem; font-weight: 800; letter-spacing: .05em; color: #fff; }
@@ -1038,17 +1051,16 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
   word-break: break-word;
 }
 
-/* Raya divisoria notable bajo el título del modal */
 .m-divider {
   height: 2px;
   background: var(--raya-divisoria);
   margin: 14px 0;
 }
 .m-price { margin-bottom: 18px; }
-.modal-price-val { font-size: 2.2rem; font-weight: 700; color: var(--texto-principal); }
-.modal-price-old { font-size: .9rem; color: #6e5845; margin-bottom: 4px; font-weight: 600; }
+.modal-price-val { font-size: 2.2rem; font-weight: 700; color: var(--texto-principal); white-space: nowrap; }
+.modal-price-old { font-size: .9rem; color: #6e5845; margin-bottom: 4px; font-weight: 600; white-space: nowrap; }
 .modal-price-old s { text-decoration: line-through; color: #7a6350; }
-.modal-price-discount { font-size: 2.2rem; font-weight: 700; color: var(--rojo); }
+.modal-price-discount { font-size: 2.2rem; font-weight: 700; color: var(--rojo); white-space: nowrap; }
 
 /* Especificaciones */
 .m-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; }
@@ -1235,9 +1247,9 @@ input[type=text]::placeholder { color: #6e5e50; font-size: .85rem; }
 .m-rec-body { padding: 7px 8px 9px; }
 .m-rec-code { font-size: .5rem; letter-spacing: .2em; text-transform: uppercase; color: var(--texto-secundario); font-weight: 700; }
 .m-rec-name { font-size: .74rem; color: var(--texto-principal); line-height: 1.2; margin-bottom: 3px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.m-rec-price { font-size: .95rem; font-weight: 700; color: var(--texto-principal); }
+.m-rec-price { font-size: .95rem; font-weight: 700; color: var(--texto-principal); white-space: nowrap; }
 
-/* ── SECCIÓN TESTIMONIOS (DÍA) ── */
+/* ── SECCIÓN TESTIMONIOS ── */
 .trust-section {
   background: #d4cdc1;
   padding: 48px 40px;
@@ -1401,7 +1413,7 @@ footer a { color: #fff; text-decoration: none; }
 .back-to-top svg { width: 18px; height: 18px; fill: currentColor; }
 
 /* ══════════════════════════════════════════════════════════════════════
-   ── MODO NOCHE: PARTE SUPERIOR SUTIL COMO ANTES (FOTO 1) + RAYAS BLANCAS EN PRODUCTOS (FOTO 2) ──
+   ── MODO NOCHE ──
    ══════════════════════════════════════════════════════════════════════ */
 body.dark-theme {
   --fondo-pagina: #000000;
@@ -1461,7 +1473,6 @@ body.dark-theme .cat-grid-title { color: #ffffff !important; }
 body.dark-theme .cat-grid-title::before { background: #ffffff !important; }
 body.dark-theme .cat-grid-sub { color: #aaaaaa !important; }
 
-/* Botones de categorías en modo noche: sutiles sin rayas blancas agresivas */
 body.dark-theme .cat-tile {
   background: #121212 !important;
   border: 1.5px solid #282828 !important;
@@ -1499,7 +1510,7 @@ body.dark-theme .cat-tile[data-cat="Liquidacion"].active {
 }
 body.dark-theme .cat-tile[data-cat="Liquidacion"].active span { color: #ffffff !important; }
 
-/* Barra de filtros en modo noche: limpia y elegante como antes */
+/* ── BARRA DE FILTROS EN MODO NOCHE (TEXTO BLANCO NÍTIDO) ── */
 body.dark-theme .filter-bar {
   background: #0a0a0a !important;
   color: #ffffff !important;
@@ -1510,21 +1521,26 @@ body.dark-theme .sort-label { color: #ffffff !important; }
 
 body.dark-theme .search-wrap {
   background: #161616 !important;
-  border: 1.5px solid #2e2e2e !important;
+  border: 1.5px solid #383838 !important;
 }
 
 body.dark-theme input[type=text] {
   background: #161616 !important;
   color: #ffffff !important;
 }
-body.dark-theme input[type=text]::placeholder { color: #888888 !important; }
+
+/* PLACEHOLDER BLANCO RESALTADO EN MODO NOCHE (FOTO 2) */
+body.dark-theme input[type=text]::placeholder {
+  color: #ffffff !important;
+  opacity: 0.95 !important;
+}
 
 body.dark-theme .search-icon {
   background: #222222 !important;
 }
 body.dark-theme .search-icon svg { stroke: #ffffff !important; }
 
-body.dark-theme .search-clear-btn { color: #cccccc !important; }
+body.dark-theme .search-clear-btn { color: #ffffff !important; }
 body.dark-theme .search-clear-btn:hover { color: #ffffff !important; }
 
 body.dark-theme .sort-btn,
@@ -1557,7 +1573,7 @@ body.dark-theme .grid {
   background: #000000 !important;
 }
 
-/* ── PRODUCTOS EN MODO NOCHE (FOTO 2): BORDES BLANCOS Y RAYAS BLANCAS DE SEPARACIÓN ── */
+/* ── PRODUCTOS EN MODO NOCHE: BORDES Y RAYAS BLANCAS ── */
 body.dark-theme .card {
   background: #101010 !important;
   border: 1.5px solid #ffffff !important;
@@ -1569,7 +1585,6 @@ body.dark-theme .card:hover {
   transform: translateY(-3px);
 }
 
-/* Raya blanca divisoria bajo la foto del producto (Foto 2) */
 body.dark-theme .card-img {
   background: #080808 !important;
   border-bottom: 1.5px solid #ffffff !important;
@@ -1586,7 +1601,6 @@ body.dark-theme .card-body {
   background: #101010 !important;
 }
 
-/* Textos de tarjeta en modo noche: BLANCO NÍTIDO */
 body.dark-theme .card-code {
   color: #ffffff !important;
   font-weight: 700;
@@ -1597,7 +1611,6 @@ body.dark-theme .card-name {
   font-weight: 700;
 }
 
-/* Raya blanca divisoria sobre el precio (Foto 2) */
 body.dark-theme .card-footer {
   border-top: 1.5px solid #ffffff !important;
 }
@@ -1623,7 +1636,7 @@ body.dark-theme .card-hover-label {
   border: 1.5px solid #ffffff !important;
 }
 
-/* ── SECCIONES INFERIORES: BORDES DISCRETOS COMO ANTES ── */
+/* ── SECCIONES INFERIORES ── */
 body.dark-theme .trust-section {
   background: #080808 !important;
   border-top: 2px solid #222222 !important;
@@ -1656,7 +1669,6 @@ body.dark-theme .modal-media-header {
 body.dark-theme .modal-info { background: #121212 !important; }
 body.dark-theme .m-name { color: #ffffff !important; }
 
-/* Divisor del modal */
 body.dark-theme .m-divider {
   background: #262626 !important;
   height: 1.5px !important;
@@ -1765,8 +1777,7 @@ body.dark-theme .back-to-top {
   color: #ffffff !important;
 }
 
-
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE MÓVIL ── */
 @media(max-width:900px){
   .hero-inner { grid-template-columns: 1fr; gap: 28px; }
   .hero { padding: 36px 20px; }
@@ -1787,7 +1798,7 @@ body.dark-theme .back-to-top {
     gap: 4px;
     padding: 10px 4px;
   }
-  .cat-tile.tile-wide .cat-tile-icon { font-size: 1.1rem; }
+  .cat-tile-icon svg { width: 20px; height: 20px; }
   .hero-title { font-size: 1.75rem; }
   .hero-desc { font-size: .9rem; }
   .hero-stats { gap: 20px; }
@@ -1834,15 +1845,43 @@ body.dark-theme .back-to-top {
   .header-right { font-size: .65rem; }
   .theme-toggle-btn { padding: 5px 10px; font-size: .68rem; }
   .hero { padding: 28px 16px; }
+  
   .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 12px 14px; }
   .grid.list-mode { padding: 12px 14px; gap: 10px; }
+  
+  /* Ajuste de tarjetas en celular para evitar cualquier salto de línea en precios */
+  .card-body { padding: 10px 10px 12px; }
+  .card-name { font-size: .95rem; margin-bottom: 6px; }
+  .card-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 8px;
+    gap: 4px;
+  }
+  .card-price {
+    font-size: 1.15rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .price-discount {
+    font-size: 1.15rem;
+    white-space: nowrap;
+  }
+  .price-old {
+    font-size: .74rem;
+    white-space: nowrap;
+  }
+  .card-medidas {
+    font-size: .68rem;
+    line-height: 1.15;
+    text-align: right;
+  }
+
   footer { padding: 32px 16px 24px; }
   .topbar { font-size: .62rem; padding: 6px 14px; letter-spacing: .16em; }
   .results-info { display: none; }
   .back-to-top { bottom: 86px; right: 23px; }
-  .card-body { padding: 10px 12px 14px; }
-  .card-name { font-size: .95rem; margin-bottom: 6px; }
-  .card-price { font-size: 1.2rem; }
   .trust-grid { grid-template-columns: 1fr; }
   .map-section { padding: 32px 16px; }
   .map-wrap iframe { height: 300px; }
@@ -1874,8 +1913,7 @@ body.dark-theme .back-to-top {
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   html { scroll-behavior: auto; }
 }
-
-</style>
+  </style>
 
   <!-- Schema.org Datos Estructurados para SEO -->
   <script type="application/ld+json">
@@ -1907,7 +1945,7 @@ body.dark-theme .back-to-top {
 
   <a href="#grid" class="skip-link">Ir al catálogo de productos</a>
 
-  <!-- TOP BAR & AVISO DE ENVÍO (SIMPLIFICADO SEGÚN SOLICITUD) -->
+  <!-- TOP BAR & AVISO DE ENVÍO -->
   <div class="topbar">Envíos diarios a todo el Perú</div>
   <div class="shipping-bar">
     <span>🚚 Separa tu producto con tan solo <strong>S/ 20</strong></span>
@@ -2210,24 +2248,25 @@ window.APP_DATA = {
     'Accesorio'
   ],
 
+  /* ── 17 ICONOS VECTORIALES SVG DE MARROQUINERÍA ── */
   catIcons: {
-    'Todos': '✨',
-    'Liquidacion': '🔥',
-    'Mochila': '🎒',
-    'Cartera': '👜',
-    'Bolso': '🛍️',
-    'Morral': '📁',
-    'Pechera': '🎽',
-    'Canguro': '👝',
-    'Maletín': '💼',
-    'Bolso de Viaje': '🧳',
-    'Correa': '👔',
-    'Billetera Hombre': '💳',
-    'Billetera Mujer': '👛',
-    'Tarjetero': '🪪',
-    'Neceser': '🧴',
-    'Monedero': '🪙',
-    'Accesorio': '🔑'
+    'Todos': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5 5.6.8-4 4 1 5.6-5-2.6-5 2.6 1-5.6-4-4 5.6-.8z"/><path d="M19 17l1 2 2.5.4-1.8 1.8.4 2.5-2.1-1.1-2.1 1.1.4-2.5-1.8-1.8 2.5-.4z"/></svg>',
+    'Liquidacion': '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 23c-4.97 0-9-3.92-9-8.75 0-3.35 1.95-6.52 4.14-8.71a1 1 0 0 1 1.63.45c.48 2.07 1.54 3.49 2.5 3.76.08-1.5.76-3.83 2.1-5.65.61-.83 1.83-.82 2.37.07 2.19 3.58 4.26 8.35 1.15 14.33C15.65 21.93 13.9 23 12 23z"/></svg>',
+    'Mochila': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9z"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M8 21v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/><line x1="12" y1="10" x2="12" y2="12"/></svg>',
+    'Cartera': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2l-1.5 11a2 2 0 0 1-2 1.8H6.5a2 2 0 0 1-2-1.8L3 9z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><circle cx="12" cy="13" r="1.5"/></svg>',
+    'Bolso': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l2 13a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l2-13H4z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/><line x1="4" y1="8" x2="20" y2="8"/></svg>',
+    'Morral': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="13" rx="2"/><path d="M4 11l8 5 8-5"/><path d="M7 8V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>',
+    'Pechera': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19l2-11a3 3 0 0 1 3-2.5h0A3 3 0 0 1 15 8l2 11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/><line x1="12" y1="9" x2="12" y2="16"/><path d="M12 5.5V2"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>',
+    'Canguro': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11c0-2 2-3 9-3s9 1 9 3-2 6-9 6-9-4-9-6z"/><path d="M6 11h12"/><path d="M2 11h2"/><path d="M20 11h2"/><circle cx="12" cy="13.5" r="1" fill="currentColor"/></svg>',
+    'Maletín': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3"/><line x1="3" y1="12" x2="21" y2="12"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>',
+    'Bolso de Viaje': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="12" rx="3"/><path d="M8 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/><line x1="7" y1="8" x2="7" y2="20"/><line x1="17" y1="8" x2="17" y2="20"/></svg>',
+    'Correa': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="6" height="6" rx="1"/><path d="M8 10h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H8"/><line x1="5" y1="9" x2="5" y2="15"/><circle cx="13" cy="12" r="0.75" fill="currentColor"/><circle cx="17" cy="12" r="0.75" fill="currentColor"/></svg>',
+    'Billetera Hombre': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M15 10h6v4h-6a2 2 0 0 1-2-2 2 2 0 0 1 2-2z"/><circle cx="18" cy="12" r="1" fill="currentColor"/></svg>',
+    'Billetera Mujer': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M10 5l2 3 2-3"/><circle cx="12" cy="14" r="1.5" fill="currentColor"/></svg>',
+    'Tarjetero': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 9h16"/><path d="M4 13h16"/><path d="M8 16h4"/></svg>',
+    'Neceser': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M10 7V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2"/></svg>',
+    'Monedero': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10c0-3 2.5-4 6-4s6 1 6 4c0 5-2 8-6 8s-6-3-6-8z"/><circle cx="10.5" cy="6" r="1" fill="currentColor"/><circle cx="13.5" cy="6" r="1" fill="currentColor"/><line x1="7.5" y1="10" x2="16.5" y2="10"/></svg>',
+    'Accesorio': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l8-8a2 2 0 0 1 2.8 2.8L20 8l-2 2"/><line x1="16" y1="6" x2="18" y2="8"/></svg>'
   },
 
   COLOR_HEX: {
@@ -2248,7 +2287,6 @@ window.APP_DATA = {
   },
 
   DISTRITOS: [
-    // Zona Centro — S/ 10.00
     { nombre: 'Lima (Centro)', zona: 'centro', costo: 10 },
     { nombre: 'Breña', zona: 'centro', costo: 10 },
     { nombre: 'Jesús María', zona: 'centro', costo: 10 },
@@ -2259,36 +2297,26 @@ window.APP_DATA = {
     { nombre: 'Miraflores', zona: 'centro', costo: 10 },
     { nombre: 'Surquillo', zona: 'centro', costo: 10 },
     { nombre: 'San Borja', zona: 'centro', costo: 10 },
-
-    // Zona Norte — S/ 10.00
     { nombre: 'Los Olivos', zona: 'norte', costo: 10 },
     { nombre: 'Comas', zona: 'norte', costo: 10 },
     { nombre: 'Independencia', zona: 'norte', costo: 10 },
     { nombre: 'San Martín de Porres', zona: 'norte', costo: 10 },
     { nombre: 'Rímac', zona: 'norte', costo: 10 },
-
-    // Zona Este — S/ 10.00
     { nombre: 'Ate (Entrada)', zona: 'este', costo: 10 },
     { nombre: 'San Luis', zona: 'este', costo: 10 },
     { nombre: 'El Agustino', zona: 'este', costo: 10 },
     { nombre: 'La Molina', zona: 'este', costo: 10 },
     { nombre: 'San Juan de Lurigancho', zona: 'este', costo: 10 },
     { nombre: 'Santa Anita', zona: 'este', costo: 10 },
-
-    // Zona Oeste / Callao — S/ 10.00
     { nombre: 'San Miguel', zona: 'oeste', costo: 10 },
     { nombre: 'Magdalena', zona: 'oeste', costo: 10 },
     { nombre: 'Callao', zona: 'oeste', costo: 10 },
     { nombre: 'Carmen de la Legua', zona: 'oeste', costo: 10 },
     { nombre: 'La Perla', zona: 'oeste', costo: 10 },
-
-    // Zona Sur — S/ 10.00
     { nombre: 'Barranco', zona: 'sur', costo: 10 },
     { nombre: 'Chorrillos', zona: 'sur', costo: 10 },
     { nombre: 'Santiago de Surco', zona: 'sur', costo: 10 },
     { nombre: 'San Juan de Miraflores', zona: 'sur', costo: 10 },
-
-    // Distritos con Tarifa Especial
     { nombre: 'Puente Piedra', zona: 'especial', costo: 12 },
     { nombre: 'Villa El Salvador', zona: 'especial', costo: 13 },
     { nombre: 'La Punta', zona: 'especial', costo: 13 },
@@ -2407,6 +2435,7 @@ window.APP_DATA = {
     {code:'ML11',name:'Morralito',cat:'Morral',liquidacion:true,price:200,priceOld:250,medidas:'21×24.5×7.5 cm',emoji:'📁',colores:['Negro','Camel','Marrón','Rojo'],tiktok:'7632447196905966868',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML11.jpg'},
     {code:'ML13',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7277318730286124294',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML13.jpg'},
     {code:'ML14',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7665484353492880641',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML14.jpg'},
+    {code:'ML15',name:'Morral',cat:'Morral',liquidacion:true,price:299,priceOld:350,medidas:'33×25.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML15.jpg'},
     {code:'ML20',name:'Morral',cat:'Morral',price:280,medidas:'22×29×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7396375561460894981',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML20.jpg'},
     {code:'LL01',name:'Llavero',cat:'Accesorio',liquidacion:true,price:5,priceOld:10,medidas:'7x5.5 cm',emoji:'🔑',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL01.jpg'},
     {code:'LL02',name:'Llavero',cat:'Accesorio',liquidacion:true,price:8,priceOld:15,medidas:'7x6 cm',emoji:'🔑',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL02.jpg'},
@@ -2451,8 +2480,7 @@ window.APP_DATA = {
     {code:'AC04',name:'Aceite',cat:'Accesorio',price:15,medidas:'100 ml',emoji:'🧴',colores:[],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/aceite-para-cuero-accesorios.webp'}
   ]
 };
-
-</script>
+  </script>
   <script>
 'use strict';
 (function(){
@@ -2517,12 +2545,12 @@ window.APP_DATA = {
   let currentTiktokId = null, currentProductName = '', currentProduct = null;
   let modalTrigger = null;
 
-  // ── HELPERS ──
+  // ── HELPERS (ESPACIO NO ROMPIBLE EN PRECIO) ──
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
   function debounce(fn, ms=200){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; }
-  function fmt(n){ return 'S/ ' + n; }
+  // '\u00A0' (non-breaking space) garantiza que nunca se divida el S/ del precio
+  function fmt(n){ return 'S/\u00A0' + n; }
 
-  // Soporta liquidacion booleana y rebajas con priceOld
   function isLiquidacion(p){
     return Boolean(p.liquidacion || (p.priceOld && p.priceOld > p.price));
   }
@@ -2531,7 +2559,7 @@ window.APP_DATA = {
     return 0;
   }
 
-  // ── LAZY LOADING CON INTERSECTION OBSERVER ──
+  // ── LAZY LOADING ──
   const imgObserver = new IntersectionObserver(entries => {
     for (const e of entries) {
       if (e.isIntersecting) {
@@ -2611,7 +2639,7 @@ window.APP_DATA = {
     render(getFiltered());
   });
 
-  // ── CATEGORÍAS EN ORDEN PERFECTO (4 COLUMNAS SIN HUECOS) ──
+  // ── CATEGORÍAS ──
   function getOrdenadas(){
     const existentes = new Set(productos.map(p=>p.cat));
     const ordenDefinido = Array.isArray(ORDEN_CATEGORIAS) ? ORDEN_CATEGORIAS : [];
@@ -2684,7 +2712,7 @@ window.APP_DATA = {
     });
   }
 
-  // ── VISTAS (Grid / List) ──
+  // ── VISTAS ──
   function setView(mode){
     viewMode = mode;
     if (DOM.btnGrid) {
@@ -2725,7 +2753,7 @@ window.APP_DATA = {
     return list;
   }
 
-  // ── RENDERIZADO DE PRODUCTOS ──
+  // ── RENDERIZADO ──
   function render(list){
     const infoEl = document.querySelector('.results-info');
     if (infoEl){
@@ -2965,7 +2993,7 @@ window.APP_DATA = {
          ${isCare ? '' : `<div class="spec"><div class="spec-l">Colores</div><div class="spec-v">${colorsHTML}</div></div>`}`;
     }
 
-    // Recomendaciones relacionadas
+    // Recomendaciones
     if (DOM.mRecs && DOM.mRecsGrid) {
       const recs = productos.filter(r => r.cat === p.cat && r.code !== p.code).sort(() => Math.random() - .5).slice(0, 3);
       if (recs.length){
@@ -3265,7 +3293,6 @@ window.APP_DATA = {
   }
   render(getFiltered());
 
-  // Soporte directo para ?p=CODIGO
   const pParam = new URLSearchParams(location.search).get('p');
   if (pParam){
     const idx = productos.findIndex(x => x.code && x.code.toLowerCase() === pParam.toLowerCase());
@@ -3273,7 +3300,6 @@ window.APP_DATA = {
   }
 
 })();
-
-</script>
+  </script>
 </body>
 </html>
