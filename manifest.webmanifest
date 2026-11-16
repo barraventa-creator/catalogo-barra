@@ -1,0 +1,11 @@
+{
+  "name": "Cuero Barra — Catálogo Oficial 2026",
+  "short_name": "Cuero Barra",
+  "description": "Catálogo de artículos de cuero 100% genuino hechos a mano en Perú.",
+  "lang": "es-PE",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ded8ce",
+  "theme_color": "#111010"
+}
