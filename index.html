@@ -24,9 +24,6 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://barraleather.com/wp-content/uploads/2026/10/cuero-barra-logo-blanco.webp">
 
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.webmanifest">
-
   <!-- Estilos CSS Optimizados -->
   <style>
 /* styles.css — Barra Arte & Estilo (Catálogo Oficial 2026) */
@@ -48,7 +45,7 @@
   --shadow-lg: 0 14px 36px rgba(17, 16, 16, 0.16);
 }
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -149,7 +146,6 @@ header {
   width: auto;
   max-width: 200px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
   display: block;
 }
 
@@ -1314,7 +1310,7 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
 
 /* ── FOOTER ── */
 footer { background: #1a120b; padding: 48px 40px 32px; text-align: center; border-top: 2px solid var(--borde-principal); }
-footer img { height: 46px; width: auto; max-width: 180px; filter: brightness(0) invert(1); margin-bottom: 16px; display: inline-block; }
+footer img { height: 46px; width: auto; max-width: 180px; object-fit: contain; margin-bottom: 16px; display: inline-block; }
 footer p { font-size: .78rem; color: #d8cebf; letter-spacing: .08em; line-height: 1.8; margin-bottom: 4px; }
 footer a { color: #fff; text-decoration: none; }
 .ftcopy { display: block; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--borde-principal); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: #9c8874; }
@@ -1924,7 +1920,7 @@ body.dark-theme .back-to-top {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "El Viejo Artesano - Barra Arte & Estilo",
-    "image": "https://barraleather.com/wp-content/uploads/2026/10/NUEVO-LOGO-DE-CUERO-BARRA-ARTE-Y-ESTILO-BARRA.webp",
+    "image": "https://barraleather.com/wp-content/uploads/2026/10/cuero-barra-logo-blanco.webp",
     "telephone": "+51901046082",
     "address": {
       "@type": "PostalAddress",
@@ -1938,7 +1934,7 @@ body.dark-theme .back-to-top {
   }
   </script>
 </head>
-<body>
+<body id="top">
 
   <noscript>
     <div style="text-align:center;padding:30px;font-family:sans-serif;background:#fee2e2;color:#991b1b;font-weight:600">
@@ -1957,8 +1953,8 @@ body.dark-theme .back-to-top {
   <!-- HEADER -->
   <header>
     <div class="header-top">
-      <a href="#" class="logo" id="logo" aria-label="Barra Arte &amp; Estilo — Inicio">
-        <img src="https://barraleather.com/wp-content/uploads/2026/10/NUEVO-LOGO-DE-CUERO-BARRA-ARTE-Y-ESTILO-BARRA.webp" alt="Barra Arte y Estilo - El Viejo Artesano" width="150" height="48">
+      <a href="#top" class="logo" id="logo" aria-label="Barra Arte &amp; Estilo — Inicio">
+        <img src="https://barraleather.com/wp-content/uploads/2026/10/cuero-barra-logo-blanco.webp" alt="Barra Arte y Estilo - El Viejo Artesano" width="150" height="48">
       </a>
       <div class="header-right-wrap">
         <button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Cambiar modo día/noche" title="Cambiar tema">
@@ -2195,7 +2191,7 @@ body.dark-theme .back-to-top {
 
   <!-- PIE DE PÁGINA -->
   <footer>
-    <img src="https://barraleather.com/wp-content/uploads/2026/10/NUEVO-LOGO-DE-CUERO-BARRA-ARTE-Y-ESTILO-BARRA.webp" alt="Barra Arte y Estilo" width="120" height="40" loading="lazy">
+    <img src="https://barraleather.com/wp-content/uploads/2026/10/cuero-barra-logo-blanco.webp" alt="Barra Arte y Estilo" width="120" height="40" loading="lazy">
     <p>Arte &amp; Estilo · Perú · Envíos a todo el país</p>
     <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0;flex-wrap:wrap">
       <a href="https://www.facebook.com/cuerobarra/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:#1a1a1a;border:1.5px solid #333;color:#fff;text-decoration:none;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;">👍 Facebook</a>
@@ -2220,7 +2216,7 @@ body.dark-theme .back-to-top {
   </button>
 
   <!-- BOTÓN FLOTANTE WHATSAPP -->
-  <a class="wa-float" id="waFloat" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+  <a class="wa-float" id="waFloat" href="https://wa.me/51901046082" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     <div class="wa-float-tooltip">¡Escríbenos!</div>
   </a>
@@ -2448,7 +2444,7 @@ window.APP_DATA = {
     {code:'LL06',name:'Llavero',cat:'Accesorio',price:30,medidas:'15x2.5',emoji:'🔑',colores:['Guinda'],tiktok:'7400007079152389382',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL06.jpg'},
     {code:'PT01',name:'Llavero Porta Llaves',cat:'Accesorio',price:15,medidas:'9×7.5 cm',emoji:'🔑',colores:['Negro','Camel'],tiktok:'7619446973007170837',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-PT01.jpg'},
     {code:'PT02',name:'Llavero Multiusos',cat:'Accesorio',liquidacion:true,price:25,priceOld:50,medidas:'13.5x6 cm',emoji:'🔑',colores:['Negro','Camel'],tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
-    {code:'PT04',name:'Porta Celular',cat:'Accesorio',price:89,priceOld:120,medidas:'9.5x18.5x3.5',emoji:'📱',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
+    {code:'PT04',name:'Porta Celular',cat:'Accesorio',liquidacion:true,price:89,priceOld:120,medidas:'9.5x18.5x3.5',emoji:'📱',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
     {code:'PT11',name:'Porta Pasaporte',cat:'Accesorio',price:95,medidas:'10x14',emoji:'🛂',colores:['Negro','Camel','Marrón'],tiktok:'7400023049052916998',img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-PASAPORTE-PT11.jpg'},
     {code:'SO01',name:'Sombrero',cat:'Accesorio',price:160,medidas:'60 cm',emoji:'🎩',colores:['Negro','Camel','Marrón'],tiktok:'7593493155433991442',img:'https://barraleather.com/wp-content/uploads/2026/03/SOMBRERO-DE-CUERO-SO01.jpg'},
     {code:'GR01',name:'Gorro Clasico',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR01-CLASICO-GORRO-DE-CUERO.webp'},
@@ -2550,8 +2546,7 @@ window.APP_DATA = {
   // ── HELPERS (ESPACIO NO ROMPIBLE EN FORMATO DE PRECIO) ──
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
   function debounce(fn, ms=200){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; }
-  // ' ' (non-breaking space) garantiza que nunca se divida el S/ del precio
-  function fmt(n){ return 'S/ ' + n; }
+  function fmt(n){ return 'S/\u00A0' + n; }
 
   function isLiquidacion(p){
     return Boolean(p.liquidacion || (p.priceOld && p.priceOld > p.price));
@@ -2628,13 +2623,15 @@ window.APP_DATA = {
     viewMode = p.get('view') === 'list' ? 'list' : 'grid';
   }
   function pushURL(){
-    const p = new URLSearchParams();
-    if (categoriaActiva !== 'Todos') p.set('cat', categoriaActiva);
-    if (busqueda) p.set('q', busqueda);
-    if (sortDir) p.set('sort', sortDir);
-    if (viewMode !== 'grid') p.set('view', viewMode);
-    const s = p.toString();
-    history.replaceState({}, '', s ? '?' + s : location.pathname);
+    try {
+      const p = new URLSearchParams();
+      if (categoriaActiva !== 'Todos') p.set('cat', categoriaActiva);
+      if (busqueda) p.set('q', busqueda);
+      if (sortDir) p.set('sort', sortDir);
+      if (viewMode !== 'grid') p.set('view', viewMode);
+      const s = p.toString();
+      history.replaceState({}, '', s ? '?' + s : location.pathname);
+    } catch(e){}
   }
 
   window.addEventListener('popstate', ()=>{
@@ -2798,7 +2795,7 @@ window.APP_DATA = {
         const ahorro = getAhorro(p);
         const priceBlock = isLiquidacion(p)
           ? `<div class="card-price"><span class="price-old">${p.priceOld ? `<s>${fmt(p.priceOld)}</s>` : ''}</span><span class="price-discount">${fmt(p.price)}</span></div>` +
-            (ahorro > 0 ? `<span class="modal-discount-badge" style="margin-left:0;padding:2px 8px 2px 2px;"><span class="badge-fire" style="width:18px;height:18px;font-size:.7rem;">🔥</span><span class="badge-amount" style="font-size:.68rem;">-S/ ${ahorro}</span></span>` : '')
+            (ahorro > 0 ? `<span class="modal-discount-badge" style="margin-left:0;padding:2px 8px 2px 2px;"><span class="badge-fire" style="width:18px;height:18px;font-size:.7rem;">🔥</span><span class="badge-amount" style="font-size:.68rem;">-S/\u00A0${ahorro}</span></span>` : '')
           : `<div class="card-price">${fmt(p.price)}</div>`;
 
         parts.push(
@@ -2825,7 +2822,7 @@ window.APP_DATA = {
         const hasVid = p.tiktok ? `<div class="video-badge">${VIDEO_SVG}<span>Video</span></div>` : '';
         const ahorro = getAhorro(p);
         const badge = isLiquidacion(p)
-          ? `<div class="liq-badge-img"><span class="badge-fire" aria-hidden="true">🔥</span><span class="badge-amount">${ahorro > 0 ? `-S/ ${ahorro}` : 'OFERTA'}</span></div>`
+          ? `<div class="liq-badge-img"><span class="badge-fire" aria-hidden="true">🔥</span><span class="badge-amount">${ahorro > 0 ? `-S/\u00A0${ahorro}` : 'OFERTA'}</span></div>`
           : '';
 
         parts.push(
@@ -2971,7 +2968,7 @@ window.APP_DATA = {
       DOM.mPrice.innerHTML = isLiquidacion(p)
         ? `<div class="modal-price-old">Precio normal: <s>${p.priceOld ? fmt(p.priceOld) : ''}</s></div>
            <span class="modal-price-discount">${fmt(p.price)}</span>
-           <span class="modal-discount-badge"><span class="badge-fire" aria-hidden="true">🔥</span><span class="badge-amount">${ahorro > 0 ? `-S/ ${ahorro}` : 'LIQUIDACIÓN'}</span></span>`
+           <span class="modal-discount-badge"><span class="badge-fire" aria-hidden="true">🔥</span><span class="badge-amount">${ahorro > 0 ? `-S/\u00A0${ahorro}` : 'LIQUIDACIÓN'}</span></span>`
         : `<span class="modal-price-val">${fmt(p.price)}</span>`;
     }
 
@@ -3072,18 +3069,11 @@ window.APP_DATA = {
         let distTxt = '';
         if (sel){
           const parts = sel.split('|');
-          if (parts.length >= 2) distTxt = `📍 Envío para: ${parts[1]}
-`;
+          if (parts.length >= 2) distTxt = `📍 Envío para: ${parts[1]}\n`;
         }
         const colTxt = (p.colores && p.colores.length && p.colores[0] !== '—') ? p.colores.join(', ') : 'consultar';
         const msg = encodeURIComponent(
-          `Hola Barra! 👋 Vi su catálogo y me interesa:
-
-📦 *${p.name}* (${p.code})
-💰 Precio: ${fmt(p.price)}
-${distTxt}🎨 Colores: ${colTxt}
-
-¿Está disponible? Quisiera separar mi modelo con el adelanto de S/ 20.`
+          `Hola Barra! 👋 Vi su catálogo y me interesa:\n\n📦 *${p.name}* (${p.code})\n💰 Precio: ${fmt(p.price)}\n${distTxt}🎨 Colores: ${colTxt}\n\n¿Está disponible? Quisiera separar mi modelo con el adelanto de S/ 20.`
         );
         window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer');
       };
@@ -3101,10 +3091,24 @@ ${distTxt}🎨 Colores: ${colTxt}
         try {
           if (navigator.share) {
             await navigator.share(shareData);
-          } else if (navigator.clipboard) {
+            return;
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
             await navigator.clipboard.writeText(url);
             showToast('¡Enlace copiado al portapapeles!');
+            return;
           }
+        } catch(e){}
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = url;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast('¡Enlace copiado al portapapeles!');
         } catch(e){}
       };
     }
