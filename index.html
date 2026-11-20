@@ -1083,7 +1083,7 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
   padding: 15px;
   background: var(--wa);
   color: #fff;
-  border: none;
+  border: 1.5px solid var(--borde-principal);
   font-family: inherit;
   font-size: .78rem;
   letter-spacing: .2em;
@@ -1098,6 +1098,14 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
   font-weight: 600;
 }
 .btn-wa:hover { background: var(--wa-hover); }
+
+/* Contorno WhatsApp en modo día */
+body:not(.dark-theme) .btn-wa {
+  border: 1.5px solid var(--borde-principal);
+}
+body:not(.dark-theme) .wa-float {
+  border: 2px solid var(--borde-principal);
+}
 
 .btn-share {
   flex: 1;
@@ -1712,6 +1720,8 @@ body.dark-theme .btn-share {
   border: 1.5px solid #333333 !important;
 }
 body.dark-theme .btn-share:hover { background: #2a2a2a !important; }
+body.dark-theme .btn-wa { border: none !important; }
+body.dark-theme .wa-float { border: none !important; }
 
 /* ── ENVÍOS NOCHE ── */
 body.dark-theme .m-ship-section { border: 1.5px solid #2c2c2c !important; }
@@ -2975,29 +2985,12 @@ window.APP_DATA = {
         : `<span class="modal-price-val">${fmt(p.price)}</span>`;
     }
 
-    // Colores disponibles
-    let colorsHTML = '';
-    const colores = Array.isArray(p.colores) ? p.colores.filter(c => c && c !== '—') : [];
-    if (!isCare && colores.length > 0){
-      colorsHTML = '<div class="color-swatches" style="display:inline-flex;gap:6px;align-items:center;vertical-align:middle;">' +
-        colores.map(c => {
-          const key = c.toLowerCase().trim();
-          const hex = (COLOR_HEX && COLOR_HEX[key]) ? COLOR_HEX[key] : '#888';
-          return `<span class="color-dot" style="display:inline-block;width:18px;height:18px;border-radius:50%;background:${hex};border:2px solid #fff;box-shadow:0 0 0 1.5px #111;" title="${esc(c)}" aria-label="${esc(c)}"></span>`;
-        }).join('') +
-        `<span style="font-size:.78rem;margin-left:4px;">${esc(colores.join(', '))}</span>` +
-        '</div>';
-    } else if (!isCare) {
-      const waColorLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`Hola Barra! Quisiera consultar los colores disponibles del producto ${p.name} (código ${p.code}).`)}`;
-      colorsHTML = `<a class="color-consulta" href="${waColorLink}" target="_blank" rel="noopener noreferrer">${WA_SVG} Consultar al WhatsApp</a>`;
-    }
-
     if (DOM.mSpecs) {
       DOM.mSpecs.innerHTML =
         `<div class="spec"><div class="spec-l">Código</div><div class="spec-v">${esc(p.code)}</div></div>
          <div class="spec"><div class="spec-l">${isCare ? 'Contenido' : 'Medidas'}</div><div class="spec-v">${esc(p.medidas)}</div></div>
          ${isCare ? '' : `<div class="spec"><div class="spec-l">Material</div><div class="spec-v">Cuero genuino 100%</div></div>`}
-         ${isCare ? '' : `<div class="spec"><div class="spec-l">Colores</div><div class="spec-v">${colorsHTML}</div></div>`}`;
+         ${isCare ? '' : `<div class="spec"><div class="spec-l">Separación</div><div class="spec-v">Separa con S/ 20</div></div>`}`;
     }
 
     // Recomendaciones
@@ -3074,9 +3067,9 @@ window.APP_DATA = {
           const parts = sel.split('|');
           if (parts.length >= 2) distTxt = `📍 Envío para: ${parts[1]}\n`;
         }
-        const colTxt = (p.colores && p.colores.length && p.colores[0] !== '—') ? p.colores.join(', ') : 'consultar';
+        const distLine = distTxt ? `${distTxt}\n` : '';
         const msg = encodeURIComponent(
-          `Hola Barra! 👋 Vi su catálogo y me interesa:\n\n📦 *${p.name}* (${p.code})\n💰 Precio: ${fmt(p.price)}\n${distTxt}🎨 Colores: ${colTxt}\n\n¿Está disponible? Quisiera separar mi modelo con el adelanto de S/ 20.`
+          `Hola Barra! 👋 Vi su catálogo y me interesa:\n\n📦 *${p.name}* (${p.code})\n💰 Precio: ${fmt(p.price)}\n${distLine}¿Tienen stock disponible? Quisiera separar mi modelo con el adelanto de S/ 20.`
         );
         window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer');
       };
