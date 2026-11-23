@@ -653,7 +653,7 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
 .card-img {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: #e9e4dc;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -679,7 +679,7 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
 .card-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   position: absolute;
   top: 0;
   left: 0;
@@ -938,6 +938,7 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
   border-radius: 6px;
   border: 2px solid var(--borde-principal);
   box-shadow: 0 24px 64px rgba(0,0,0,.5);
+  align-items: start;
   transition: background-color .25s ease, border-color .25s ease;
 }
 
@@ -945,8 +946,9 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
   background: #000;
   display: flex;
   flex-direction: column;
-  min-height: 580px;
-  height: 100%;
+  min-height: 0;
+  height: auto;
+  width: 100%;
 }
 .modal-media-header {
   padding: 12px 16px;
@@ -1004,18 +1006,19 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
 
 #imgArea {
   width: 100%;
-  flex: 1;
-  min-height: 500px;
+  aspect-ratio: 3 / 4;
+  flex: none;
+  min-height: 0;
   position: relative;
-  background: #f5f1eb;
+  background: #ffffff;
   overflow: hidden;
   transition: background-color .25s ease;
 }
 #mImg {
   position: absolute;
-  inset: 28px;
-  width: calc(100% - 56px);
-  height: calc(100% - 56px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center center;
   display: block;
@@ -1238,7 +1241,7 @@ body:not(.dark-theme) .wa-float {
 .m-rec-img {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: #e9e4dc;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1247,7 +1250,7 @@ body:not(.dark-theme) .wa-float {
   overflow: hidden;
   border-bottom: 1.5px solid var(--raya-divisoria);
 }
-.m-rec-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity .3s; }
+.m-rec-img img { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity .3s; }
 .m-rec-img img.loaded { opacity: 1; }
 .m-rec-body { padding: 7px 8px 9px; }
 .m-rec-code { font-size: .5rem; letter-spacing: .2em; text-transform: uppercase; color: var(--texto-secundario); font-weight: 700; }
@@ -1834,7 +1837,7 @@ body.dark-theme .back-to-top {
     min-height: 0;
     height: auto;
   }
-  #mImg { inset: 16px; width: calc(100% - 32px); height: calc(100% - 32px); }
+  #mImg { inset: 0; width: 100%; height: 100%; }
   
   .video-area { min-height: 520px; }
   
@@ -2330,13 +2333,13 @@ window.APP_DATA = {
     {code:'MO09',name:'Vintage Mediano',cat:'Mochila',price:550,medidas:'36.5×26.5×11 cm',emoji:'🎒',tiktok:'7661312779676044561',img:'https://barraleather.com/wp-content/uploads/2026/07/Portada-de-categoria-mochila-general.webp'},
     {code:'MO13',name:'Mochila',cat:'Mochila',price:600,medidas:'40.5×30×10 cm',emoji:'🎒',tiktok:'7277426482698341637',img:'https://barraleather.com/wp-content/uploads/2026/07/Mochila-de-cuero-mo13-color-camel.webp'},
     {code:'MO11',name:'Mochila',cat:'Mochila',price:600,medidas:'—',emoji:'🎒',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/11/MO11-MOCHILA-DE-CUERO.webp'},
-    {code:'MO14',name:'Vintage Grande',cat:'Mochila',price:680,medidas:'42X31X16 cm',emoji:'🎒',tiktok:'7661312779676044561',img:'https://barraleather.com/wp-content/uploads/2026/07/Portada-de-categoria-mochila-general.webp'},
-    {code:'MO05',name:'Mochila Manta',cat:'Mochila',liquidacion:true,price:220,priceOld:280,medidas:'38X24.5X16.5 cm',emoji:'🎒',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/06/MOCHILA-MO05-NA-ATRAS-MANTA-CUZQUENA-1.webp'},
-    {code:'MV04',name:'Maleta',cat:'Bolso de Viaje',liquidacion:true,price:550,priceOld:650,medidas:'52x26x24 cm',emoji:'🧳',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-DE-CUERO-MV03-V2-CUERO-LISO-CUERO-GENUINO.webp'},
+    {code:'MO14',name:'Vintage Grande',cat:'Mochila',price:680,medidas:'42×31×16 cm',emoji:'🎒',tiktok:'7661312779676044561',img:'https://barraleather.com/wp-content/uploads/2026/07/Portada-de-categoria-mochila-general.webp'},
+    {code:'MO05',name:'Mochila Manta',cat:'Mochila',liquidacion:true,price:220,priceOld:280,medidas:'38×24.5×16.5 cm',emoji:'🎒',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/06/MOCHILA-MO05-NA-ATRAS-MANTA-CUZQUENA-1.webp'},
+    {code:'MV04',name:'Maleta',cat:'Bolso de Viaje',liquidacion:true,price:550,priceOld:650,medidas:'52×26×24 cm',emoji:'🧳',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-DE-CUERO-MV03-V2-CUERO-LISO-CUERO-GENUINO.webp'},
     {code:'CN01',name:'Canguro Mediano',cat:'Canguro',price:120,medidas:'32×12×6 cm',emoji:'👝',tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/11/CN01-MORRAL-DE-CUERO.webp'},
-    {code:'CN02 - Rosa',name:'Canguro',cat:'Canguro',liquidacion:true,price:109,priceOld:150,medidas:'23x17x9 cm',emoji:'👝',tiktok:'7277636755740708101',img:'https://barraleather.com/wp-content/uploads/2026/11/CN02-MORRAL-DE-CUERO-2.webp'},
-    {code:'CN02 - Rojo',name:'Canguro',cat:'Canguro',liquidacion:true,price:220,priceOld:250,medidas:'29x14x7 cm',emoji:'👝',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/11/CN02-MORRAL-DE-CUERO.webp'},
-    {code:'CN03',name:'Canguro',cat:'Canguro',liquidacion:true,price:139,priceOld:180,medidas:'30x15x7 cm',emoji:'👝',tiktok:'7277684451784543493',img:'https://barraleather.com/wp-content/uploads/2026/11/CN03-MORRAL-DE-CUERO.webp'},
+    {code:'CN02 - Rosa',name:'Canguro',cat:'Canguro',liquidacion:true,price:109,priceOld:150,medidas:'23×17×9 cm',emoji:'👝',tiktok:'7277636755740708101',img:'https://barraleather.com/wp-content/uploads/2026/11/CN02-MORRAL-DE-CUERO-2.webp'},
+    {code:'CN02 - Rojo',name:'Canguro',cat:'Canguro',liquidacion:true,price:220,priceOld:250,medidas:'29×14×7 cm',emoji:'👝',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/11/CN02-MORRAL-DE-CUERO.webp'},
+    {code:'CN03',name:'Canguro',cat:'Canguro',liquidacion:true,price:139,priceOld:180,medidas:'30×15×7 cm',emoji:'👝',tiktok:'7277684451784543493',img:'https://barraleather.com/wp-content/uploads/2026/11/CN03-MORRAL-DE-CUERO.webp'},
     {code:'CN04',name:'Canguro Grande',cat:'Canguro',price:150,medidas:'40×14×8 cm',emoji:'👝',tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/07/canguro-de-cuero-color-camel-CN04.webp'},
     {code:'CN05',name:'Canguro Jazmín',cat:'Canguro',price:120,medidas:'40×14×8 cm',emoji:'👝',tiktok:'7612679047398690069',img:'https://barraleather.com/wp-content/uploads/2026/11/CN05-MORRAL-DE-CUERO.webp'},
     {code:'CN06',name:'Canguro Grande',cat:'Canguro',price:280,medidas:'22.5×14.5×8.5 cm',emoji:'👝',tiktok:'7588187082045148437',img:'https://barraleather.com/wp-content/uploads/2026/11/CN06-MORRAL-DE-CUERO.webp'},
@@ -2344,31 +2347,31 @@ window.APP_DATA = {
     {code:'NE02',name:'Neceser Mediano',cat:'Neceser',price:120,medidas:'22×9.5×4.5 cm',emoji:'🧴',tiktok:'7277637317190274309',img:'https://barraleather.com/wp-content/uploads/2026/07/Neceser-de-cuero-pequeno-NE02.webp'},
     {code:'NE03',name:'Neceser Mediano',cat:'Neceser',price:130,medidas:'20.5×13.5×8 cm',emoji:'🧴',tiktok:'7277637317190274309',img:'https://barraleather.com/wp-content/uploads/2026/07/Neceser-de-cuero-pequeno-NE03.webp'},
     {code:'NE04',name:'Neceser Grande',cat:'Neceser',price:150,medidas:'22×14.5×9 cm',emoji:'🧴',tiktok:'7676205032651656466',img:'https://barraleather.com/wp-content/uploads/2026/07/Neceser-de-cuero-pequeno-NE04.webp'},
-    {code:'NE05',name:'Porta Cosmético',cat:'Neceser',liquidacion:true,price:109,priceOld:150,medidas:'25.5×16.5x8 cm',emoji:'🧴',tiktok:'7612679047398690069',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTUCHERA-DE-CUERO-NE05.jpg'},
+    {code:'NE05',name:'Porta Cosmético',cat:'Neceser',liquidacion:true,price:109,priceOld:150,medidas:'25.5×16.5×8 cm',emoji:'🧴',tiktok:'7612679047398690069',img:'https://barraleather.com/wp-content/uploads/2026/03/CARTUCHERA-DE-CUERO-NE05.jpg'},
     {code:'NE06',name:'Porta Cosmético',cat:'Neceser',price:150,medidas:'23×10×10 cm',emoji:'🧴',tiktok:'7685499742243114256',img:'https://barraleather.com/wp-content/uploads/2026/07/NE06-neceser-porta-cosmetico-de-cuero-varios.webp'},
     {code:'NE07',name:'Neceser Grande',cat:'Neceser',price:280,medidas:'26×15×10.5 cm',emoji:'🧴',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/Neceser-de-cuero-color-negro-NE07-V2.webp'},
-    {code:'CR08',name:'Correa reversible brillo',cat:'Correa',price:100,medidas:'Tallas 32 a 44 - (3.5 ancho)',emoji:'👔',tiktok:'7629082972465155348',img:'https://barraleather.com/wp-content/uploads/2026/11/CR08-CORREAS-DE-CUERO-2.webp'},
-    {code:'CR09',name:'Correa Clásica',cat:'Correa',price:100,medidas:'Tallas 32 a 44 - (3.5 ancho)',emoji:'👔',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/11/CR09-CORREAS-DE-CUERO.webp'},
-    {code:'CR10',name:'Correa reversible mate',cat:'Correa',price:100,medidas:'Tallas 32 a 44 - (3.5 ancho)',emoji:'👔',tiktok:'7699883131372834068',img:'https://barraleather.com/wp-content/uploads/2026/11/CR10-CORREA-DE-CUERO-REVERSIBLE-COLOR-NEGRO-CAMEL.webp'},
+    {code:'CR08',name:'Correa reversible brillo',cat:'Correa',price:100,medidas:'Tallas 32 a 44 (3.5 cm de ancho)',emoji:'👔',tiktok:'7629082972465155348',img:'https://barraleather.com/wp-content/uploads/2026/11/CR08-CORREAS-DE-CUERO-2.webp'},
+    {code:'CR09',name:'Correa Clásica',cat:'Correa',price:100,medidas:'Tallas 32 a 44 (3.5 cm de ancho)',emoji:'👔',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/11/CR09-CORREAS-DE-CUERO.webp'},
+    {code:'CR10',name:'Correa reversible mate',cat:'Correa',price:100,medidas:'Tallas 32 a 44 (3.5 cm de ancho)',emoji:'👔',tiktok:'7699883131372834068',img:'https://barraleather.com/wp-content/uploads/2026/11/CR10-CORREA-DE-CUERO-REVERSIBLE-COLOR-NEGRO-CAMEL.webp'},
     {code:'BC01',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'10×8 cm',emoji:'💳',tiktok:'7613902453272022273',img:'https://barraleather.com/wp-content/uploads/2026/09/BC01-billetera-de-cuero-para-hombre.webp'},
-    {code:'BC02',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'10X8 cm',emoji:'💳',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/09/BC02-billetera-de-cuero-para-hombre.webp'},
+    {code:'BC02',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'10×8 cm',emoji:'💳',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/09/BC02-billetera-de-cuero-para-hombre.webp'},
     {code:'BC03',name:'Billetera Clásica Clip',cat:'Billetera Hombre',price:100,medidas:'11×8.5 cm',emoji:'💳',tiktok:'7677654328655727892',img:'https://barraleather.com/wp-content/uploads/2026/09/BC03-billetera-de-cuero-para-hombre.webp'},
     {code:'BC04',name:'Billetera Tres-C',cat:'Billetera Hombre',price:100,medidas:'13×9.5 cm',emoji:'💳',tiktok:'7186105144658955525',img:'https://barraleather.com/wp-content/uploads/2026/09/BC04-billetera-de-cuero-para-hombre.webp'},
-    {code:'BC05',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'12.5x9.5 cm',emoji:'💳',tiktok:'7619764138130263316',img:'https://barraleather.com/wp-content/uploads/2026/07/BILLETERA-DE-CUERO-BC05.webp'},
+    {code:'BC05',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'12.5×9.5 cm',emoji:'💳',tiktok:'7619764138130263316',img:'https://barraleather.com/wp-content/uploads/2026/07/BILLETERA-DE-CUERO-BC05.webp'},
     {code:'BC06',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'11×8.5 cm',emoji:'💳',tiktok:'7184194073060838662',img:'https://barraleather.com/wp-content/uploads/2026/07/Billetera-de-cuero-color-negro-BC06.webp'},
     {code:'BC07',name:'Billetera Kronos',cat:'Billetera Hombre',price:100,medidas:'11×8.5 cm',emoji:'💳',tiktok:'7410995103961009413',img:'https://barraleather.com/wp-content/uploads/2026/10/BC07-BILLETERA-DE-CUERO-COLOR-AZUL-PORTADA-CUERO-BARRA.webp'},
     {code:'BC08',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'13×9.5 cm',emoji:'💳',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/09/BC08-BILLLETERA-DE-HOMBRE-CUERO.webp'},
     {code:'BC09',name:'Billetera Rec',cat:'Billetera Hombre',price:100,medidas:'11×11 cm',emoji:'💳',tiktok:'7273164568640179462',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC09.jpg'},
     {code:'BC10',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'11×8.5 cm',emoji:'💳',tiktok:'7273639799305571589',img:'https://barraleather.com/wp-content/uploads/2026/09/BC10-billetera-de-cuero-para-hombre.webp'},
     {code:'BC11',name:'Billetera RFID',cat:'Billetera Hombre',price:100,medidas:'10×8 cm',emoji:'💳',tiktok:'7613819453796535572',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC11.jpg'},
-    {code:'BC12',name:'Billetera - Lineal',cat:'Billetera Hombre',price:134,medidas:'10x8 cm',emoji:'💳',tiktok:'7675431726117719304',img:'https://barraleather.com/wp-content/uploads/2026/08/BC12-BILLETERA-DE-CUERO-PRINCIPAL-CAMEL.webp'},
+    {code:'BC12',name:'Billetera - Lineal',cat:'Billetera Hombre',price:134,medidas:'10×8 cm',emoji:'💳',tiktok:'7675431726117719304',img:'https://barraleather.com/wp-content/uploads/2026/08/BC12-BILLETERA-DE-CUERO-PRINCIPAL-CAMEL.webp'},
     {code:'BC13',name:'Chequera',cat:'Billetera Hombre',price:120,medidas:'10×17 cm',emoji:'💳',tiktok:'7588273257539718421',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC13.jpg'},
     {code:'BC14',name:'Chequera',cat:'Billetera Hombre',price:120,medidas:'10×18 cm',emoji:'💳',tiktok:'7588271235151285524',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC14.jpg'},
     {code:'BC16',name:'Billetera',cat:'Billetera Hombre',price:100,medidas:'10×8 cm',emoji:'💳',tiktok:'7678016249271569685',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DE-CUERO-BC16.jpg'},
     {code:'BC17',name:'Billetera Bufalo',cat:'Billetera Hombre',price:134,medidas:'10×8 cm',emoji:'💳',tiktok:'7664713508541500673',img:'https://barraleather.com/wp-content/uploads/2026/07/Billetera-de-cuero-BC17-camel.webp'},
     {code:'BC18',name:'Billetera Grados',cat:'Billetera Hombre',price:134,medidas:'13×9.5 cm',emoji:'💳',tiktok:'7674292755971181831',img:'https://barraleather.com/wp-content/uploads/2026/08/BILLETERA-DE-CUERO-BC18-MARRON.webp'},
     {code:'BC19',name:'Billetera',cat:'Billetera Hombre',price:75,medidas:'13×9.5 cm',emoji:'💳',tiktok:'7688103284388777223',img:'https://barraleather.com/wp-content/uploads/2026/10/BC19-BILLETERA-DE-CUERO-.webp'},
-    {code:'BC20',name:'Billetera Dian',cat:'Billetera Hombre',price:75,medidas:'11x8.5 cm',emoji:'💳',tiktok:'7690978677093518599',img:'https://barraleather.com/wp-content/uploads/2026/10/BILLETERA-DE-CUERO-PARA-HOMBRE-BC20.webp'},
+    {code:'BC20',name:'Billetera Dian',cat:'Billetera Hombre',price:75,medidas:'11×8.5 cm',emoji:'💳',tiktok:'7690978677093518599',img:'https://barraleather.com/wp-content/uploads/2026/10/BILLETERA-DE-CUERO-PARA-HOMBRE-BC20.webp'},
     {code:'BD02',name:'Billetera Tres-P',cat:'Billetera Mujer',price:55,medidas:'9.5×7 cm',emoji:'👛',tiktok:'7406497950353935621',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD02.jpg'},
     {code:'BD03',name:'Billetera',cat:'Billetera Mujer',price:85,medidas:'9.5×8.5 cm',emoji:'👛',tiktok:'7619804728884579605',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD03.jpg'},
     {code:'BD04',name:'Billetera Tres',cat:'Billetera Mujer',price:100,medidas:'10.5×8.5 cm',emoji:'👛',tiktok:'7666474730777627924',img:'https://barraleather.com/wp-content/uploads/2026/03/BILLETERA-DAMA-MUJER-BD04.jpg'},
@@ -2387,7 +2390,7 @@ window.APP_DATA = {
     {code:'TJ05',name:'Tarjetero',cat:'Tarjetero',price:35,medidas:'10×9.5 cm',emoji:'🪪',tiktok:'7664674628568222993',img:'https://barraleather.com/wp-content/uploads/2026/11/TJ05-TARJETERO-DE-CUERO.webp'},
     {code:'TJ06',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'11×9.5 cm',emoji:'🪪',tiktok:'7410991428739910917',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ06.jpg'},
     {code:'MV01',name:'Bolso',cat:'Bolso de Viaje',price:600,medidas:'36×28×19 cm',emoji:'🧳',tiktok:'7622057567786683664',img:'https://barraleather.com/wp-content/uploads/2026/11/MV01-BOLSO-DE-VIAJE-CUERO.webp'},
-    {code:'MV02',name:'Bolso viaje',cat:'Bolso de Viaje',price:650,medidas:'45 ancho x 26 alto x 21.5 fuelle',emoji:'🧳',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/MV02-Bolso-de-Viaje-de-Cuero-Color-Camel.webp'},
+    {code:'MV02',name:'Bolso viaje',cat:'Bolso de Viaje',price:650,medidas:'45×26×21.5 cm',emoji:'🧳',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/MV02-Bolso-de-Viaje-de-Cuero-Color-Camel.webp'},
     {code:'MV03',name:'Bolso California',cat:'Bolso de Viaje',price:700,medidas:'53.5×37.5×23.5 cm',emoji:'🧳',tiktok:'7622401038313639184',img:'https://barraleather.com/wp-content/uploads/2026/11/MV03-BOLSO-DE-VIAJE-CUERO.webp'},
     {code:'MN01',name:'Maletín',cat:'Maletín',liquidacion:true,price:229,priceOld:280,medidas:'24×28×7 cm',emoji:'💼',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/11/MN01-MALETIN-DE-CUERO-2.webp'},
     {code:'MN04',name:'Maletín',cat:'Maletín',price:320,medidas:'34×25×7 cm',emoji:'💼',tiktok:'7276988812230790405',img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-CUERO-MN04-MARRON-CUERO-GENUINO-CUERO-LISO-UNISEX.webp'},
@@ -2398,16 +2401,16 @@ window.APP_DATA = {
     {code:'CA04',name:'Cartera',cat:'Cartera',liquidacion:true,price:339,priceOld:390,medidas:'32×43×11.5 cm',emoji:'👜',tiktok:'7619385318310939925',img:'https://barraleather.com/wp-content/uploads/2026/11/CA04-CARTERA-DE-CUERO.webp'},
     {code:'CA05',name:'Bolso',cat:'Bolso',price:350,medidas:'31×43×12 cm',emoji:'🛍️',tiktok:'7665479086990478593',img:'https://barraleather.com/wp-content/uploads/2026/11/CA05-CARTERA-DE-CUERO-2.webp'},
     {code:'CA06',name:'Bolso',cat:'Bolso',price:350,medidas:'36.5×45.5×9.5 cm',emoji:'🛍️',tiktok:'7629856901072735508',img:'https://barraleather.com/wp-content/uploads/2026/11/CA06-CARTERA-DE-CUERO-5.webp'},
-    {code:'CA07',name:'Cartera',cat:'Cartera',price:300,medidas:'28x31x10 cm',emoji:'👜',tiktok:'7665397677877677328',img:'https://barraleather.com/wp-content/uploads/2026/11/CA07-CARTERA-DE-CUERO.webp'},
+    {code:'CA07',name:'Cartera',cat:'Cartera',price:300,medidas:'28×31×10 cm',emoji:'👜',tiktok:'7665397677877677328',img:'https://barraleather.com/wp-content/uploads/2026/11/CA07-CARTERA-DE-CUERO.webp'},
     {code:'CA08',name:'Cartera Bucket',cat:'Cartera',price:350,medidas:'37.5×26.5×12 cm',emoji:'👜',tiktok:'7586065259664805141',img:'https://barraleather.com/wp-content/uploads/2026/11/CA08-CARTERA-DE-CUERO.webp'},
-    {code:'CA09',name:'Cartera Elia',cat:'Cartera',price:250,medidas:'21.5x16×6.5 cm',emoji:'👜',tiktok:'7688021677388598535',img:'https://barraleather.com/wp-content/uploads/2026/11/CA09-CARTERA-DE-CUERO.webp'},
-    {code:'CA10',name:'Cartera Ceci',cat:'Cartera',price:250,medidas:'12×32.5x9 cm',emoji:'👜',tiktok:'7688094477747113223',img:'https://barraleather.com/wp-content/uploads/2026/11/CA10-CARTERA-DE-CUERO.webp'},
-    {code:'CA11',name:'Bolso',cat:'Bolso',price:680,medidas:'40.5x35.5x12.5 cm',emoji:'🛍️',tiktok:'7582243126417427723',img:'https://barraleather.com/wp-content/uploads/2026/11/CA11-CARTERA-DE-CUERO.webp'},
-    {code:'CA12',name:'Bolso',cat:'Bolso',price:400,medidas:'35.5×29x12.5 cm',emoji:'🛍️',tiktok:'7632081764755918101',img:'https://barraleather.com/wp-content/uploads/2026/11/CA12-CARTERA-DE-CUERO.webp'},
-    {code:'CA13',name:'Cartera Emma',cat:'Cartera',price:480,medidas:'35×25x16 cm',emoji:'👜',tiktok:'7660552350163094801',img:'https://barraleather.com/wp-content/uploads/2026/11/CA13-CARTERA-DE-CUERO.webp'},
-    {code:'CA14',name:'Bolso Baguette',cat:'Bolso',price:450,medidas:'32x17 cm',emoji:'🛍️',tiktok:'7660569150896524560',img:'https://barraleather.com/wp-content/uploads/2026/11/CA14-BOLSO-DE-CUERO.webp'},
-    {code:'CA15',name:'Bolso Cerrado',cat:'Bolso',price:300,medidas:'35x25x10 cm',emoji:'🛍️',tiktok:'7665118015104568577',img:'https://barraleather.com/wp-content/uploads/2026/11/CA15-CARTERA-DE-CUERO.webp'},
-    {code:'CA16',name:'Pañalera',cat:'Bolso',price:580,medidas:'34x24x20 cm',emoji:'🛍️',tiktok:'7675105766293933319',img:'https://barraleather.com/wp-content/uploads/2026/11/CA16-Panalera-de-cuero-barra.webp'},
+    {code:'CA09',name:'Cartera Elia',cat:'Cartera',price:250,medidas:'21.5×16×6.5 cm',emoji:'👜',tiktok:'7688021677388598535',img:'https://barraleather.com/wp-content/uploads/2026/11/CA09-CARTERA-DE-CUERO.webp'},
+    {code:'CA10',name:'Cartera Ceci',cat:'Cartera',price:250,medidas:'12×32.5×9 cm',emoji:'👜',tiktok:'7688094477747113223',img:'https://barraleather.com/wp-content/uploads/2026/11/CA10-CARTERA-DE-CUERO.webp'},
+    {code:'CA11',name:'Bolso',cat:'Bolso',price:680,medidas:'40.5×35.5×12.5 cm',emoji:'🛍️',tiktok:'7582243126417427723',img:'https://barraleather.com/wp-content/uploads/2026/11/CA11-CARTERA-DE-CUERO.webp'},
+    {code:'CA12',name:'Bolso',cat:'Bolso',price:400,medidas:'35.5×29×12.5 cm',emoji:'🛍️',tiktok:'7632081764755918101',img:'https://barraleather.com/wp-content/uploads/2026/11/CA12-CARTERA-DE-CUERO.webp'},
+    {code:'CA13',name:'Cartera Emma',cat:'Cartera',price:480,medidas:'35×25×16 cm',emoji:'👜',tiktok:'7660552350163094801',img:'https://barraleather.com/wp-content/uploads/2026/11/CA13-CARTERA-DE-CUERO.webp'},
+    {code:'CA14',name:'Bolso Baguette',cat:'Bolso',price:450,medidas:'32×17 cm',emoji:'🛍️',tiktok:'7660569150896524560',img:'https://barraleather.com/wp-content/uploads/2026/11/CA14-BOLSO-DE-CUERO.webp'},
+    {code:'CA15',name:'Bolso Cerrado',cat:'Bolso',price:300,medidas:'35×25×10 cm',emoji:'🛍️',tiktok:'7665118015104568577',img:'https://barraleather.com/wp-content/uploads/2026/11/CA15-CARTERA-DE-CUERO.webp'},
+    {code:'CA16',name:'Pañalera',cat:'Bolso',price:580,medidas:'34×24×20 cm',emoji:'🛍️',tiktok:'7675105766293933319',img:'https://barraleather.com/wp-content/uploads/2026/11/CA16-Panalera-de-cuero-barra.webp'},
     {code:'PE01',name:'Pechera',cat:'Pechera',liquidacion:true,price:229,priceOld:300,medidas:'26.5×16×6.5 cm',emoji:'🎽',tiktok:'7277371701040598277',img:'https://barraleather.com/wp-content/uploads/2026/11/PE01-PECHERA-DE-CUERO.webp'},
     {code:'PE02',name:'Pechera',cat:'Pechera',price:280,medidas:'31.5×16.5×7 cm',emoji:'🎽',tiktok:'7688031416717708552',img:'https://barraleather.com/wp-content/uploads/2026/07/PECHERA-CUERO-PE02-CAMEL-CUERO-LISO-CUERO-GENUINO-DAMAS-HOMBRE-UNISEX-CUERO-FLOTER.webp'},
     {code:'PE03',name:'Pechera',cat:'Pechera',price:280,medidas:'32×15.5×7 cm',emoji:'🎽',tiktok:'7616417152798706945',img:'https://barraleather.com/wp-content/uploads/2026/07/PECHERA-CUERO-PE03-NEGRO-CUERO-GENUINO-DAMAS-HOMBRE-UNISEX.webp'},
@@ -2429,44 +2432,44 @@ window.APP_DATA = {
     {code:'ML14',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'📁',tiktok:'7665484353492880641',img:'https://barraleather.com/wp-content/uploads/2026/11/ML14-MORRAL-DE-CUERO.webp'},
     {code:'ML15',name:'Morral',cat:'Morral',liquidacion:true,price:299,priceOld:350,medidas:'33×25.5×7 cm',emoji:'📁',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML15.jpg'},
     {code:'ML20',name:'Morral',cat:'Morral',price:280,medidas:'22×29×7 cm',emoji:'📁',tiktok:'7396375561460894981',img:'https://barraleather.com/wp-content/uploads/2026/11/ML20-MORRAL-DE-CUERO-3.webp'},
-    {code:'LL01',name:'Llavero',cat:'Accesorio',liquidacion:true,price:5,priceOld:10,medidas:'7x5.5 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/11/LL01-LLAVERO-DE-CUERO.webp'},
-    {code:'LL02',name:'Llavero',cat:'Accesorio',liquidacion:true,price:8,priceOld:15,medidas:'7x6 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/11/LL02-LLAVERO-DE-CUERO-2.webp'},
-    {code:'LL03',name:'Llavero',cat:'Accesorio',price:15,medidas:'12x2.5 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL03.jpg'},
-    {code:'LL04',name:'Llavero',cat:'Accesorio',price:35,medidas:'13x3.5 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/11/LL04-LLAVERO-DE-CUERO.webp'},
-    {code:'LL05',name:'Llavero Corazón',cat:'Accesorio',price:30,medidas:'9x8.5 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/11/LL05-LLAVERO-DE-CUERO.webp'},
-    {code:'LL06',name:'Llavero',cat:'Accesorio',price:30,medidas:'15x2.5 cm',emoji:'🔑',tiktok:'7400007079152389382',img:'https://barraleather.com/wp-content/uploads/2026/11/LL06-LLAVERO-DE-CUERO.webp'},
+    {code:'LL01',name:'Llavero',cat:'Accesorio',liquidacion:true,price:5,priceOld:10,medidas:'7×5.5 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/11/LL01-LLAVERO-DE-CUERO.webp'},
+    {code:'LL02',name:'Llavero',cat:'Accesorio',liquidacion:true,price:8,priceOld:15,medidas:'7×6 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/11/LL02-LLAVERO-DE-CUERO-2.webp'},
+    {code:'LL03',name:'Llavero',cat:'Accesorio',price:15,medidas:'12×2.5 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL03.jpg'},
+    {code:'LL04',name:'Llavero',cat:'Accesorio',price:35,medidas:'13×3.5 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/11/LL04-LLAVERO-DE-CUERO.webp'},
+    {code:'LL05',name:'Llavero Corazón',cat:'Accesorio',price:30,medidas:'9×8.5 cm',emoji:'🔑',tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/11/LL05-LLAVERO-DE-CUERO.webp'},
+    {code:'LL06',name:'Llavero',cat:'Accesorio',price:30,medidas:'15×2.5 cm',emoji:'🔑',tiktok:'7400007079152389382',img:'https://barraleather.com/wp-content/uploads/2026/11/LL06-LLAVERO-DE-CUERO.webp'},
     {code:'PT01',name:'Llavero Porta Llaves',cat:'Accesorio',price:15,medidas:'9×7.5 cm',emoji:'🔑',tiktok:'7619446973007170837',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-PT01.jpg'},
-    {code:'PT02',name:'Llavero Multiusos',cat:'Accesorio',liquidacion:true,price:25,priceOld:50,medidas:'13.5x6 cm',emoji:'🔑',tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
-    {code:'PT04',name:'Porta Celular',cat:'Accesorio',liquidacion:true,price:89,priceOld:120,medidas:'9.5x18.5x3.5 cm',emoji:'📱',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
-    {code:'PT11',name:'Porta Pasaporte',cat:'Accesorio',price:95,medidas:'10x14 cm',emoji:'🛂',tiktok:'7400023049052916998',img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-PASAPORTE-PT11.jpg'},
+    {code:'PT02',name:'Llavero Multiusos',cat:'Accesorio',liquidacion:true,price:25,priceOld:50,medidas:'13.5×6 cm',emoji:'🔑',tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
+    {code:'PT04',name:'Porta Celular',cat:'Accesorio',liquidacion:true,price:89,priceOld:120,medidas:'9.5×18.5×3.5 cm',emoji:'📱',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
+    {code:'PT11',name:'Porta Pasaporte',cat:'Accesorio',price:95,medidas:'10×14 cm',emoji:'🛂',tiktok:'7400023049052916998',img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-PASAPORTE-PT11.jpg'},
     {code:'SO01',name:'Sombrero',cat:'Accesorio',price:160,medidas:'60 cm',emoji:'🎩',tiktok:'7593493155433991442',img:'https://barraleather.com/wp-content/uploads/2026/03/SOMBRERO-DE-CUERO-SO01.jpg'},
     {code:'GR01',name:'Gorro Clasico',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR01-CLASICO-GORRO-DE-CUERO.webp'},
     {code:'GR02',name:'Gorro Redondo',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR02-REDONDO-GORRO-CUERO.webp'},
     {code:'GR03',name:'Gorro Broche',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR03-BROCHE-GORRO-DE-CUERO.webp'},
     {code:'GR04',name:'Gorro Cubano',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR04-CUBANO-GORRO-DE-CUERO.webp'},
     {code:'GU01',name:'Guantes',cat:'Accesorio',price:95,medidas:'Consultar tallas',emoji:'🧤',tiktok:'7632081280133238036',img:'https://barraleather.com/wp-content/uploads/2026/03/GUANTES-DE-CUERO-GU01.jpg'},
-    {code:'PT03',name:'Porta lentes',cat:'Accesorio',price:95,medidas:'20x10 cm',emoji:'🕶️',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/PORTA-LENTES-PT03.webp'},
+    {code:'PT03',name:'Porta lentes',cat:'Accesorio',price:95,medidas:'20×10 cm',emoji:'🕶️',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/PORTA-LENTES-PT03.webp'},
     {code:'SB01',name:'Sobaquera',cat:'Accesorio',price:250,medidas:'Talla única',emoji:'👝',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/10/SOBAQUERA-SB02.webp'},
-    {code:'MR02',name:'Monedero',cat:'Monedero',price:5,medidas:'8x7 cm',emoji:'🪙',tiktok:'7613900073486896400',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR02.jpg'},
-    {code:'MR03',name:'Monedero',cat:'Monedero',price:8,medidas:'8.5x6.5 cm',emoji:'🪙',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR03.jpg'},
-    {code:'MR04',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'8.3x7.3 cm',emoji:'🪙',tiktok:'7619350173596011797',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR04.jpg'},
-    {code:'MR05',name:'Monedero',cat:'Monedero',price:45,medidas:'9.5x8x4 cm',emoji:'🪙',tiktok:'7627189019897580820',img:'https://barraleather.com/wp-content/uploads/2026/11/MR05-MONEDERO-DE-CUERO.webp'},
-    {code:'MR06',name:'Monedero',cat:'Monedero',price:15,medidas:'10x7 cm',emoji:'🪙',tiktok:'7626521410118143252',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR06.jpg'},
-    {code:'MR07',name:'Monedero',cat:'Monedero',liquidacion:true,price:12,priceOld:35,medidas:'6.5x6x3 cm',emoji:'🪙',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR07.jpg'},
-    {code:'MR08',name:'Monedero',cat:'Monedero',price:25,medidas:'10x8.5 cm',emoji:'🪙',tiktok:'7626524313012817173',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR08.jpg'},
-    {code:'MR09',name:'Monedero',cat:'Monedero',price:45,medidas:'10x7.5 cm',emoji:'🪙',tiktok:'7619814174431989013',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR09.jpg'},
-    {code:'MR10',name:'Monedero',cat:'Monedero',price:35,medidas:'8.5x10 cm',emoji:'🪙',tiktok:'7619806544842034453',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR10.jpg'},
-    {code:'MR11',name:'Monedero',cat:'Monedero',price:35,medidas:'10x7.5 cm',emoji:'🪙',tiktok:'7613893530804669713',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR11.jpg'},
-    {code:'MR12',name:'Monedero',cat:'Monedero',price:15,medidas:'8x8 cm',emoji:'🪙',tiktok:'7619821056089427221',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR12.jpg'},
+    {code:'MR02',name:'Monedero',cat:'Monedero',price:5,medidas:'8×7 cm',emoji:'🪙',tiktok:'7613900073486896400',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR02.jpg'},
+    {code:'MR03',name:'Monedero',cat:'Monedero',price:8,medidas:'8.5×6.5 cm',emoji:'🪙',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR03.jpg'},
+    {code:'MR04',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'8.3×7.3 cm',emoji:'🪙',tiktok:'7619350173596011797',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR04.jpg'},
+    {code:'MR05',name:'Monedero',cat:'Monedero',price:45,medidas:'9.5×8×4 cm',emoji:'🪙',tiktok:'7627189019897580820',img:'https://barraleather.com/wp-content/uploads/2026/11/MR05-MONEDERO-DE-CUERO.webp'},
+    {code:'MR06',name:'Monedero',cat:'Monedero',price:15,medidas:'10×7 cm',emoji:'🪙',tiktok:'7626521410118143252',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR06.jpg'},
+    {code:'MR07',name:'Monedero',cat:'Monedero',liquidacion:true,price:12,priceOld:35,medidas:'6.5×6×3 cm',emoji:'🪙',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR07.jpg'},
+    {code:'MR08',name:'Monedero',cat:'Monedero',price:25,medidas:'10×8.5 cm',emoji:'🪙',tiktok:'7626524313012817173',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR08.jpg'},
+    {code:'MR09',name:'Monedero',cat:'Monedero',price:45,medidas:'10×7.5 cm',emoji:'🪙',tiktok:'7619814174431989013',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR09.jpg'},
+    {code:'MR10',name:'Monedero',cat:'Monedero',price:35,medidas:'8.5×10 cm',emoji:'🪙',tiktok:'7619806544842034453',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR10.jpg'},
+    {code:'MR11',name:'Monedero',cat:'Monedero',price:35,medidas:'10×7.5 cm',emoji:'🪙',tiktok:'7613893530804669713',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR11.jpg'},
+    {code:'MR12',name:'Monedero',cat:'Monedero',price:15,medidas:'8×8 cm',emoji:'🪙',tiktok:'7619821056089427221',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR12.jpg'},
     {code:'MR13',name:'Monedero',cat:'Monedero',price:18,medidas:'19.5 cm (circunferencia)',emoji:'🪙',tiktok:'7613894444831477009',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR13.jpg'},
     {code:'MR14',name:'Monedero',cat:'Monedero',price:12,medidas:'14 cm (circunferencia)',emoji:'🪙',tiktok:'7627211816262765845',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR14.jpg'},
-    {code:'MR16',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'8x8x3 cm',emoji:'🪙',tiktok:'7627212701177138452',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR16.jpg'},
-    {code:'MR17',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'10x10 cm',emoji:'🪙',tiktok:'7613896889343249665',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR17.jpg'},
-    {code:'MR18',name:'Monedero Sofia',cat:'Monedero',price:20,medidas:'12.5x9.5 cm',emoji:'🪙',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR18.jpg'},
-    {code:'MR19',name:'Monedero',cat:'Monedero',price:15,medidas:'10x7 cm',emoji:'🪙',tiktok:'7629837099943922964',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR19.jpg'},
-    {code:'MR20',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:29,medidas:'11x10.5 cm',emoji:'🪙',tiktok:'7613872033918651649',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR20.jpg'},
-    {code:'MR21',name:'Monedero',cat:'Monedero',liquidacion:true,price:12,priceOld:25,medidas:'11.5x8 cm',emoji:'🪙',tiktok:'7629835359148379412',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21.jpg'},
-    {code:'MR22',name:'Monedero',cat:'Monedero',price:35,medidas:'14.5x10.5 cm',emoji:'🪙',tiktok:'7613869031845563664',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21-1.jpg'},
+    {code:'MR16',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'8×8×3 cm',emoji:'🪙',tiktok:'7627212701177138452',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR16.jpg'},
+    {code:'MR17',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:35,medidas:'10×10 cm',emoji:'🪙',tiktok:'7613896889343249665',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR17.jpg'},
+    {code:'MR18',name:'Monedero Sofia',cat:'Monedero',price:20,medidas:'12.5×9.5 cm',emoji:'🪙',tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR18.jpg'},
+    {code:'MR19',name:'Monedero',cat:'Monedero',price:15,medidas:'10×7 cm',emoji:'🪙',tiktok:'7629837099943922964',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR19.jpg'},
+    {code:'MR20',name:'Monedero',cat:'Monedero',liquidacion:true,price:15,priceOld:29,medidas:'11×10.5 cm',emoji:'🪙',tiktok:'7613872033918651649',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR20.jpg'},
+    {code:'MR21',name:'Monedero',cat:'Monedero',liquidacion:true,price:12,priceOld:25,medidas:'11.5×8 cm',emoji:'🪙',tiktok:'7629835359148379412',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21.jpg'},
+    {code:'MR22',name:'Monedero',cat:'Monedero',price:35,medidas:'14.5×10.5 cm',emoji:'🪙',tiktok:'7613869031845563664',img:'https://barraleather.com/wp-content/uploads/2026/03/MONEDERO-DE-CUERO-MR21-1.jpg'},
     {code:'AC01',name:'Crema Nutripiel',cat:'Accesorio',price:15,medidas:'30 ml',emoji:'🧴',tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC01.jpg'},
     {code:'AC02',name:'Crema Nutripiel',cat:'Accesorio',price:35,medidas:'50 ml',emoji:'🧴',tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/03/CREMA-PARA-CUERO-AC02.jpg'},
     {code:'AC03',name:'Crema Nutripiel',cat:'Accesorio',price:55,medidas:'500 ml',emoji:'🧴',tiktok:'7632079572137200917',img:'https://barraleather.com/wp-content/uploads/2026/08/Crema-grande-500-ml-con-tapa-negra-para-cuero.webp'},
